@@ -4,197 +4,199 @@ Each problem includes a short description, a Java solution, a `main` method with
 
 ## Index
 
-**Arrays & Hashing**
-1. Contains Duplicate
-2. Valid Anagram
-3. Two Sum
-4. Group Anagrams
-5. Top K Frequent Elements
-6. Encode and Decode Strings
-7. Product of Array Except Self
-8. Valid Sudoku
-9. Longest Consecutive Sequence
+**[Arrays & Hashing](#arrays--hashing)**
+1. [Contains Duplicate](#1-contains-duplicate)
+2. [Valid Anagram](#2-valid-anagram)
+3. [Two Sum](#3-two-sum)
+4. [Group Anagrams](#4-group-anagrams)
+5. [Top K Frequent Elements](#5-top-k-frequent-elements)
+6. [Encode and Decode Strings](#6-encode-and-decode-strings)
+7. [Product of Array Except Self](#7-product-of-array-except-self)
+8. [Valid Sudoku](#8-valid-sudoku)
+9. [Longest Consecutive Sequence](#9-longest-consecutive-sequence)
 
-**Two Pointers**
-10. Valid Palindrome
-11. Two Sum II - Input Array Is Sorted
-12. 3Sum
-13. Container With Most Water
-14. Trapping Rain Water
+**[Two Pointers](#two-pointers)**
+10. [Valid Palindrome](#10-valid-palindrome)
+11. [Two Sum II - Input Array Is Sorted](#11-two-sum-ii---input-array-is-sorted)
+12. [3Sum](#12-3sum)
+13. [Container With Most Water](#13-container-with-most-water)
+14. [Trapping Rain Water](#14-trapping-rain-water)
 
-**Sliding Window**
-15. Best Time to Buy and Sell Stock
-16. Longest Substring Without Repeating Characters
-17. Longest Repeating Character Replacement
-18. Permutation in String
-19. Minimum Window Substring
-20. Sliding Window Maximum
+**[Sliding Window](#sliding-window)**
+15. [Best Time to Buy and Sell Stock](#15-best-time-to-buy-and-sell-stock)
+16. [Longest Substring Without Repeating Characters](#16-longest-substring-without-repeating-characters)
+17. [Longest Repeating Character Replacement](#17-longest-repeating-character-replacement)
+18. [Permutation in String](#18-permutation-in-string)
+19. [Minimum Window Substring](#19-minimum-window-substring)
+20. [Sliding Window Maximum](#20-sliding-window-maximum)
 
-**Stack**
-21. Valid Parentheses
-22. Min Stack
-23. Evaluate Reverse Polish Notation
-24. Generate Parentheses
-25. Daily Temperatures
-26. Car Fleet
-27. Largest Rectangle in Histogram
+**[Stack](#stack)**
+21. [Valid Parentheses](#21-valid-parentheses)
+22. [Min Stack](#22-min-stack)
+23. [Evaluate Reverse Polish Notation](#23-evaluate-reverse-polish-notation)
+24. [Generate Parentheses](#24-generate-parentheses)
+25. [Daily Temperatures](#25-daily-temperatures)
+26. [Car Fleet](#26-car-fleet)
+27. [Largest Rectangle in Histogram](#27-largest-rectangle-in-histogram)
 
-**Binary Search**
-28. Binary Search
-29. Search a 2D Matrix
-30. Koko Eating Bananas
-31. Find Minimum in Rotated Sorted Array
-32. Search in Rotated Sorted Array
-33. Time Based Key-Value Store
-34. Median of Two Sorted Arrays
+**[Binary Search](#binary-search)**
+28. [Binary Search](#28-binary-search)
+29. [Search a 2D Matrix](#29-search-a-2d-matrix)
+30. [Koko Eating Bananas](#30-koko-eating-bananas)
+31. [Find Minimum in Rotated Sorted Array](#31-find-minimum-in-rotated-sorted-array)
+32. [Search in Rotated Sorted Array](#32-search-in-rotated-sorted-array)
+33. [Time Based Key-Value Store](#33-time-based-key-value-store)
+34. [Median of Two Sorted Arrays](#34-median-of-two-sorted-arrays)
 
-**Linked List**
-35. Reverse Linked List
-36. Merge Two Sorted Lists
-37. Reorder List
-38. Remove Nth Node From End of List
-39. Copy List with Random Pointer
-40. Add Two Numbers
-41. Linked List Cycle Detection
-42. Find the Duplicate Number
-43. LRU Cache
-44. Merge k Sorted Lists
-45. Reverse Nodes in k-Group
+**[Linked List](#linked-list)**
+35. [Reverse Linked List](#35-reverse-linked-list)
+36. [Merge Two Sorted Lists](#36-merge-two-sorted-lists)
+37. [Reorder List](#37-reorder-list)
+38. [Remove Nth Node From End of List](#38-remove-nth-node-from-end-of-list)
+39. [Copy List with Random Pointer](#39-copy-list-with-random-pointer)
+40. [Add Two Numbers](#40-add-two-numbers)
+41. [Linked List Cycle Detection](#41-linked-list-cycle-detection)
+42. [Find the Duplicate Number](#42-find-the-duplicate-number)
+43. [LRU Cache](#43-lru-cache)
+44. [Merge k Sorted Lists](#44-merge-k-sorted-lists)
+45. [Reverse Nodes in k-Group](#45-reverse-nodes-in-k-group)
 
-**Trees**
-46. Invert Binary Tree
-47. Maximum Depth of Binary Tree
-48. Diameter of Binary Tree
-49. Balanced Binary Tree
-50. Same Tree
-51. Subtree of Another Tree
-52. Lowest Common Ancestor of a Binary Search Tree
-53. Binary Tree Level Order Traversal
-54. Binary Tree Right Side View
-55. Count Good Nodes in Binary Tree
-56. Validate Binary Search Tree
-57. Kth Smallest Element in a BST
-58. Construct Binary Tree from Preorder and Inorder Traversal
-59. Binary Tree Maximum Path Sum
-60. Serialize and Deserialize Binary Tree
+**[Trees](#trees)**
+46. [Invert Binary Tree](#46-invert-binary-tree)
+47. [Maximum Depth of Binary Tree](#47-maximum-depth-of-binary-tree)
+48. [Diameter of Binary Tree](#48-diameter-of-binary-tree)
+49. [Balanced Binary Tree](#49-balanced-binary-tree)
+50. [Same Tree](#50-same-tree)
+51. [Subtree of Another Tree](#51-subtree-of-another-tree)
+52. [Lowest Common Ancestor of a Binary Search Tree](#52-lowest-common-ancestor-of-a-binary-search-tree)
+53. [Binary Tree Level Order Traversal](#53-binary-tree-level-order-traversal)
+54. [Binary Tree Right Side View](#54-binary-tree-right-side-view)
+55. [Count Good Nodes in Binary Tree](#55-count-good-nodes-in-binary-tree)
+56. [Validate Binary Search Tree](#56-validate-binary-search-tree)
+57. [Kth Smallest Element in a BST](#57-kth-smallest-element-in-a-bst)
+58. [Construct Binary Tree from Preorder and Inorder Traversal](#58-construct-binary-tree-from-preorder-and-inorder-traversal)
+59. [Binary Tree Maximum Path Sum](#59-binary-tree-maximum-path-sum)
+60. [Serialize and Deserialize Binary Tree](#60-serialize-and-deserialize-binary-tree)
 
-**Tries**
-61. Implement Trie (Prefix Tree)
-62. Design Add and Search Words Data Structure
-63. Word Search II
+**[Tries](#tries)**
+61. [Implement Trie (Prefix Tree)](#61-implement-trie-prefix-tree)
+62. [Design Add and Search Words Data Structure](#62-design-add-and-search-words-data-structure)
+63. [Word Search II](#63-word-search-ii)
 
-**Heap / Priority Queue**
-64. Kth Largest Element in a Stream
-65. Last Stone Weight
-66. K Closest Points to Origin
-67. Kth Largest Element in an Array
-68. Task Scheduler
-69. Design Twitter
-70. Find Median from Data Stream
+**[Heap / Priority Queue](#heap--priority-queue)**
+64. [Kth Largest Element in a Stream](#64-kth-largest-element-in-a-stream)
+65. [Last Stone Weight](#65-last-stone-weight)
+66. [K Closest Points to Origin](#66-k-closest-points-to-origin)
+67. [Kth Largest Element in an Array](#67-kth-largest-element-in-an-array)
+68. [Task Scheduler](#68-task-scheduler)
+69. [Design Twitter](#69-design-twitter)
+70. [Find Median from Data Stream](#70-find-median-from-data-stream)
 
-**Backtracking**
-71. Subsets
-72. Combination Sum
-73. Permutations
-74. Subsets II
-75. Combination Sum II
-76. Word Search
-77. Palindrome Partitioning
-78. Letter Combinations of a Phone Number
-79. N-Queens
+**[Backtracking](#backtracking)**
+71. [Subsets](#71-subsets)
+72. [Combination Sum](#72-combination-sum)
+73. [Permutations](#73-permutations)
+74. [Subsets II](#74-subsets-ii)
+75. [Combination Sum II](#75-combination-sum-ii)
+76. [Word Search](#76-word-search)
+77. [Palindrome Partitioning](#77-palindrome-partitioning)
+78. [Letter Combinations of a Phone Number](#78-letter-combinations-of-a-phone-number)
+79. [N-Queens](#79-n-queens)
 
-**Graphs**
-80. Number of Islands
-81. Clone Graph
-82. Max Area of Island
-83. Pacific Atlantic Water Flow
-84. Surrounded Regions
-85. Rotting Oranges
-86. Walls and Gates
-87. Course Schedule
-88. Course Schedule II
-89. Redundant Connection
-90. Number of Connected Components in an Undirected Graph
-91. Graph Valid Tree
-92. Word Ladder
+**[Graphs](#graphs)**
+80. [Number of Islands](#80-number-of-islands)
+81. [Clone Graph](#81-clone-graph)
+82. [Max Area of Island](#82-max-area-of-island)
+83. [Pacific Atlantic Water Flow](#83-pacific-atlantic-water-flow)
+84. [Surrounded Regions](#84-surrounded-regions)
+85. [Rotting Oranges](#85-rotting-oranges)
+86. [Walls and Gates](#86-walls-and-gates)
+87. [Course Schedule](#87-course-schedule)
+88. [Course Schedule II](#88-course-schedule-ii)
+89. [Redundant Connection](#89-redundant-connection)
+90. [Number of Connected Components in an Undirected Graph](#90-number-of-connected-components-in-an-undirected-graph)
+91. [Graph Valid Tree](#91-graph-valid-tree)
+92. [Word Ladder](#92-word-ladder)
 
-**Advanced Graphs**
-93. Reconstruct Itinerary
-94. Min Cost to Connect All Points
-95. Network Delay Time
-96. Swim in Rising Water
-97. Path With Minimum Effort
-98. Cheapest Flights Within K Stops
+**[Advanced Graphs](#advanced-graphs)**
+93. [Reconstruct Itinerary](#93-reconstruct-itinerary)
+94. [Min Cost to Connect All Points](#94-min-cost-to-connect-all-points)
+95. [Network Delay Time](#95-network-delay-time)
+96. [Swim in Rising Water](#96-swim-in-rising-water)
+97. [Path With Minimum Effort](#97-path-with-minimum-effort)
+98. [Cheapest Flights Within K Stops](#98-cheapest-flights-within-k-stops)
 
-**1-D Dynamic Programming**
-99. Climbing Stairs
-100. Min Cost Climbing Stairs
-101. House Robber
-102. House Robber II
-103. Longest Palindromic Substring
-104. Palindromic Substrings
-105. Decode Ways
-106. Coin Change
-107. Maximum Product Subarray
-108. Word Break
-109. Longest Increasing Subsequence
-110. Partition Equal Subset Sum
+**[1-D Dynamic Programming](#1-d-dynamic-programming)**
+99. [Climbing Stairs](#99-climbing-stairs)
+100. [Min Cost Climbing Stairs](#100-min-cost-climbing-stairs)
+101. [House Robber](#101-house-robber)
+102. [House Robber II](#102-house-robber-ii)
+103. [Longest Palindromic Substring](#103-longest-palindromic-substring)
+104. [Palindromic Substrings](#104-palindromic-substrings)
+105. [Decode Ways](#105-decode-ways)
+106. [Coin Change](#106-coin-change)
+107. [Maximum Product Subarray](#107-maximum-product-subarray)
+108. [Word Break](#108-word-break)
+109. [Longest Increasing Subsequence](#109-longest-increasing-subsequence)
+110. [Partition Equal Subset Sum](#110-partition-equal-subset-sum)
 
-**2-D Dynamic Programming**
-111. Unique Paths
-112. Longest Common Subsequence
-113. Best Time to Buy and Sell Stock with Cooldown
-114. Coin Change II
-115. Target Sum
-116. Interleaving String
-117. Longest Increasing Path in a Matrix
-118. Distinct Subsequences
-119. Edit Distance
-120. Burst Balloons
-121. Regular Expression Matching
+**[2-D Dynamic Programming](#2-d-dynamic-programming)**
+111. [Unique Paths](#111-unique-paths)
+112. [Longest Common Subsequence](#112-longest-common-subsequence)
+113. [Best Time to Buy and Sell Stock with Cooldown](#113-best-time-to-buy-and-sell-stock-with-cooldown)
+114. [Coin Change II](#114-coin-change-ii)
+115. [Target Sum](#115-target-sum)
+116. [Interleaving String](#116-interleaving-string)
+117. [Longest Increasing Path in a Matrix](#117-longest-increasing-path-in-a-matrix)
+118. [Distinct Subsequences](#118-distinct-subsequences)
+119. [Edit Distance](#119-edit-distance)
+120. [Burst Balloons](#120-burst-balloons)
+121. [Regular Expression Matching](#121-regular-expression-matching)
 
-**Greedy**
-122. Maximum Subarray
-123. Jump Game
-124. Jump Game II
-125. Gas Station
-126. Hand of Straights
-127. Merge Triplets to Form Target Triplet
-128. Partition Labels
-129. Valid Parenthesis String
+**[Greedy](#greedy)**
+122. [Maximum Subarray](#122-maximum-subarray)
+123. [Jump Game](#123-jump-game)
+124. [Jump Game II](#124-jump-game-ii)
+125. [Gas Station](#125-gas-station)
+126. [Hand of Straights](#126-hand-of-straights)
+127. [Merge Triplets to Form Target Triplet](#127-merge-triplets-to-form-target-triplet)
+128. [Partition Labels](#128-partition-labels)
+129. [Valid Parenthesis String](#129-valid-parenthesis-string)
 
-**Intervals**
-130. Insert Interval
-131. Merge Intervals
-132. Non-overlapping Intervals
-133. Meeting Rooms
-134. Meeting Rooms II
-135. Minimum Interval to Include Each Query
+**[Intervals](#intervals)**
+130. [Insert Interval](#130-insert-interval)
+131. [Merge Intervals](#131-merge-intervals)
+132. [Non-overlapping Intervals](#132-non-overlapping-intervals)
+133. [Meeting Rooms](#133-meeting-rooms)
+134. [Meeting Rooms II](#134-meeting-rooms-ii)
+135. [Minimum Interval to Include Each Query](#135-minimum-interval-to-include-each-query)
 
-**Math & Geometry**
-136. Rotate Image
-137. Spiral Matrix
-138. Set Matrix Zeroes
-139. Happy Number
-140. Plus One
-141. Pow(x, n)
-142. Multiply Strings
-143. Detect Squares
+**[Math & Geometry](#math--geometry)**
+136. [Rotate Image](#136-rotate-image)
+137. [Spiral Matrix](#137-spiral-matrix)
+138. [Set Matrix Zeroes](#138-set-matrix-zeroes)
+139. [Happy Number](#139-happy-number)
+140. [Plus One](#140-plus-one)
+141. [Pow(x, n)](#141-powx-n)
+142. [Multiply Strings](#142-multiply-strings)
+143. [Detect Squares](#143-detect-squares)
 
-**Bit Manipulation**
-144. Single Number
-145. Number of 1 Bits
-146. Counting Bits
-147. Reverse Bits
-148. Missing Number
-149. Sum of Two Integers
-150. Reverse Integer
+**[Bit Manipulation](#bit-manipulation)**
+144. [Single Number](#144-single-number)
+145. [Number of 1 Bits](#145-number-of-1-bits)
+146. [Counting Bits](#146-counting-bits)
+147. [Reverse Bits](#147-reverse-bits)
+148. [Missing Number](#148-missing-number)
+149. [Sum of Two Integers](#149-sum-of-two-integers)
+150. [Reverse Integer](#150-reverse-integer)
 
 ---
 
 # Arrays & Hashing
 
 ## 1. Contains Duplicate
+
+[Back to Index](#index)
 
 **Problem:** Given an integer array `nums`, return `true` if any value appears at least twice, otherwise return `false`.
 
@@ -221,6 +223,8 @@ class Solution {
 **Explanation:** A `HashSet` tracks values seen so far. `add` returns `false` when the value already exists, which means a duplicate. Time is O(n) and space is O(n).
 
 ## 2. Valid Anagram
+
+[Back to Index](#index)
 
 **Problem:** Given strings `s` and `t`, return `true` if `t` is an anagram of `s`.
 
@@ -250,6 +254,8 @@ class Solution {
 **Explanation:** Increment counts for characters in `s` and decrement for characters in `t`. If the two strings are anagrams, every count ends at zero. Time is O(n) and space is O(1) since the alphabet is fixed at 26 letters.
 
 ## 3. Two Sum
+
+[Back to Index](#index)
 
 **Problem:** Given `nums` and a `target`, return indices of the two numbers that add up to `target`.
 
@@ -281,6 +287,8 @@ class Solution {
 
 ## 4. Group Anagrams
 
+[Back to Index](#index)
+
 **Problem:** Given an array of strings, group the anagrams together.
 
 ```java
@@ -309,6 +317,8 @@ class Solution {
 **Explanation:** Anagrams have identical sorted characters, so the sorted string works as a key. Time is O(n * k log k) where k is the maximum string length, and space is O(n * k).
 
 ## 5. Top K Frequent Elements
+
+[Back to Index](#index)
 
 **Problem:** Given `nums` and `k`, return the `k` most frequent elements.
 
@@ -352,6 +362,8 @@ class Solution {
 
 ## 6. Encode and Decode Strings
 
+[Back to Index](#index)
+
 **Problem:** Design an algorithm to encode a list of strings into one string and decode it back, so that it works for any characters.
 
 ```java
@@ -393,6 +405,8 @@ class Codec {
 
 ## 7. Product of Array Except Self
 
+[Back to Index](#index)
+
 **Problem:** Return an array where each element equals the product of all other elements, without using division.
 
 ```java
@@ -429,6 +443,8 @@ class Solution {
 **Explanation:** Prefix products fill the result in a left-to-right pass, and suffix products are multiplied in during a right-to-left pass with a running variable. Time is O(n) and extra space is O(1), not counting the output array.
 
 ## 8. Valid Sudoku
+
+[Back to Index](#index)
 
 **Problem:** Determine whether a 9x9 Sudoku board is valid. Only the filled cells need to be validated. Digits `1-9` must appear at most once per row, column, and 3x3 box.
 
@@ -477,6 +493,8 @@ class Solution {
 
 ## 9. Longest Consecutive Sequence
 
+[Back to Index](#index)
+
 **Problem:** Given an unsorted array, return the length of the longest consecutive sequence of integers. The solution must run in O(n) time.
 
 ```java
@@ -515,6 +533,8 @@ class Solution {
 
 ## 10. Valid Palindrome
 
+[Back to Index](#index)
+
 **Problem:** Return `true` if a string is a palindrome after converting to lowercase and ignoring non-alphanumeric characters.
 
 ```java
@@ -545,6 +565,8 @@ class Solution {
 
 ## 11. Two Sum II - Input Array Is Sorted
 
+[Back to Index](#index)
+
 **Problem:** Given a sorted array `numbers` and a `target`, return the 1-indexed positions of two numbers that add up to `target`.
 
 ```java
@@ -573,6 +595,8 @@ class Solution {
 **Explanation:** Because the array is sorted, moving the left pointer up increases the sum and moving the right pointer down decreases it. This converges on the target in one pass. Time is O(n) and space is O(1).
 
 ## 12. 3Sum
+
+[Back to Index](#index)
 
 **Problem:** Return all unique triplets `[a, b, c]` in `nums` such that `a + b + c == 0`.
 
@@ -619,6 +643,8 @@ class Solution {
 
 ## 13. Container With Most Water
 
+[Back to Index](#index)
+
 **Problem:** Given heights of vertical lines, find two lines that together with the x-axis form a container holding the most water.
 
 ```java
@@ -648,6 +674,8 @@ class Solution {
 **Explanation:** Start with the widest container. Moving the taller line inward can only shrink the width while the height stays capped by the shorter line, so we always move the shorter line. Time is O(n) and space is O(1).
 
 ## 14. Trapping Rain Water
+
+[Back to Index](#index)
 
 **Problem:** Given an elevation map, compute how much rain water can be trapped after raining.
 
@@ -691,6 +719,8 @@ class Solution {
 
 ## 15. Best Time to Buy and Sell Stock
 
+[Back to Index](#index)
+
 **Problem:** Given an array `prices` where `prices[i]` is the price of a given stock on the `i`th day, find the maximum profit you can achieve from a single buy and sell transaction. If no profit can be achieved, return `0`.
 
 ```java
@@ -719,6 +749,8 @@ class Solution {
 **Explanation:** Track the minimum purchase price seen so far and calculate profit at each day, updating the maximum profit. Time is O(n) and space is O(1).
 
 ## 16. Longest Substring Without Repeating Characters
+
+[Back to Index](#index)
 
 **Problem:** Given a string `s`, find the length of the longest substring without duplicate characters.
 
@@ -752,6 +784,8 @@ class Solution {
 
 ## 17. Longest Repeating Character Replacement
 
+[Back to Index](#index)
+
 **Problem:** Given a string `s` and an integer `k`, return the length of the longest substring containing the same letter you can achieve after choosing at most `k` characters and replacing them with any other uppercase English character.
 
 ```java
@@ -780,6 +814,8 @@ class Solution {
 **Explanation:** Maintain a sliding window and track the count of the most frequent character; if the window size minus the max frequency exceeds `k`, shrink the window from the left. Time is O(n) and space is O(1).
 
 ## 18. Permutation in String
+
+[Back to Index](#index)
 
 **Problem:** Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
 
@@ -815,6 +851,8 @@ class Solution {
 **Explanation:** Slide a fixed-size window of length `s1.length()` across `s2` and compare character frequency arrays. Time is O(n2) and space is O(1).
 
 ## 19. Minimum Window Substring
+
+[Back to Index](#index)
 
 **Problem:** Given two strings `s` and `t`, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If no such substring exists, return `""`.
 
@@ -867,6 +905,8 @@ class Solution {
 
 ## 20. Sliding Window Maximum
 
+[Back to Index](#index)
+
 **Problem:** Given an array of integers `nums` and a sliding window of size `k` moving from left to right, return the max sliding window.
 
 ```java
@@ -913,6 +953,8 @@ class Solution {
 
 ## 21. Valid Parentheses
 
+[Back to Index](#index)
+
 **Problem:** Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 
 ```java
@@ -942,6 +984,8 @@ class Solution {
 **Explanation:** Push expected closing brackets onto a stack when opening brackets appear, and verify that actual closing brackets match the stack top. Time is O(n) and space is O(n).
 
 ## 22. Min Stack
+
+[Back to Index](#index)
 
 **Problem:** Design a stack that supports `push`, `pop`, `top`, and retrieving the minimum element in constant time.
 
@@ -996,6 +1040,8 @@ class Solution {
 
 ## 23. Evaluate Reverse Polish Notation
 
+[Back to Index](#index)
+
 **Problem:** Evaluate the value of an arithmetic expression in Reverse Polish Notation given an array of string tokens representing valid operators (`+`, `-`, `*`, `/`) and integers.
 
 ```java
@@ -1045,6 +1091,8 @@ class Solution {
 
 ## 24. Generate Parentheses
 
+[Back to Index](#index)
+
 **Problem:** Given `n` pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 ```java
@@ -1086,6 +1134,8 @@ class Solution {
 
 ## 25. Daily Temperatures
 
+[Back to Index](#index)
+
 **Problem:** Given an array of integers `temperatures` representing daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the `i`th day to get a warmer temperature. If there is no future day for which this is possible, keep `answer[i] == 0`.
 
 ```java
@@ -1120,6 +1170,8 @@ class Solution {
 **Explanation:** Maintain a monotonic decreasing stack of day indices, popping previous days when a warmer day is encountered to calculate waiting distances. Time is O(n) and space is O(n).
 
 ## 26. Car Fleet
+
+[Back to Index](#index)
 
 **Problem:** There are `n` cars at given `position` and `speed` traveling along a one-lane road toward a destination `target`. A car can never pass another car ahead of it. Return the number of car fleets that arrive at the destination.
 
@@ -1161,6 +1213,8 @@ class Solution {
 
 ## 27. Largest Rectangle in Histogram
 
+[Back to Index](#index)
+
 **Problem:** Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return the area of the largest rectangle in the histogram.
 
 ```java
@@ -1201,6 +1255,8 @@ class Solution {
 
 ## 28. Binary Search
 
+[Back to Index](#index)
+
 **Problem:** Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, return its index; otherwise, return `-1`.
 
 ```java
@@ -1232,6 +1288,8 @@ class Solution {
 **Explanation:** Maintain `left` and `right` pointers and halve the search space at each step by comparing `target` with the element at `mid`. Time is O(log n) and space is O(1).
 
 ## 29. Search a 2D Matrix
+
+[Back to Index](#index)
 
 **Problem:** You are given an `m x n` integer matrix `matrix` with each row sorted in non-decreasing order and the first integer of each row greater than the last integer of the previous row. Given an integer `target`, return `true` if `target` is in `matrix` or `false` otherwise in $O(\log(m \cdot n))$ time.
 
@@ -1273,6 +1331,8 @@ class Solution {
 **Explanation:** Treat the 2D matrix as a flat 1D sorted array of length $m \times n$. Use standard binary search with coordinate mapping $r = \text{mid} / n$ and $c = \text{mid} \pmod n$. Time is O(log(m * n)) and space is O(1).
 
 ## 30. Koko Eating Bananas
+
+[Back to Index](#index)
 
 **Problem:** Koko loves to eat bananas. There are `n` piles of bananas, the $i$-th pile has `piles[i]` bananas. Guards will return in `h` hours. Return the minimum integer `k` such that she can eat all the bananas within `h` hours.
 
@@ -1317,6 +1377,8 @@ class Solution {
 
 ## 31. Find Minimum in Rotated Sorted Array
 
+[Back to Index](#index)
+
 **Problem:** Suppose an array of length `n` sorted in ascending order is rotated between `1` and `n` times. Given the sorted rotated array `nums` of unique elements, return the minimum element of this array.
 
 ```java
@@ -1350,6 +1412,8 @@ class Solution {
 **Explanation:** Compare `nums[mid]` with `nums[right]`. If `nums[mid] > nums[right]`, the minimum lies in the right portion (`left = mid + 1`). Otherwise, the minimum lies at or to the left of `mid` (`right = mid`). Time is O(log n) and space is O(1).
 
 ## 32. Search in Rotated Sorted Array
+
+[Back to Index](#index)
 
 **Problem:** Given the array `nums` after the possible rotation and an integer `target`, return the index of `target` if it is in `nums`, or `-1` if it is not in `nums`. You must write an algorithm with $O(\log n)$ runtime complexity.
 
@@ -1394,6 +1458,8 @@ class Solution {
 **Explanation:** In any rotated sorted array, dividing at `mid` always leaves at least one sorted half. Determine which half is sorted and check if `target` falls in its range to prune the search space. Time is O(log n) and space is O(1).
 
 ## 33. Time Based Key-Value Store
+
+[Back to Index](#index)
 
 **Problem:** Design a time-based key-value data structure that can store multiple values for the same key at different timestamps and retrieve the key's value at a certain timestamp.
 
@@ -1462,6 +1528,8 @@ class Solution {
 
 ## 34. Median of Two Sorted Arrays
 
+[Back to Index](#index)
+
 **Problem:** Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return the median of the two sorted arrays in $O(\log(m+n))$ runtime complexity.
 
 ```java
@@ -1521,6 +1589,8 @@ class Solution {
 
 ## 35. Reverse Linked List
 
+[Back to Index](#index)
+
 **Problem:** Given the `head` of a singly linked list, reverse the list, and return the reversed list.
 
 ```java
@@ -1560,6 +1630,8 @@ class Solution {
 **Explanation:** Maintain three pointers `prev`, `curr`, and `nextTemp` to iteratively reverse the link direction for each node in a single pass. Time is O(n) and space is O(1).
 
 ## 36. Merge Two Sorted Lists
+
+[Back to Index](#index)
 
 **Problem:** You are given the heads of two sorted linked lists `list1` and `list2`. Merge the two lists into one sorted list by splicing together the nodes of the first two lists and return its head.
 
@@ -1608,6 +1680,8 @@ class Solution {
 **Explanation:** Use a dummy node and a tail pointer. Repeatedly attach the node with the smaller value from either list until one is exhausted, then append the remaining list. Time is O(n + m) and space is O(1).
 
 ## 37. Reorder List
+
+[Back to Index](#index)
 
 **Problem:** You are given the head of a singly linked-list $L_0 \to L_1 \to \dots \to L_{n-1} \to L_n$. Reorder the list to be: $L_0 \to L_n \to L_1 \to L_{n-1} \to L_2 \to L_{n-2} \to \dots$ without modifying node values.
 
@@ -1671,6 +1745,8 @@ class Solution {
 
 ## 38. Remove Nth Node From End of List
 
+[Back to Index](#index)
+
 **Problem:** Given the `head` of a linked list, remove the $n$-th node from the end of the list and return its head.
 
 ```java
@@ -1716,6 +1792,8 @@ class Solution {
 **Explanation:** Advance a `fast` pointer $n$ steps ahead from a dummy node. Then advance both `fast` and `slow` together until `fast` reaches the end; `slow` will be directly before the target node to delete. Time is O(n) and space is O(1).
 
 ## 39. Copy List with Random Pointer
+
+[Back to Index](#index)
 
 **Problem:** A linked list of length `n` is given such that each node contains an additional `random` pointer, which could point to any node in the list, or `null`. Construct a deep copy of the list.
 
@@ -1777,6 +1855,8 @@ class Solution {
 
 ## 40. Add Two Numbers
 
+[Back to Index](#index)
+
 **Problem:** You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
 ```java
@@ -1830,6 +1910,8 @@ class Solution {
 
 ## 41. Linked List Cycle Detection
 
+[Back to Index](#index)
+
 **Problem:** Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 
 ```java
@@ -1877,6 +1959,8 @@ class Solution {
 
 ## 42. Find the Duplicate Number
 
+[Back to Index](#index)
+
 **Problem:** Given an array of integers `nums` containing $n + 1$ integers where each integer is in the range $[1, n]$ inclusive, return the duplicate number without modifying the array and using only constant extra space.
 
 ```java
@@ -1915,6 +1999,8 @@ class Solution {
 **Explanation:** Treat the array as a functional directed graph $i \to \text{nums}[i]$. Since values are in $[1, n]$ with $n+1$ values, a cycle exists. Use Floyd's cycle detection to find the intersection, then advance pointers at equal speed from index 0 and intersection to locate the duplicate. Time is O(n) and space is O(1).
 
 ## 43. LRU Cache
+
+[Back to Index](#index)
 
 **Problem:** Design a data structure that follows the constraints of a Least Recently Used (LRU) cache supporting `get` and `put` in $O(1)$ average time complexity.
 
@@ -2004,6 +2090,8 @@ class Solution {
 
 ## 44. Merge k Sorted Lists
 
+[Back to Index](#index)
+
 **Problem:** You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
 
 ```java
@@ -2063,6 +2151,8 @@ class Solution {
 **Explanation:** Initialize a min-heap with the head node of each of the $k$ lists. Continuously extract the minimum node, append it to the result list, and push its next node into the heap. Time is O(N log k) where N is total nodes and k is number of lists, and space is O(k).
 
 ## 45. Reverse Nodes in k-Group
+
+[Back to Index](#index)
 
 **Problem:** Given the `head` of a linked list, reverse the nodes of the list `k` at a time, and return the modified list. If the number of nodes is not a multiple of `k` then left-out nodes at the end should remain as-is.
 
@@ -2141,6 +2231,8 @@ class Solution {
 
 ## 46. Invert Binary Tree
 
+[Back to Index](#index)
+
 **Problem:** Given the root of a binary tree, invert the tree (mirror all left and right subtrees), and return its root.
 
 ```java
@@ -2185,6 +2277,8 @@ class Solution {
 
 ## 47. Maximum Depth of Binary Tree
 
+[Back to Index](#index)
+
 **Problem:** Given the root of a binary tree, return its maximum depth, defined as the number of nodes along the longest path from the root node down to the farthest leaf node.
 
 ```java
@@ -2224,6 +2318,8 @@ class Solution {
 **Explanation:** Use a depth-first search (DFS) post-order traversal to compute the depth of each subtree. The maximum depth of the current subtree is 1 plus the maximum depth of its left and right children. Time is O(n) and space is O(h) where h is the tree height.
 
 ## 48. Diameter of Binary Tree
+
+[Back to Index](#index)
 
 **Problem:** Given the root of a binary tree, return the length of the diameter of the tree, which is the length of the longest path between any two nodes in a tree (measured in number of edges).
 
@@ -2275,6 +2371,8 @@ class Solution {
 **Explanation:** At each node, the longest path that has this node as its highest point is the sum of the maximum depths of its left and right subtrees. We maintain a global maximum diameter while recursively computing subtree heights. Time is O(n) and space is O(h) where h is the tree height.
 
 ## 49. Balanced Binary Tree
+
+[Back to Index](#index)
 
 **Problem:** Given a binary tree, determine if it is height-balanced, meaning the depth of the two subtrees of every node never differs by more than one.
 
@@ -2339,6 +2437,8 @@ class Solution {
 
 ## 50. Same Tree
 
+[Back to Index](#index)
+
 **Problem:** Given the roots of two binary trees `p` and `q`, write a function to check if they are the same (structurally identical and all corresponding nodes have the same values).
 
 ```java
@@ -2381,6 +2481,8 @@ class Solution {
 **Explanation:** Recursively compare both trees. If both nodes are null, they match; if only one is null or their values differ, they do not match; otherwise, check both their left subtrees and right subtrees. Time is O(min(n, m)) and space is O(min(h1, h2)) where h1 and h2 are the heights of the two trees.
 
 ## 51. Subtree of Another Tree
+
+[Back to Index](#index)
 
 **Problem:** Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.
 
@@ -2430,6 +2532,8 @@ class Solution {
 **Explanation:** Traverse each node in `root` using DFS; at each node, verify if the subtree rooted there matches `subRoot` completely using an `isSameTree` helper. Time is O(m * n) where m and n are node counts of the two trees, and space is O(h) where h is the tree height.
 
 ## 52. Lowest Common Ancestor of a Binary Search Tree
+
+[Back to Index](#index)
 
 **Problem:** Given a binary search tree (BST) and two nodes `p` and `q`, find the lowest common ancestor (LCA) of `p` and `q`.
 
@@ -2487,6 +2591,8 @@ class Solution {
 
 ## 53. Binary Tree Level Order Traversal
 
+[Back to Index](#index)
+
 **Problem:** Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).
 
 ```java
@@ -2541,6 +2647,8 @@ class Solution {
 **Explanation:** Use breadth-first search (BFS) with a queue. For each level, determine the current queue size, poll all nodes at that level to construct the level's value list, and push their children into the queue. Time is O(n) and space is O(n).
 
 ## 54. Binary Tree Right Side View
+
+[Back to Index](#index)
 
 **Problem:** Given the root of a binary tree, imagine yourself standing on the right side of it; return the values of the nodes you can see ordered from top to bottom.
 
@@ -2598,6 +2706,8 @@ class Solution {
 
 ## 55. Count Good Nodes in Binary Tree
 
+[Back to Index](#index)
+
 **Problem:** Given a binary tree root, a node X in the tree is named good if in the path from the root to X there are no nodes with a value greater than X. Return the number of good nodes in the binary tree.
 
 ```java
@@ -2649,6 +2759,8 @@ class Solution {
 
 ## 56. Validate Binary Search Tree
 
+[Back to Index](#index)
+
 **Problem:** Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST requires that all nodes in the left subtree have values strictly less than the node's value, and all nodes in the right subtree have values strictly greater than the node's value, recursively for all subtrees.
 
 ```java
@@ -2697,6 +2809,8 @@ class Solution {
 **Explanation:** Recursively validate each node by enforcing strictly open boundaries `(min, max)`. When traversing left, the current node becomes the upper bound; when traversing right, it becomes the lower bound. Using `Long` bounds prevents integer overflow issues. Time is O(n) and space is O(h) where h is the tree height.
 
 ## 57. Kth Smallest Element in a BST
+
+[Back to Index](#index)
 
 **Problem:** Given the root of a binary search tree, and an integer `k`, return the `k`th smallest value (1-indexed) of all the values of the nodes in the tree.
 
@@ -2754,6 +2868,8 @@ class Solution {
 
 ## 58. Construct Binary Tree from Preorder and Inorder Traversal
 
+[Back to Index](#index)
+
 **Problem:** Given two integer arrays `preorder` and `inorder` where `preorder` is the preorder traversal of a binary tree and `inorder` is the inorder traversal of the same tree, construct and return the binary tree.
 
 ```java
@@ -2809,6 +2925,8 @@ class Solution {
 **Explanation:** In preorder traversal, the first unused element is always the current subtree's root. Locating this root in the inorder traversal (using an O(1) hash map lookup) splits the elements into the left subtree and right subtree, which are recursively constructed. Time is O(n) and space is O(n).
 
 ## 59. Binary Tree Maximum Path Sum
+
+[Back to Index](#index)
 
 **Problem:** A path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge connecting them. Return the maximum path sum of any non-empty path in the tree.
 
@@ -2866,6 +2984,8 @@ class Solution {
 **Explanation:** For each node, compute the maximum gain that the left and right subtrees can contribute (clamping negative gains to 0). A full path turning at the current node has sum `node.val + leftGain + rightGain`, which updates the global maximum. The function returns `node.val + max(leftGain, rightGain)` to continue extending the path to the parent. Time is O(n) and space is O(h) where h is the tree height.
 
 ## 60. Serialize and Deserialize Binary Tree
+
+[Back to Index](#index)
 
 **Problem:** Design an algorithm to serialize a binary tree into a string and deserialize that string back into the original binary tree structure.
 
@@ -2941,6 +3061,8 @@ class Solution {
 
 ## 61. Implement Trie (Prefix Tree)
 
+[Back to Index](#index)
+
 **Problem:** Implement a trie (prefix tree) data structure with `insert`, `search`, and `startsWith` methods for lowercase English letters.
 
 ```java
@@ -3006,6 +3128,8 @@ class Solution {
 **Explanation:** Each tree node holds an array of 26 pointers for letters 'a' through 'z' and a boolean flag indicating if the node marks the end of a word. Traversing character-by-character allows exact match checks and prefix checks. Time is O(L) for all operations where L is the length of the string, and space is O(N * L) where N is the total number of words inserted.
 
 ## 62. Design Add and Search Words Data Structure
+
+[Back to Index](#index)
 
 **Problem:** Design a data structure that supports adding new words and finding if a string matches any previously added string, supporting the wildcard character `.` which matches any letter.
 
@@ -3078,6 +3202,8 @@ class Solution {
 **Explanation:** A trie stores the words. Standard insertion traverses direct child references. When searching, encountering a regular character follows that single branch; encountering a `.` wildcard branches recursively across all non-null child nodes. Time is O(L) for `addWord` and O(26^L) worst-case for `search` with all dots, and space is O(N * L) for storing words.
 
 ## 63. Word Search II
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` board of characters and a list of strings `words`, return all words on the board where words must be constructed from letters of sequentially adjacent cells (horizontally or vertically neighboring).
 
@@ -3165,6 +3291,8 @@ class Solution {
 
 ## 64. Kth Largest Element in a Stream
 
+[Back to Index](#index)
+
 **Problem:** Design a class to find the `k`th largest element in a stream.
 
 ```java
@@ -3207,6 +3335,8 @@ class Solution {
 
 ## 65. Last Stone Weight
 
+[Back to Index](#index)
+
 **Problem:** You are given an array of integers `stones` where `stones[i]` is the weight of the `i`th stone. Each turn, the two heaviest stones `x` and `y` (`x <= y`) are smashed together. If `x == y`, both stones are destroyed. If `x != y`, stone `x` is destroyed and stone `y` has new weight `y - x`. Return the weight of the last remaining stone, or 0 if none remain.
 
 ```java
@@ -3242,6 +3372,8 @@ class Solution {
 **Explanation:** A max-heap keeps stones sorted so the two heaviest stones can be retrieved in O(log N) time each round. After smashing, if there is a remainder, it is pushed back into the heap until at most one stone is left. Time is O(N log N) and space is O(N).
 
 ## 66. K Closest Points to Origin
+
+[Back to Index](#index)
 
 **Problem:** Given an array of points where `points[i] = [xi, yi]` represents a point on the X-Y plane and an integer `k`, return the `k` closest points to the origin `(0, 0)`.
 
@@ -3285,6 +3417,8 @@ class Solution {
 
 ## 67. Kth Largest Element in an Array
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums` and an integer `k`, return the `k`th largest element in the array without sorting.
 
 ```java
@@ -3316,6 +3450,8 @@ class Solution {
 
 
 ## 68. Task Scheduler
+
+[Back to Index](#index)
 
 **Problem:** Given a characters array `tasks` representing tasks a CPU needs to do and an integer cooldown period `n` between two identical tasks, return the minimum number of CPU intervals needed to finish all tasks.
 
@@ -3353,6 +3489,8 @@ class Solution {
 **Explanation:** The schedule length is bottlenecked by the task(s) with the maximum frequency `maxFreq`. Placing them requires `maxFreq - 1` blocks of size `n + 1`, followed by the final instances of all tasks tied for `maxFreq`. If the total number of tasks exceeds this idle-filled frame, no idle time is needed and the answer is `tasks.length`. Time is O(N) where N is the number of tasks, and space is O(1) for the 26-element array.
 
 ## 69. Design Twitter
+
+[Back to Index](#index)
 
 **Problem:** Design a simplified Twitter service supporting posting tweets, following/unfollowing users, and retrieving the 10 most recent tweets in a user's news feed.
 
@@ -3474,6 +3612,8 @@ class Solution {
 
 ## 70. Find Median from Data Stream
 
+[Back to Index](#index)
+
 **Problem:** Design a data structure that supports adding integer numbers from a data stream and finding the median of all elements seen so far.
 
 ```java
@@ -3529,6 +3669,8 @@ class Solution {
 
 ## 71. Subsets
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums` of unique elements, return all possible subsets (the power set) without duplicate subsets.
 
 ```java
@@ -3563,6 +3705,8 @@ class Solution {
 **Explanation:** At each decision point, include the current number in the subset, recursively explore further elements starting at index `i + 1`, and then backtrack by removing the element. Each unique combination visited is copied into the result. Time is O(N * 2^N) and space is O(N) recursion stack space.
 
 ## 72. Combination Sum
+
+[Back to Index](#index)
 
 **Problem:** Given an array of distinct integers `candidates` and a target integer `target`, return all unique combinations of `candidates` where the chosen numbers sum to `target`. Each number may be used an unlimited number of times.
 
@@ -3608,6 +3752,8 @@ class Solution {
 
 ## 73. Permutations
 
+[Back to Index](#index)
+
 **Problem:** Given an array `nums` of distinct integers, return all the possible permutations.
 
 ```java
@@ -3652,6 +3798,8 @@ class Solution {
 
 ## 74. Subsets II
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums` that may contain duplicates, return all possible subsets (the power set) without duplicate subsets.
 
 ```java
@@ -3693,6 +3841,8 @@ class Solution {
 
 
 ## 75. Combination Sum II
+
+[Back to Index](#index)
 
 **Problem:** Given a collection of candidate numbers `candidates` and a target number `target`, find all unique combinations in `candidates` where the candidate numbers sum to `target`. Each number in `candidates` may only be used once in the combination, and the solution must not contain duplicate combinations.
 
@@ -3742,6 +3892,8 @@ class Solution {
 **Explanation:** Sorting groups identical numbers and allows early pruning when candidate value exceeds the remaining target. Passing `i + 1` ensures each candidate index is used at most once, and skipping `candidates[i] == candidates[i - 1]` for `i > start` eliminates identical combination branches. Time is O(2^N) and space is O(N) recursion stack.
 
 ## 76. Word Search
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` grid of characters `board` and a string `word`, return `true` if `word` exists in the grid constructed from sequentially adjacent cells without reusing any cell.
 
@@ -3799,6 +3951,8 @@ class Solution {
 
 ## 77. Palindrome Partitioning
 
+[Back to Index](#index)
+
 **Problem:** Given a string `s`, partition `s` such that every substring of the partition is a palindrome. Return all possible palindrome partitionings of `s`.
 
 ```java
@@ -3847,6 +4001,8 @@ class Solution {
 **Explanation:** At each index `start`, examine every prefix substring `s[start...end]`. If it is a palindrome, add it to the path and recursively partition the remainder `s[end + 1...]`, backtracking afterwards. Time is O(N * 2^N) and space is O(N) recursion stack.
 
 ## 78. Letter Combinations of a Phone Number
+
+[Back to Index](#index)
 
 **Problem:** Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent based on classic telephone keypad buttons.
 
@@ -3903,6 +4059,8 @@ class Solution {
 **Explanation:** Digits are mapped to character sets via a lookup array. A recursive DFS explores each possible letter for the current digit, advancing index by 1 until the combination reaches the input length. Time is O(4^N * N) where N is the length of digits (since keys 7 and 9 have 4 letters), and space is O(N) recursion stack.
 
 ## 79. N-Queens
+
+[Back to Index](#index)
 
 **Problem:** Place `n` queens on an `n x n` chessboard such that no two queens attack each other, returning all distinct board configurations.
 
@@ -3979,6 +4137,8 @@ class Solution {
 
 ## 80. Number of Islands
 
+[Back to Index](#index)
+
 **Problem:** Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
 
 ```java
@@ -4028,6 +4188,8 @@ class Solution {
 **Explanation:** Traverse the grid and launch a depth-first search (DFS) whenever an unvisited land cell `'1'` is found, incrementing the island counter and sinking connected land cells by flipping them to `'0'`. Time is O(m * n) and space is O(m * n) for the recursion stack in the worst case.
 
 ## 81. Clone Graph
+
+[Back to Index](#index)
 
 **Problem:** Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (`val`) and a list of its neighbors (`List<Node>`).
 
@@ -4095,6 +4257,8 @@ class Solution {
 
 ## 82. Max Area of Island
 
+[Back to Index](#index)
+
 **Problem:** Given an `m x n` binary matrix `grid`, an island is a group of `1`'s (representing land) connected 4-directionally. Return the maximum area of an island in `grid`. If there is no island, return `0`.
 
 ```java
@@ -4144,6 +4308,8 @@ class Solution {
 **Explanation:** Iterate through each cell and perform DFS on discovering land (`1`), computing the island's area by recursively summing connected land tiles while resetting visited cells to `0`. Time is O(m * n) and space is O(m * n) for the recursion stack.
 
 ## 83. Pacific Atlantic Water Flow
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` matrix of non-negative integers `heights` representing the height of each unit cell in a continent, water can flow from any cell adjacent to the Pacific Ocean (top and left borders) into the Pacific, and adjacent to the Atlantic Ocean (bottom and right borders) into the Atlantic. Water flows to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Return a list of grid coordinates `[r, c]` where water can flow to both oceans.
 
@@ -4208,6 +4374,8 @@ class Solution {
 
 ## 84. Surrounded Regions
 
+[Back to Index](#index)
+
 **Problem:** Given an `m x n` matrix `board` containing `'X'` and `'O'`, capture all regions that are 4-directionally surrounded by `'X'`. A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region. Any `'O'` connected to the boundary is not captured.
 
 ```java
@@ -4267,6 +4435,8 @@ class Solution {
 **Explanation:** Run DFS starting from all boundary `'O'` cells to mark non-surrounded regions with a temporary symbol `'T'`. Then traverse the grid, changing all remaining `'O'`s to `'X'` and converting `'T'`s back to `'O'`. Time is O(m * n) and space is O(m * n).
 
 ## 85. Rotting Oranges
+
+[Back to Index](#index)
 
 **Problem:** You are given an `m x n` grid where each cell can have one of three values: `0` representing an empty cell, `1` representing a fresh orange, or `2` representing a rotten orange. Every minute, any fresh orange 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no cell has a fresh orange, or `-1` if impossible.
 
@@ -4330,6 +4500,8 @@ class Solution {
 
 ## 86. Walls and Gates
 
+[Back to Index](#index)
+
 **Problem:** You are given an `m x n` grid initialized with `-1` (a wall or obstacle), `0` (a gate), and `2147483647` / `INF` (an empty room). Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, leave it as `INF`.
 
 ```java
@@ -4385,6 +4557,8 @@ class Solution {
 
 ## 87. Course Schedule
 
+[Back to Index](#index)
+
 **Problem:** There are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [a, b]` indicates that you must take course `b` first if you want to take course `a`. Return `true` if you can finish all courses, or `false` otherwise.
 
 ```java
@@ -4438,6 +4612,8 @@ class Solution {
 **Explanation:** Kahn's algorithm for topological sorting: compute in-degrees for each course, push 0 in-degree courses into a BFS queue, and decrement neighbor in-degrees as nodes are processed. If all courses are processed, no cycle exists. Time is O(V + E) and space is O(V + E).
 
 ## 88. Course Schedule II
+
+[Back to Index](#index)
 
 **Problem:** There are a total of `numCourses` courses labeled from `0` to `numCourses - 1`. Given `prerequisites` where `prerequisites[i] = [a, b]`, return the ordering of courses you should take to finish all courses. If impossible, return an empty array.
 
@@ -4495,6 +4671,8 @@ class Solution {
 
 ## 89. Redundant Connection
 
+[Back to Index](#index)
+
 **Problem:** A graph is given as a tree of `n` nodes labeled from `1` to `n`, with one additional edge added. Return an edge that can be removed so that the resulting graph is a tree of `n` nodes. If there are multiple answers, return the answer that occurs last in the input.
 
 ```java
@@ -4539,6 +4717,8 @@ class Solution {
 **Explanation:** Disjoint Set Union (Union-Find) with path compression: iterate through each edge, finding the roots of both endpoints. If both nodes already share the same root, adding this edge forms a cycle, so this edge is the redundant connection. Time is O(n * α(n)) ≈ O(n) and space is O(n).
 
 ## 90. Number of Connected Components in an Undirected Graph
+
+[Back to Index](#index)
 
 **Problem:** You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer `n` and an array `edges` where `edges[i] = [a, b]` indicates an edge between `a` and `b`. Return the number of connected components in the graph.
 
@@ -4586,6 +4766,8 @@ class Solution {
 
 ## 91. Graph Valid Tree
 
+[Back to Index](#index)
+
 **Problem:** Given `n` nodes labeled from `0` to `n - 1` and a list of undirected edges, determine whether these edges make up a valid tree.
 
 ```java
@@ -4632,6 +4814,8 @@ class Solution {
 **Explanation:** A graph of `n` nodes is a valid tree if and only if it has exactly `n - 1` edges and contains no cycles. Use Union-Find to detect cycles; if any edge connects two nodes already having the same root, a cycle exists. Time is O(V + E * α(V)) and space is O(V).
 
 ## 92. Word Ladder
+
+[Back to Index](#index)
 
 **Problem:** A transformation sequence from `beginWord` to `endWord` using a dictionary `wordList` changes one letter at a time, where each intermediate word must exist in `wordList`. Return the number of words in the shortest transformation sequence from `beginWord` to `endWord`, or `0` if no such sequence exists.
 
@@ -4697,6 +4881,8 @@ class Solution {
 
 ## 93. Reconstruct Itinerary
 
+[Back to Index](#index)
+
 **Problem:** Given a list of airline tickets represented by pairs of departure and arrival airports `[from, to]`, reconstruct the itinerary in order starting from `"JFK"`. If there are multiple valid itineraries, return the itinerary with the smallest lexical order.
 
 ```java
@@ -4740,6 +4926,8 @@ class Solution {
 **Explanation:** Hierholzer's algorithm for finding an Eulerian path: construct a graph where outgoing airports are stored in a min-heap (PriorityQueue) for lexicographical order. Traverse with DFS, polling destinations, and add airports to the front of the list in post-order. Time is O(E * log E) and space is O(V + E).
 
 ## 94. Min Cost to Connect All Points
+
+[Back to Index](#index)
 
 **Problem:** You are given an array `points` representing 2D integer coordinates `[xi, yi]`. The cost of connecting two points is the Manhattan distance: `|xi - xj| + |yi - yj|`. Return the minimum cost to make all points connected.
 
@@ -4791,6 +4979,8 @@ class Solution {
 **Explanation:** Prim's algorithm for Minimum Spanning Tree (MST) on a dense complete graph. Maintain the minimum distance from the current MST to each remaining point, greedily choosing the lowest cost vertex to include and relaxing distances to all unvisited vertices. Time is O(V^2) and space is O(V).
 
 ## 95. Network Delay Time
+
+[Back to Index](#index)
 
 **Problem:** You are given a network of `n` nodes labeled from `1` to `n` and a list of travel times `times[i] = (ui, vi, wi)`. From a starting node `k`, return the minimum time needed for all `n` nodes to receive the signal, or `-1` if impossible.
 
@@ -4850,6 +5040,8 @@ class Solution {
 
 ## 96. Swim in Rising Water
 
+[Back to Index](#index)
+
 **Problem:** You are given an `n x n` integer grid where `grid[i][j]` represents elevation. At time `t`, water depth everywhere is `t`, allowing swimming between adjacent cells if both elevations are at most `t`. Return the least time required to swim from `(0, 0)` to `(n - 1, n - 1)`.
 
 ```java
@@ -4900,6 +5092,8 @@ class Solution {
 **Explanation:** Modified Dijkstra's algorithm where the cost of a path is defined as the maximum elevation encountered along the path. A priority queue greedily expands the path having the minimum peak elevation so far until reaching `(n - 1, n - 1)`. Time is O(n^2 * log n) and space is O(n^2).
 
 ## 97. Path With Minimum Effort
+
+[Back to Index](#index)
 
 **Problem:** Given a 2D array `heights` of size `rows x columns`, a route's effort from `(0, 0)` to `(rows - 1, columns - 1)` is the maximum absolute difference in heights between two consecutive cells of the route. Return the minimum effort required.
 
@@ -4961,6 +5155,8 @@ class Solution {
 
 ## 98. Cheapest Flights Within K Stops
 
+[Back to Index](#index)
+
 **Problem:** There are `n` cities connected by flights `flights[i] = [fromi, toi, pricei]`. Return the cheapest price from `src` to `dst` with at most `k` stops, or `-1` if no such route exists.
 
 ```java
@@ -5010,6 +5206,8 @@ class Solution {
 
 ## 99. Climbing Stairs
 
+[Back to Index](#index)
+
 **Problem:** You are climbing a staircase that takes `n` steps to reach the top. Each time you can climb either 1 or 2 steps. Return the number of distinct ways to climb to the top.
 
 ```java
@@ -5038,6 +5236,8 @@ class Solution {
 
 ## 100. Min Cost Climbing Stairs
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `cost` where `cost[i]` is the cost of the `i`-th step on a staircase, you can start from step 0 or step 1. Once you pay the cost, you can take one or two steps. Return the minimum cost to reach the top floor.
 
 ```java
@@ -5064,6 +5264,8 @@ class Solution {
 
 ## 101. House Robber
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums` representing the amount of money in each house along a street, return the maximum amount of money you can rob tonight without alerting the police (adjacent houses cannot be robbed together).
 
 ```java
@@ -5089,6 +5291,8 @@ class Solution {
 **Explanation:** At each house, choose either to skip it (carrying forward the previous maximum) or rob it (adding its value to the maximum up to two houses prior), tracking the two states with rolling variables. Time is O(n) and space is O(1).
 
 ## 102. House Robber II
+
+[Back to Index](#index)
 
 **Problem:** Given an integer array `nums` representing the amount of money in houses arranged in a circle (the first and last houses are adjacent), return the maximum amount of money you can rob without robbing two adjacent houses.
 
@@ -5122,6 +5326,8 @@ class Solution {
 **Explanation:** Since the first and last houses cannot both be robbed, solve two separate House Robber instances (excluding the last house, and excluding the first house) and take the maximum. Time is O(n) and space is O(1).
 
 ## 103. Longest Palindromic Substring
+
+[Back to Index](#index)
 
 **Problem:** Given a string `s`, return the longest palindromic substring in `s`.
 
@@ -5162,6 +5368,8 @@ class Solution {
 
 ## 104. Palindromic Substrings
 
+[Back to Index](#index)
+
 **Problem:** Given a string `s`, return the number of palindromic substrings in it.
 
 ```java
@@ -5196,6 +5404,8 @@ class Solution {
 **Explanation:** Expand outward around all possible centers (each index and each gap between indices), incrementing the count for each valid palindrome found. Time is O(n^2) and space is O(1).
 
 ## 105. Decode Ways
+
+[Back to Index](#index)
 
 **Problem:** A message containing letters from A-Z can be encoded into numbers using the mapping 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26". Given a string `s` of digits, return the number of ways to decode it.
 
@@ -5234,6 +5444,8 @@ class Solution {
 
 ## 106. Coin Change
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `coins` representing coin denominations and an integer `amount`, return the fewest number of coins needed to make up that amount, or -1 if it cannot be made up.
 
 ```java
@@ -5268,6 +5480,8 @@ class Solution {
 **Explanation:** Use bottom-up dynamic programming where `dp[i]` stores the minimum coins required to make amount `i`, transitioning via `dp[i] = min(dp[i], dp[i - coin] + 1)`. Time is O(amount * len(coins)) and space is O(amount).
 
 ## 107. Maximum Product Subarray
+
+[Back to Index](#index)
 
 **Problem:** Given an integer array `nums`, find a contiguous non-empty subarray that has the largest product and return that product.
 
@@ -5304,6 +5518,8 @@ class Solution {
 **Explanation:** Maintain running maximum and minimum products ending at each index because multiplying a negative number by a negative minimum can produce a new maximum. Time is O(n) and space is O(1).
 
 ## 108. Word Break
+
+[Back to Index](#index)
 
 **Problem:** Given a string `s` and a dictionary of strings `wordDict`, return true if `s` can be segmented into a space-separated sequence of one or more dictionary words.
 
@@ -5344,6 +5560,8 @@ class Solution {
 
 ## 109. Longest Increasing Subsequence
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
 
 ```java
@@ -5379,6 +5597,8 @@ class Solution {
 **Explanation:** Maintain a `tails` array where `tails[i]` stores the smallest tail of all increasing subsequences of length `i + 1`, updating elements via binary search (patience sorting). Time is O(n log n) and space is O(n).
 
 ## 110. Partition Equal Subset Sum
+
+[Back to Index](#index)
 
 **Problem:** Given an integer array `nums`, return true if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
 
@@ -5417,6 +5637,8 @@ class Solution {
 
 ## 111. Unique Paths
 
+[Back to Index](#index)
+
 **Problem:** Given the integers `m` and `n` representing the dimensions of an `m x n` grid, return the number of possible unique paths from the top-left corner `(0, 0)` to the bottom-right corner `(m - 1, n - 1)`. The robot can only move either down or right at any point in time.
 
 ```java
@@ -5445,6 +5667,8 @@ class Solution {
 **Explanation:** Compute unique paths using a 1D dynamic programming array where each cell `dp[j]` represents the number of ways to reach column `j`, updated by adding paths from the cell above (`dp[j]`) and the cell to the left (`dp[j - 1]`). Time is O(m * n) and space is O(n).
 
 ## 112. Longest Common Subsequence
+
+[Back to Index](#index)
 
 **Problem:** Given two strings `text1` and `text2`, return the length of their longest common subsequence. If there is no common subsequence, return `0`.
 
@@ -5480,6 +5704,8 @@ class Solution {
 
 ## 113. Best Time to Buy and Sell Stock with Cooldown
 
+[Back to Index](#index)
+
 **Problem:** You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day. Find the maximum profit you can achieve with unlimited transactions, with the condition that after selling your stock, you cannot buy stock on the next day (cooldown of 1 day).
 
 ```java
@@ -5513,6 +5739,8 @@ class Solution {
 
 ## 114. Coin Change II
 
+[Back to Index](#index)
+
 **Problem:** You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the number of combinations that make up that amount. You may assume you have an infinite number of each kind of coin.
 
 ```java
@@ -5541,6 +5769,8 @@ class Solution {
 **Explanation:** Solve using unbounded knapsack dynamic programming where the outer loop iterates over coin denominations to ensure combinations (not permutations) are counted, adding ways to make `i - coin` to `dp[i]`. Time is O(n * amount) and space is O(amount).
 
 ## 115. Target Sum
+
+[Back to Index](#index)
 
 **Problem:** You are given an integer array `nums` and an integer `target`. Build an expression using `+` and `-` before each integer in `nums` and evaluate it. Return the number of different expressions that evaluate to `target`.
 
@@ -5580,6 +5810,8 @@ class Solution {
 **Explanation:** Transform the problem into finding a subset of numbers whose sum equals `(totalSum + target) / 2`, then count valid subsets using 0/1 knapsack dynamic programming iterating backwards to avoid reusing elements. Time is O(n * S) where S is (totalSum + target) / 2 and space is O(S).
 
 ## 116. Interleaving String
+
+[Back to Index](#index)
 
 **Problem:** Given strings `s1`, `s2`, and `s3`, determine whether `s3` is formed by an interleaving of `s1` and `s2`.
 
@@ -5625,6 +5857,8 @@ class Solution {
 **Explanation:** Use 2D dynamic programming where `dp[i][j]` indicates whether `s3[0..i+j-1]` can be formed by interleaving prefixes `s1[0..i-1]` and `s2[0..j-1]`, transitioning from valid subproblems when characters match. Time is O(m * n) and space is O(m * n).
 
 ## 117. Longest Increasing Path in a Matrix
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` integers matrix, return the length of the longest increasing path in matrix. From each cell, you can move in four directions (up, down, left, right), but not diagonally or outside the boundary.
 
@@ -5680,6 +5914,8 @@ class Solution {
 
 ## 118. Distinct Subsequences
 
+[Back to Index](#index)
+
 **Problem:** Given two strings `s` and `t`, return the number of distinct subsequences of `s` which equals `t`.
 
 ```java
@@ -5717,6 +5953,8 @@ class Solution {
 **Explanation:** Use 2D dynamic programming where `dp[i][j]` is the count of distinct subsequences of `s[0..i-1]` matching `t[0..j-1]`. If characters match, add occurrences using the character (`dp[i - 1][j - 1]`) and omitting it (`dp[i - 1][j]`); otherwise, only omit it. Time is O(m * n) and space is O(m * n).
 
 ## 119. Edit Distance
+
+[Back to Index](#index)
 
 **Problem:** Given two strings `word1` and `word2`, return the minimum number of operations required to convert `word1` to `word2`. Permitted operations are inserting, deleting, or replacing a character.
 
@@ -5761,6 +5999,8 @@ class Solution {
 
 ## 120. Burst Balloons
 
+[Back to Index](#index)
+
 **Problem:** You are given `n` balloons, indexed from `0` to `n - 1`, where each balloon is painted with a number on it represented by an array `nums`. If you burst the `i`-th balloon, you get `nums[i - 1] * nums[i] * nums[i + 1]` coins. If `i - 1` or `i + 1` goes out of bounds, treat it as a balloon with value `1`. Return the maximum coins you can collect by bursting the balloons wisely.
 
 ```java
@@ -5802,6 +6042,8 @@ class Solution {
 **Explanation:** Pad the array with 1 at both boundaries and use interval dynamic programming, where `dp[left][right]` stores the maximum coins obtained by bursting all balloons in `[left, right]`. We choose each balloon `k` as the last balloon to burst in the range, decoupling the left and right subproblems. Time is O(n^3) and space is O(n^2).
 
 ## 121. Regular Expression Matching
+
+[Back to Index](#index)
 
 **Problem:** Given an input string `s` and a pattern `p`, implement regular expression matching with support for `'.'` (which matches any single character) and `'*'` (which matches zero or more of the preceding element). The matching must cover the entire input string.
 
@@ -5854,6 +6096,8 @@ class Solution {
 
 ## 122. Maximum Subarray
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums`, find the subarray with the largest sum, and return *its sum*.
 
 ```java
@@ -5882,6 +6126,8 @@ class Solution {
 
 ## 123. Jump Game
 
+[Back to Index](#index)
+
 **Problem:** Given an integer array `nums` where each element represents your maximum jumping length from that position, return `true` if you can reach the last index starting from index `0`, or `false` otherwise.
 
 ```java
@@ -5909,6 +6155,8 @@ class Solution {
 **Explanation:** Work backwards greedily from the last index. If index `i` can reach the current `goal` (`i + nums[i] >= goal`), update `goal` to `i`. If the goal reaches `0`, the destination is reachable. Time is O(n) and space is O(1).
 
 ## 124. Jump Game II
+
+[Back to Index](#index)
 
 **Problem:** Given a 0-indexed array of integers `nums` of length `n`, return the minimum number of jumps to reach index `n - 1`. You can assume that you can always reach the last index.
 
@@ -5941,6 +6189,8 @@ class Solution {
 **Explanation:** Use a greedy BFS level-by-level approach. At each step, record the farthest index reachable. When the current jump window boundary `curEnd` is reached, increment `jumps` and extend the boundary to `farthest`. Time is O(n) and space is O(1).
 
 ## 125. Gas Station
+
+[Back to Index](#index)
 
 **Problem:** There are `n` gas stations along a circular route where station `i` has `gas[i]` fuel and costs `cost[i]` to travel to station `i + 1`. Return the starting station index to complete the full circuit clockwise once, or `-1` if impossible.
 
@@ -5983,6 +6233,8 @@ class Solution {
 **Explanation:** If total gas is less than total cost, completing the circuit is impossible. Otherwise, a unique valid start station is guaranteed to exist: iterate through stations and if current tank drops below 0, reset start to `i + 1` and tank to `0`. Time is O(n) and space is O(1).
 
 ## 126. Hand of Straights
+
+[Back to Index](#index)
 
 **Problem:** Given an integer array `hand` and an integer `groupSize`, return `true` if the hand can be rearranged into groups of `groupSize` consecutive cards, or `false` otherwise.
 
@@ -6029,6 +6281,8 @@ class Solution {
 
 ## 127. Merge Triplets to Form Target Triplet
 
+[Back to Index](#index)
+
 **Problem:** Given a 2D integer array `triplets` and an integer array `target = [x, y, z]`, return `true` if you can obtain `target` by repeatedly taking component-wise maximums of selected triplets, or `false` otherwise.
 
 ```java
@@ -6061,6 +6315,8 @@ class Solution {
 **Explanation:** Ignore any triplet containing a value exceeding the corresponding target component, as taking a max with it would invalidate that coordinate. Among valid triplets, verify whether triplets exist matching each individual target element. Time is O(n) and space is O(1).
 
 ## 128. Partition Labels
+
+[Back to Index](#index)
 
 **Problem:** Given a string `s`, partition it into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
 
@@ -6101,6 +6357,8 @@ class Solution {
 **Explanation:** Precompute the last occurrence of each character. Traverse the string and expand the current partition's boundary `end` to include the last occurrence of each encountered character; when index `i` reaches `end`, close the partition. Time is O(n) and space is O(1) auxiliary space (26 characters).
 
 ## 129. Valid Parenthesis String
+
+[Back to Index](#index)
 
 **Problem:** Given a string `s` containing only `'('`, `')'`, and `'*'`, return `true` if `s` is valid. `'*'` can be treated as a single `'('`, a single `')'`, or an empty string `""`.
 
@@ -6148,6 +6406,8 @@ class Solution {
 # Intervals
 
 ## 130. Insert Interval
+
+[Back to Index](#index)
 
 **Problem:** Given an array of non-overlapping intervals `intervals` sorted by start time, insert `newInterval` into `intervals` such that the result remains sorted and non-overlapping (merging overlapping intervals as needed).
 
@@ -6198,6 +6458,8 @@ class Solution {
 
 ## 131. Merge Intervals
 
+[Back to Index](#index)
+
 **Problem:** Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals, and return an array of non-overlapping intervals that cover all intervals in the input.
 
 ```java
@@ -6241,6 +6503,8 @@ class Solution {
 
 ## 132. Non-overlapping Intervals
 
+[Back to Index](#index)
+
 **Problem:** Given an array of intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of intervals to remove to make the remainder non-overlapping.
 
 ```java
@@ -6280,6 +6544,8 @@ class Solution {
 
 ## 133. Meeting Rooms
 
+[Back to Index](#index)
+
 **Problem:** Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, determine if a person could attend all meetings without overlap.
 
 ```java
@@ -6312,6 +6578,8 @@ class Solution {
 **Explanation:** Sort meetings by start time and check if any meeting begins before the previous meeting concludes. If an overlap is found, return `false`; otherwise, return `true`. Time is O(n log n) and space is O(log n) auxiliary for sorting.
 
 ## 134. Meeting Rooms II
+
+[Back to Index](#index)
 
 **Problem:** Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of conference rooms required.
 
@@ -6354,6 +6622,8 @@ class Solution {
 **Explanation:** Sort meetings by start time and use a min-heap to track the end times of active meetings. If the next meeting starts after the earliest ending meeting finishes, reuse that room by polling from the heap; then push the new end time. The heap size represents the required rooms. Time is O(n log n) and space is O(n).
 
 ## 135. Minimum Interval to Include Each Query
+
+[Back to Index](#index)
 
 **Problem:** Given a 2D integer array `intervals` where `intervals[i] = [left_i, right_i]` and an integer array `queries`, find the minimum size of an interval containing `queries[j]` for each query, or `-1` if none exists. The size of an interval is `right_i - left_i + 1`.
 
@@ -6417,6 +6687,8 @@ class Solution {
 
 ## 136. Rotate Image
 
+[Back to Index](#index)
+
 **Problem:** Given an `n x n` 2D matrix representing an image, rotate the image by 90 degrees clockwise in-place.
 
 ```java
@@ -6459,6 +6731,8 @@ class Solution {
 **Explanation:** Transpose the matrix across its main diagonal, then reverse each row horizontally to produce a 90-degree clockwise rotation in-place. Time is O(n^2) and space is O(1).
 
 ## 137. Spiral Matrix
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` matrix, return all elements of the matrix in spiral order.
 
@@ -6522,6 +6796,8 @@ class Solution {
 **Explanation:** Maintain four boundary pointers (top, bottom, left, right) and cycle through traversing the edges inwards until all boundaries cross. Time is O(m * n) and space is O(1) auxiliary.
 
 ## 138. Set Matrix Zeroes
+
+[Back to Index](#index)
 
 **Problem:** Given an `m x n` integer matrix, if an element is 0, set its entire row and column to 0's in-place.
 
@@ -6600,6 +6876,8 @@ class Solution {
 
 ## 139. Happy Number
 
+[Back to Index](#index)
+
 **Problem:** Determine if a number `n` is happy, where a happy number eventually reaches 1 when repeatedly replaced by the sum of the squares of its digits.
 
 ```java
@@ -6638,6 +6916,8 @@ class Solution {
 
 ## 140. Plus One
 
+[Back to Index](#index)
+
 **Problem:** Given a large integer represented as an integer array `digits`, increment the large integer by one and return the resulting array of digits.
 
 ```java
@@ -6670,6 +6950,8 @@ class Solution {
 **Explanation:** Iterate from the least significant digit backwards, incrementing and returning immediately if a digit is less than 9; if all digits are 9, prepend 1 to a new array of zeros. Time is O(n) and space is O(1) auxiliary (or O(n) when allocating a new array).
 
 ## 141. Pow(x, n)
+
+[Back to Index](#index)
 
 **Problem:** Implement `pow(x, n)`, which calculates `x` raised to the power `n` ($x^n$).
 
@@ -6708,6 +6990,8 @@ class Solution {
 **Explanation:** Use binary exponentiation (fast power) by squaring the base and halving the exponent at each step, using `long` to prevent overflow when negating `Integer.MIN_VALUE`. Time is O(log n) and space is O(1).
 
 ## 142. Multiply Strings
+
+[Back to Index](#index)
 
 **Problem:** Given two non-negative integers `num1` and `num2` represented as strings, return the product of `num1` and `num2`, also represented as a string.
 
@@ -6755,6 +7039,8 @@ class Solution {
 **Explanation:** Simulate grade-school manual multiplication by multiplying digits pair by pair and placing products at positions `i + j` and `i + j + 1` in an array, then converting to string without leading zeros. Time is O(m * n) and space is O(m + n).
 
 ## 143. Detect Squares
+
+[Back to Index](#index)
 
 **Problem:** Design a data structure that maintains a stream of 2D points and counts the number of ways to form axis-aligned squares with a given query point as one of the four corners.
 
@@ -6814,6 +7100,8 @@ class DetectSquares {
 
 ## 144. Single Number
 
+[Back to Index](#index)
+
 **Problem:** Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one in linear time and constant extra space.
 
 ```java
@@ -6837,6 +7125,8 @@ class Solution {
 **Explanation:** XOR all numbers in the array together; identical pairs cancel out ($x \oplus x = 0$), leaving only the single unique number ($0 \oplus x = x$). Time is O(n) and space is O(1).
 
 ## 145. Number of 1 Bits
+
+[Back to Index](#index)
 
 **Problem:** Given a positive integer `n`, return the number of set bits (1s) in its binary representation (Hamming weight).
 
@@ -6864,6 +7154,8 @@ class Solution {
 
 ## 146. Counting Bits
 
+[Back to Index](#index)
+
 **Problem:** Given an integer `n`, return an array `ans` of length `n + 1` such that for each `i` (`0 <= i <= n`), `ans[i]` is the number of 1's in the binary representation of `i`.
 
 ```java
@@ -6890,6 +7182,8 @@ class Solution {
 
 ## 147. Reverse Bits
 
+[Back to Index](#index)
+
 **Problem:** Reverse the bits of a given 32-bit unsigned integer.
 
 ```java
@@ -6913,6 +7207,8 @@ class Solution {
 **Explanation:** Iterate 32 times, shifting `res` left and appending the lowest bit of `n`, then logically shifting `n` to the right with `>>>= 1`. Time is O(1) and space is O(1).
 
 ## 148. Missing Number
+
+[Back to Index](#index)
 
 **Problem:** Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that is missing from the array.
 
@@ -6939,6 +7235,8 @@ class Solution {
 
 ## 149. Sum of Two Integers
 
+[Back to Index](#index)
+
 **Problem:** Given two integers `a` and `b`, return the sum of the two integers without using the operators `+` and `-`.
 
 ```java
@@ -6964,6 +7262,8 @@ class Solution {
 **Explanation:** Simulate half-adder addition using XOR (`a ^ b`) to compute the sum without carry and AND shifted left (`(a & b) << 1`) to calculate the carry, iterating until the carry is zero. Time is O(1) and space is O(1).
 
 ## 150. Reverse Integer
+
+[Back to Index](#index)
 
 **Problem:** Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range `[-2^31, 2^31 - 1]`, return 0.
 
