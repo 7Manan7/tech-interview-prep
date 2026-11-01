@@ -5,6 +5,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 ## Index
 
 **[Arrays & Hashing](#arrays--hashing)**
+
 1. [Contains Duplicate](#1-contains-duplicate)
 2. [Valid Anagram](#2-valid-anagram)
 3. [Two Sum](#3-two-sum)
@@ -16,6 +17,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 9. [Longest Consecutive Sequence](#9-longest-consecutive-sequence)
 
 **[Two Pointers](#two-pointers)**
+
 10. [Valid Palindrome](#10-valid-palindrome)
 11. [Two Sum II - Input Array Is Sorted](#11-two-sum-ii---input-array-is-sorted)
 12. [3Sum](#12-3sum)
@@ -23,6 +25,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 14. [Trapping Rain Water](#14-trapping-rain-water)
 
 **[Sliding Window](#sliding-window)**
+
 15. [Best Time to Buy and Sell Stock](#15-best-time-to-buy-and-sell-stock)
 16. [Longest Substring Without Repeating Characters](#16-longest-substring-without-repeating-characters)
 17. [Longest Repeating Character Replacement](#17-longest-repeating-character-replacement)
@@ -31,6 +34,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 20. [Sliding Window Maximum](#20-sliding-window-maximum)
 
 **[Stack](#stack)**
+
 21. [Valid Parentheses](#21-valid-parentheses)
 22. [Min Stack](#22-min-stack)
 23. [Evaluate Reverse Polish Notation](#23-evaluate-reverse-polish-notation)
@@ -40,6 +44,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 27. [Largest Rectangle in Histogram](#27-largest-rectangle-in-histogram)
 
 **[Binary Search](#binary-search)**
+
 28. [Binary Search](#28-binary-search)
 29. [Search a 2D Matrix](#29-search-a-2d-matrix)
 30. [Koko Eating Bananas](#30-koko-eating-bananas)
@@ -49,6 +54,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 34. [Median of Two Sorted Arrays](#34-median-of-two-sorted-arrays)
 
 **[Linked List](#linked-list)**
+
 35. [Reverse Linked List](#35-reverse-linked-list)
 36. [Merge Two Sorted Lists](#36-merge-two-sorted-lists)
 37. [Reorder List](#37-reorder-list)
@@ -62,6 +68,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 45. [Reverse Nodes in k-Group](#45-reverse-nodes-in-k-group)
 
 **[Trees](#trees)**
+
 46. [Invert Binary Tree](#46-invert-binary-tree)
 47. [Maximum Depth of Binary Tree](#47-maximum-depth-of-binary-tree)
 48. [Diameter of Binary Tree](#48-diameter-of-binary-tree)
@@ -79,11 +86,13 @@ Each problem includes a short description, a Java solution, a `main` method with
 60. [Serialize and Deserialize Binary Tree](#60-serialize-and-deserialize-binary-tree)
 
 **[Tries](#tries)**
+
 61. [Implement Trie (Prefix Tree)](#61-implement-trie-prefix-tree)
 62. [Design Add and Search Words Data Structure](#62-design-add-and-search-words-data-structure)
 63. [Word Search II](#63-word-search-ii)
 
 **[Heap / Priority Queue](#heap--priority-queue)**
+
 64. [Kth Largest Element in a Stream](#64-kth-largest-element-in-a-stream)
 65. [Last Stone Weight](#65-last-stone-weight)
 66. [K Closest Points to Origin](#66-k-closest-points-to-origin)
@@ -93,6 +102,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 70. [Find Median from Data Stream](#70-find-median-from-data-stream)
 
 **[Backtracking](#backtracking)**
+
 71. [Subsets](#71-subsets)
 72. [Combination Sum](#72-combination-sum)
 73. [Permutations](#73-permutations)
@@ -104,6 +114,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 79. [N-Queens](#79-n-queens)
 
 **[Graphs](#graphs)**
+
 80. [Number of Islands](#80-number-of-islands)
 81. [Clone Graph](#81-clone-graph)
 82. [Max Area of Island](#82-max-area-of-island)
@@ -119,6 +130,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 92. [Word Ladder](#92-word-ladder)
 
 **[Advanced Graphs](#advanced-graphs)**
+
 93. [Reconstruct Itinerary](#93-reconstruct-itinerary)
 94. [Min Cost to Connect All Points](#94-min-cost-to-connect-all-points)
 95. [Network Delay Time](#95-network-delay-time)
@@ -127,6 +139,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 98. [Cheapest Flights Within K Stops](#98-cheapest-flights-within-k-stops)
 
 **[1-D Dynamic Programming](#1-d-dynamic-programming)**
+
 99. [Climbing Stairs](#99-climbing-stairs)
 100. [Min Cost Climbing Stairs](#100-min-cost-climbing-stairs)
 101. [House Robber](#101-house-robber)
@@ -141,6 +154,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 110. [Partition Equal Subset Sum](#110-partition-equal-subset-sum)
 
 **[2-D Dynamic Programming](#2-d-dynamic-programming)**
+
 111. [Unique Paths](#111-unique-paths)
 112. [Longest Common Subsequence](#112-longest-common-subsequence)
 113. [Best Time to Buy and Sell Stock with Cooldown](#113-best-time-to-buy-and-sell-stock-with-cooldown)
@@ -154,6 +168,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 121. [Regular Expression Matching](#121-regular-expression-matching)
 
 **[Greedy](#greedy)**
+
 122. [Maximum Subarray](#122-maximum-subarray)
 123. [Jump Game](#123-jump-game)
 124. [Jump Game II](#124-jump-game-ii)
@@ -164,6 +179,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 129. [Valid Parenthesis String](#129-valid-parenthesis-string)
 
 **[Intervals](#intervals)**
+
 130. [Insert Interval](#130-insert-interval)
 131. [Merge Intervals](#131-merge-intervals)
 132. [Non-overlapping Intervals](#132-non-overlapping-intervals)
@@ -172,6 +188,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 135. [Minimum Interval to Include Each Query](#135-minimum-interval-to-include-each-query)
 
 **[Math & Geometry](#math--geometry)**
+
 136. [Rotate Image](#136-rotate-image)
 137. [Spiral Matrix](#137-spiral-matrix)
 138. [Set Matrix Zeroes](#138-set-matrix-zeroes)
@@ -182,6 +199,7 @@ Each problem includes a short description, a Java solution, a `main` method with
 143. [Detect Squares](#143-detect-squares)
 
 **[Bit Manipulation](#bit-manipulation)**
+
 144. [Single Number](#144-single-number)
 145. [Number of 1 Bits](#145-number-of-1-bits)
 146. [Counting Bits](#146-counting-bits)
