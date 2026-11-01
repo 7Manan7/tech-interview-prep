@@ -9,7 +9,7 @@ A curated, comprehensive guide and code repository for cracking Technical Softwa
 | Section | Focus Area | Key Highlights |
 | :--- | :--- | :--- |
 | **[🧩 Data Structures & Algorithms (DSA)](./dsa/README.md)** | Problem Solving & LeetCode Patterns | • Complete [NeetCode 150 Java Solutions](./dsa/neetcode150.md) with code & explanations<br>• Two Pointers, Sliding Window, DP, Trees, Graphs |
-| **[📐 Low-Level Design (LLD)](./lld/README.md)** | Object-Oriented Design & Machine Coding | • SOLID principles & Clean Architecture<br>• [Gang of Four (GoF) Design Patterns](./lld/design-patterns/README.md)<br>• [Machine Coding Problems](./lld/problems/README.md) (Parking Lot, Elevator, Rate Limiter, etc.) |
+| **[📐 Low-Level Design (LLD)](./lld/README.md)** | Object-Oriented Design & Machine Coding | • Complete [LLD Master Guide](./lld/lld-guide.md) (All 7 Pillars with code & schemas)<br>• [Gang of Four Design Patterns](./lld/design-patterns/README.md) & [Implementations](./lld/design-patterns/patterns-guide.md)<br>• [Categorized Case Studies](./lld/problems/README.md) & [Solutions](./lld/problems/case-studies.md) |
 | **[🏛️ High-Level Design (HLD)](./hld/README.md)** | Distributed Systems & Architecture | • System Design Framework & Scaling Strategies<br>• Caching, DB Sharding, Message Queues, CAP Theorem<br>• Case Studies (URL Shortener, Chat App, Ride Sharing, Netflix) |
 | **[☕ Java & Backend Engineering](./java/README.md)** | Language Deep Dive & Concurrency | • Core Java, Collections internals & Java 8–21 features<br>• [Multithreading & Concurrency](./java/concurrency/README.md) (Locks, ThreadPools, Virtual Threads)<br>• [JVM Internals & Performance](./java/jvm/README.md) (Memory Model, GC algorithms, JIT) |
 
@@ -24,11 +24,14 @@ tech-interview-prep/
 │   ├── README.md                 # DSA strategy, patterns, complexity cheat sheet
 │   └── neetcode150.md            # NeetCode 150 in Java (code, tests & explanations)
 ├── lld/
-│   ├── README.md                 # OOP principles, SOLID, design checklist
+│   ├── README.md                 # LLD overview, SOLID, 7 pillars & 90-min checklist
+│   ├── lld-guide.md              # Complete 7-pillar master guide with code solutions
 │   ├── design-patterns/
-│   │   └── README.md             # Creational, Structural & Behavioral patterns in Java
+│   │   ├── README.md             # GoF patterns reference matrix
+│   │   └── patterns-guide.md     # Production-grade Java pattern implementations
 │   └── problems/
-│       └── README.md             # Classic machine coding interview problems
+│       ├── README.md             # Categorized problem index & 5 archetypes
+│       └── case-studies.md       # Case studies deep-dive with code & algorithms
 ├── hld/
 │   └── README.md                 # System design framework, components & case studies
 └── java/

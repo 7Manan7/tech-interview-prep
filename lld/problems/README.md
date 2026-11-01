@@ -1,65 +1,58 @@
 # 💻 Classic Machine Coding Problems (LLD)
 
-In machine coding rounds (popular at companies like Uber, Flipkart, Swiggy, PhonePe, Razorpay, Google, Amazon), you are given a real-world problem and expected to deliver clean, object-oriented, extensible, and working code within 90 minutes.
+In machine coding rounds (popular at companies like Uber, Flipkart, Swiggy, PhonePe, Razorpay, Google, Amazon), you are given a real-world problem and expected to deliver clean, object-oriented, extensible, and working code within 60–90 minutes.
+
+> 📖 **Case Studies Deep-Dive**: For detailed entities, class designs, concurrency controls, and code implementations, see **[Case Studies Deep-Dive](./case-studies.md)** or **[LLD Master Guide Section 7](../lld-guide.md#7-must-practice-lld-case-studies-by-category)**.
 
 ---
 
-## 📋 High-Frequency Problem Index
+## 📋 Categorized Problem Index
 
-| # | Problem | Core Design Patterns & Concepts | Key Concurrency / Extensibility Focus |
-|---|---|---|---|
-| 1 | **[Parking Lot](#1-parking-lot)** | Strategy, Factory, Singleton | Multi-floor slot allocation, dynamic fee calculation, vehicle types |
-| 2 | **[Tic-Tac-Toe](#2-tic-tac-toe)** | State, Strategy | $N \times N$ board scaling, pluggable winning condition strategies |
-| 3 | **[Rate Limiter](#3-rate-limiter)** | Strategy, Token Bucket, Sliding Window | Thread safety, concurrency limits, distributed redis support |
-| 4 | **[Splitwise (Expense Sharing)](#4-splitwise)** | Strategy, Observer, Factory | Equal, Exact, Percentage splits, debt simplification graph algorithm |
-| 5 | **[Elevator System](#5-elevator-system)** | State, Strategy (SCAN / LOOK algorithm) | Multi-elevator dispatch strategy, internal/external requests |
-| 6 | **[Snake and Ladder](#6-snake-and-ladder)** | Object modeling, Queue | Board setup, dynamic players, dice roll strategy |
-| 7 | **[BookMyShow / Movie Ticket Booking](#7-bookmyshow)** | Singleton, State, Pessimistic / Optimistic Locking | Concurrent seat booking, temporary seat lock timeout (e.g. 10 mins) |
-| 8 | **[In-Memory Cache (LRU / LFU)](#8-in-memory-cache)** | Doubly Linked List + HashMap | $O(1)$ operations, pluggable eviction strategies, thread safety |
-| 9 | **[Notification Service](#9-notification-service)** | Observer, Factory, Strategy | Multi-channel (SMS, Email, Push), priority queues, rate limits & retries |
-| 10 | **[Chess / Board Game](#10-chess)** | Command, Strategy, Factory | Piece moves, check/checkmate validation, move history & undo |
+### 1. Booking & Slot Allocation
+| # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
+|---|---|---|---|---|
+| 1 | **Parking Lot** | Strategy, Factory, Singleton | Multi-floor slot allocation, dynamic fee calculation, vehicle types | [View Solution](./case-studies.md#11-parking-lot-system) |
+| 2 | **Movie Ticket Booking (BookMyShow)** | State, Strategy, Singleton | Concurrent seat booking, temporary seat lock timeout (TTL) | [View Solution](./case-studies.md#12-movie-ticket-booking-bookmyshow) |
+| 3 | **Amazon Locker Management** | Strategy, Observer | Compartment dimension matching (S/M/L/XL), OTP verification | [View Solution](./case-studies.md#13-amazon-locker-management-system) |
+| 4 | **Car Rental System (Zoomcar)** | Decorator, State | Vehicle reservation, dynamic insurance add-ons, maintenance states | [View Solution](./case-studies.md#14-car-rental-system) |
 
----
+### 2. State & Workflow Machines
+| # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
+|---|---|---|---|---|
+| 5 | **Vending Machine** | State | Idle, HasCoin, Dispensing, SoldOut states, change refund | [View Solution](./case-studies.md#21-vending-machine) |
+| 6 | **Elevator Control System** | State, Strategy (SCAN / LOOK) | Multi-elevator dispatch strategy, internal/external request queues | [View Solution](./case-studies.md#22-elevator-control-system) |
+| 7 | **ATM Cash Dispenser** | Chain of Responsibility, State | Note dispensers ($100 $\to$ $50 $\to$ $20), PIN authentication | [View Solution](./case-studies.md#23-atm-cash-dispenser) |
+| 8 | **Order Management System** | State / Rich Enum, Observer | Order lifecycle (Created $\to$ Paid $\to$ Packed $\to$ Shipped) | [View Solution](./case-studies.md#24-order-management-system) |
 
-## 🔍 Detailed Problem Breakdowns
+### 3. Matching, Ledgers & Marketplaces
+| # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
+|---|---|---|---|---|
+| 9 | **Splitwise (Expense Sharing)** | Strategy, Observer | Equal, Exact, Percentage splits, debt simplification graph algorithm | [View Solution](./case-studies.md#31-splitwise) |
+| 10 | **Ride-Sharing (Uber / Lyft)** | Strategy, Decorator, Observer | Driver matching algorithms, surge pricing decorators, trip states | [View Solution](./case-studies.md#32-ride-sharing-service-uber--lyft) |
+| 11 | **Food Delivery (Swiggy / DoorDash)** | Facade, Observer | Restaurant menu, cart checkout, delivery assignment | [View Solution](./case-studies.md#33-food-delivery-system) |
+| 12 | **Inventory & Shopping Cart** | Decorator, Strategy | Cart coupon stacking, inventory reservation during checkout | [View Solution](./case-studies.md#34-inventory--shopping-cart-system) |
 
-### 1. Parking Lot
-- **Key Entities:** `Vehicle` (Car, Bike, Truck), `ParkingSlot` (Compact, Large, Motorcycle), `ParkingFloor`, `Ticket`, `Gate` (EntryGate, ExitGate), `ParkingLot`.
-- **Patterns:**
-  - `Strategy`: For slot allocation (First Available, Nearest to Entrance) and pricing strategy (Hourly, Weekend, Flat).
-  - `Factory`: For creating appropriate vehicle/slot types.
-- **Key Concurrency Point:** Synchronizing slot assignment when multiple entry gates attempt to allocate the same parking spot simultaneously.
+### 4. Board & Turn-Based Games
+| # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
+|---|---|---|---|---|
+| 13 | **Snake and Ladder** | Strategy, Queue | Turn-based player loop, extensible board with snakes/ladders | [View Solution](./case-studies.md#41-snake-and-ladder) |
+| 14 | **Chess Game** | Command, Strategy | Move validation per piece, check/checkmate detection, move history & undo | [View Solution](./case-studies.md#42-chess-game) |
+| 15 | **Tic-Tac-Toe** | Strategy, State | $N \times N$ board scaling, $O(1)$ win evaluation per move | [View Solution](./case-studies.md#43-tic-tac-toe) |
 
-### 2. Rate Limiter
-- **Algorithms to Implement:**
-  - **Token Bucket:** Refills tokens at a constant rate; bursts allowed up to bucket capacity.
-  - **Leaky Bucket:** Constant processing rate; drops requests when buffer overflows.
-  - **Sliding Window Counter / Log:** Tracks timestamps to prevent burst at window boundaries.
-- **Key Concurrency Point:** Atomic updates using `AtomicLong` or `ReentrantLock` per client/API key.
-
-### 3. Splitwise
-- **Key Entities:** `User`, `Expense`, `Split` (`EqualSplit`, `ExactSplit`, `PercentSplit`), `Group`, `BalanceSheet`.
-- **Patterns:**
-  - `Strategy`: For validating and computing splits (`EqualExpenseStrategy`, `PercentExpenseStrategy`).
-- **Bonus Feature:** Debt simplification algorithm using greedy / min-cash-flow algorithm (graph / priority queues).
-
-### 4. BookMyShow
-- **Key Entities:** `City`, `Cinema`, `Screen`, `Show`, `Movie`, `Seat`, `Booking`, `Payment`.
-- **Critical Challenge:** Two users selecting the exact same seat at the same second.
-- **Solution:** Temporary seat reservation with TTL:
-  ```java
-  public enum SeatStatus {
-      AVAILABLE,
-      LOCKED,     // Temporary lock with expiration timestamp
-      BOOKED
-  }
-  ```
+### 5. Core Backend Infrastructure
+| # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
+|---|---|---|---|---|
+| 16 | **Thread-Safe LRU / LFU Cache** | Doubly Linked List + HashMap | $O(1)$ operations, ReadWriteLock, TTL lazy expiry | [View Solution](./case-studies.md#51-thread-safe-lru--lfu-cache-with-ttl) |
+| 17 | **Rate Limiter** | Strategy, Token Bucket, Sliding Window | Thread safety, atomic refill rate, burst handling | [View Solution](./case-studies.md#52-rate-limiter) |
+| 18 | **In-Memory Pub-Sub Broker** | Observer, Queue | Topic-based broadcast, consumer groups, offset tracking | [View Solution](./case-studies.md#53-in-memory-pub-sub-broker) |
+| 19 | **Logger Framework** | Chain of Responsibility, Strategy | Log levels (DEBUG, INFO, ERROR), asynchronous buffer worker | [View Solution](./case-studies.md#54-logger-framework) |
+| 20 | **Delayed Job Scheduler** | PriorityBlockingQueue, Command | Time-based priority scheduling, worker thread pool execution | [View Solution](./case-studies.md#55-delayed-job-scheduler) |
 
 ---
 
 ## 📝 Template Driver Class Structure
 
-When submitting your machine coding solution, provide an interactive or demonstration driver:
+When submitting your machine coding solution, provide an interactive demonstration driver:
 
 ```java
 public class Driver {
@@ -71,4 +64,3 @@ public class Driver {
     }
 }
 ```
-
