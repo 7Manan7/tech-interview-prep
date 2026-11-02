@@ -10,7 +10,7 @@ A complete, production-grade handbook for cracking System Design interviews at t
    - [CAP and PACELC Theorems](#11-cap-and-pacelc-theorems)
    - [Consistency Models & Quorum Tunings](#12-consistency-models--quorum-tunings)
    - [Availability, SLAs & Fault Tolerance](#13-availability-slas--fault-tolerance)
-   - [Back-of-the-Envelope Estimation Framework](#14-back-of-the-envelope-estimation-framework)
+   - [Back-of-the-Envelope Estimation Framework (with Worked Example)](#14-back-of-the-envelope-estimation-framework)
 2. [Networking, APIs & Edge Infrastructure](#2-networking-apis--edge-infrastructure)
    - [Transport Protocols (TCP, UDP, HTTP/1.1, HTTP/2, HTTP/3 QUIC)](#21-transport-protocols)
    - [API Paradigms (REST, gRPC Protobuf, GraphQL)](#22-api-paradigms)
@@ -19,7 +19,7 @@ A complete, production-grade handbook for cracking System Design interviews at t
 3. [Data Storage, Internals & Database Scaling](#3-data-storage-internals--database-scaling)
    - [SQL vs. NoSQL Selection Matrix](#31-sql-vs-nosql-selection-matrix)
    - [Storage Engine Internals (B+ Trees vs. LSM Trees & SSTables)](#32-storage-engine-internals)
-   - [Replication & Sharding Strategies](#33-replication--sharding-strategies)
+   - [Replication & Sharding Strategies (Mitigating Hot Keys)](#33-replication--sharding-strategies)
    - [Specialized Indexing (Elasticsearch, S3, Geospatial, Vector DBs)](#34-specialized-indexing)
 4. [Caching, Consistent Hashing & Performance](#4-caching-consistent-hashing--performance)
    - [Caching Patterns (Cache-Aside, Read/Write-Through, Write-Behind)](#41-caching-patterns)
@@ -28,18 +28,18 @@ A complete, production-grade handbook for cracking System Design interviews at t
 5. [Asynchronous Messaging & Event Streaming](#5-asynchronous-messaging--event-streaming)
    - [Message Queues vs. Append-Only Log Streams](#51-message-queues-vs-append-only-log-streams)
    - [Delivery Semantics & Consumer Idempotency](#52-delivery-semantics--consumer-idempotency)
-   - [Backpressure, DLQs & Fault Handling](#53-backpressure-dlqs--fault-handling)
+   - [Backpressure, DLQs & Exponential Backoff with Jitter](#53-backpressure-dlqs--fault-handling)
 6. [Microservices Coordination, Resilience & Observability](#6-microservices-coordination-resilience--observability)
    - [Distributed Transactions (Saga Pattern, Outbox, CDC)](#61-distributed-transactions)
    - [Distributed Coordination & Unique IDs (Snowflake, Locks with Fencing)](#62-distributed-coordination--unique-ids)
    - [Resilience & Rate Limiting (Circuit Breaker, Bulkhead, Token Bucket)](#63-resilience--rate-limiting)
    - [Observability (Metrics, Tracing, Centralized Logging)](#64-observability)
-7. [Must-Practice HLD System Archetypes](#7-must-practice-hld-system-archetypes)
-   - [Social Feeds & Notifications (Twitter/Instagram, Notification Engine)](#71-social-feeds--notifications)
-   - [Real-Time & Stateful Systems (WhatsApp/Slack, Collaborative Docs, Leaderboard)](#72-real-time--stateful-systems)
-   - [Location & High-Contention Booking (Uber, BookMyShow/Airbnb)](#73-location--high-contention-booking)
-   - [Media & Content Delivery (YouTube/Netflix, TinyURL/Pastebin)](#74-media--content-delivery)
-   - [FinTech & Core Infrastructure (Payment Gateway & Double-Entry Ledger, Crawler, Search Typeahead)](#75-fintech--core-infrastructure)
+7. [Must-Practice HLD System Archetypes (Detailed Solutions)](#7-must-practice-hld-system-archetypes)
+   - [7.1 Social Feeds & Notifications (Twitter/Instagram & Notification Engine)](#71-social-feeds--notifications)
+   - [7.2 Real-Time & Stateful Systems (WhatsApp/Slack, Collaborative Docs, Live Leaderboard)](#72-real-time--stateful-systems)
+   - [7.3 Location & High-Contention Booking (Uber Ride-Sharing & BookMyShow/Airbnb)](#73-location--high-contention-booking)
+   - [7.4 Media & Content Delivery (YouTube/Netflix Streaming & TinyURL/Pastebin)](#74-media--content-delivery)
+   - [7.5 FinTech & Core Infrastructure (Payment Gateway, Web Crawler, Search Typeahead, Rate Limiter)](#75-fintech--core-infrastructure)
 
 ---
 
@@ -74,9 +74,10 @@ CAP only explains behavior **during a partition**. PACELC extends CAP to describ
 
 | System Classification | Description | Typical Examples |
 |---|---|---|
-| **PC/EC** | Consistent on partition; Consistent on normal operation (sacrifices latency for multi-replica sync). | Bigtable, Spanner, HBase |
-| **PA/EL** | Available on partition; Prefers low latency on normal operation (asynchronous replication). | Cassandra, DynamoDB, Riak |
-| **PA/EC** | Available on partition; Consistent on normal operation. | MongoDB (configurable read/write concerns) |
+| **PC/EC** | Consistent on partition; Consistent on normal operation (sacrifices latency for multi-replica sync). | Google Spanner, HBase, Bigtable |
+| **PA/EL** | Available on partition; Prefers low latency on normal operation (asynchronous replication). | Apache Cassandra, Amazon DynamoDB, CouchDB |
+| **PA/EC** | Available on partition; Consistent on normal operation. | MongoDB (with majority write concern) |
+| **PC/EL** | Consistent on partition; Low latency on normal operation. | Megastore |
 
 ---
 
@@ -99,10 +100,14 @@ Strong Consistency Condition (Overlap Guarantee):
                  R + W > N
 
 Example (N = 3):
-- W = 2, R = 2: Strong Consistency (2 + 2 = 4 > 3).
-- W = 3, R = 1: Fast reads, expensive slow writes.
-- W = 1, R = 1: Fast reads & writes, Eventual Consistency (1 + 1 = 2 < 3).
+- W = 2, R = 2: Strong Consistency (2 + 2 = 4 > 3). Overlap guaranteed.
+- W = 3, R = 1: Fast reads, expensive slow writes (write fails if 1 node is down).
+- W = 1, R = 1: Ultra-fast reads & writes, Eventual Consistency (1 + 1 = 2 < 3).
 ```
+
+#### Read Repair & Hinted Handoff
+- **Read Repair:** During a quorum read ($R > 1$), if node versions differ, the coordinator returns the latest timestamp value to the client and asynchronously writes the updated value back to the stale replica.
+- **Hinted Handoff:** If a replica node is unreachable during a write, the coordinator stores a temporary "hint" locally and delivers the write once the target node recovers.
 
 ---
 
@@ -131,7 +136,7 @@ In an interview, execute capacity estimations in **under 3 minutes** using stand
 - $1 \text{ day} \approx 86,400 \text{ s} \approx 10^5 \text{ seconds}$.
 - $1 \text{ Million requests/day} \approx \frac{10^6}{10^5} = 10 \text{ QPS}$.
 - $1 \text{ Billion requests/day} \approx \frac{10^9}{10^5} = 10,000 \text{ QPS}$.
-- **Storage conversions:**
+- **Storage units:**
   - $1 \text{ KB} = 10^3 \text{ bytes}$
   - $1 \text{ MB} = 10^6 \text{ bytes}$
   - $1 \text{ GB} = 10^9 \text{ bytes}$
@@ -151,6 +156,21 @@ In an interview, execute capacity estimations in **under 3 minutes** using stand
 4. **Memory / Cache RAM (80/20 Rule):**
    $$\text{Daily Read Working Set} = \text{Daily Read Volume} \times 0.20$$
    $$\text{RAM Needed} = \text{Daily Read Working Set} \times \text{Retention Window}$$
+
+#### 🎯 Worked Example: Photo Sharing Service (100M DAU)
+- **Assumptions:** 100M DAU, each user views 20 photos/day, uploads 1 photo/day (average photo size = 200 KB, metadata = 500 bytes).
+1. **Traffic:**
+   - Write QPS: $\frac{100\text{M} \times 1}{10^5} = 1,000 \text{ write QPS}$ (Peak = $2,000$).
+   - Read QPS: $\frac{100\text{M} \times 20}{10^5} = 20,000 \text{ read QPS}$ (Peak = $50,000$).
+2. **Bandwidth:**
+   - Ingress: $1,000 \times 200 \text{ KB} = 200 \text{ MB/s}$.
+   - Egress: $20,000 \times 200 \text{ KB} = 4 \text{ GB/s}$ ($32 \text{ Gbps}$ — requires multi-tier CDN caching).
+3. **Storage (5 Years):**
+   - Daily Photos: $100\text{M} \times 200 \text{ KB} = 20 \text{ TB/day}$.
+   - 5-Year Photos: $20 \text{ TB} \times 2000 = 40 \text{ PB}$ on S3.
+   - 5-Year Metadata: $100\text{M} \times 500 \text{ B} \times 2000 = 100 \text{ TB}$ on DB.
+4. **Cache RAM:**
+   - 20% of daily read volume: $20\% \times (20,000 \text{ QPS} \times 10^5 \text{ s} \times 200 \text{ KB}) = 0.2 \times 400 \text{ TB} = 80 \text{ TB RAM}$ (distributed Redis cluster).
 
 ---
 
@@ -183,7 +203,7 @@ flowchart LR
 | **Data Format** | JSON (Text) | Protocol Buffers (Compact Binary) | JSON (Text) |
 | **Network Efficiency** | Moderate (verbose headers, strings) | Extremely High (binary serialization, compressed) | High (eliminates over/under-fetching) |
 | **Streaming** | Request/Response (unidirectional) | Bi-directional streaming native | Subscriptions (over WebSockets) |
-| **Typing** | Optional OpenAPI / Swagger | Strict Contract (.proto schema) | Strict Schema (SDL) |
+| **Typing** | Optional OpenAPI / Swagger | Strict Contract (`.proto` schema) | Strict Schema (SDL) |
 | **Best Used For** | Public client-facing APIs, Web CRUD | Internal microservice-to-microservice RPC | Complex mobile frontends querying nested graphs |
 
 ---
@@ -271,17 +291,13 @@ graph TD
 ### 3.3 Replication & Sharding Strategies
 
 #### Replication Models
-1. **Single-Leader (Primary-Replica):**
-   - All writes go to the Leader; Leader propagates replication log to Read Replicas (synchronously or asynchronously).
-   - Read replicas handle read scaling. Risk of stale reads if replication lag occurs.
-2. **Multi-Leader (Active-Active):**
-   - Multiple datacenters each have a leader accepting writes. Requires conflict resolution (Last-Write-Wins or CRDTs).
-3. **Leaderless (Dynamo-Style):**
-   - Client writes to and reads from multiple peer nodes using Quorum reads and writes ($R + W > N$).
+1. **Single-Leader (Primary-Replica):** All writes go to Leader; Leader replicates to Read Replicas. Stale read risk if replication lag occurs.
+2. **Multi-Leader (Active-Active):** Multiple regions accept writes. Requires conflict resolution (CRDTs or Last-Write-Wins).
+3. **Leaderless (Dynamo-Style):** Quorum reads and writes ($R + W > N$).
 
 #### Sharding Techniques & Hot Key Mitigation
-- **Range-Based Sharding:** Shard keys split by contiguous intervals (e.g., User IDs 1–100K $\to$ Shard 1; 100K–200K $\to$ Shard 2). Easy range queries, but causes hot spots if data is sequentially incrementing.
-- **Hash-Based Sharding:** Shard key hashed: $\text{ShardID} = \text{hash}(\text{key}) \pmod N$. Distributes traffic uniformly across shards, but breaks sequential range queries.
+- **Range-Based Sharding:** Shard keys split by contiguous intervals. Easy range queries, but causes hot spots if data is sequentially incrementing.
+- **Hash-Based Sharding:** $\text{ShardID} = \text{hash}(\text{key}) \pmod N$. Distributes traffic uniformly, but breaks range scans.
 - **Hot Key Salt Mitigation:** When a celebrity user receives millions of concurrent writes/reads, append random salt to the key:
   $$\text{salted\_key} = \text{userId} + \text{"\_"} + \text{random}(1, 20)$$
   Writes distribute evenly across 20 shards. Reads query all 20 partitions and aggregate the results.
@@ -350,11 +366,6 @@ flowchart TD
 
 ### 4.3 Eviction Policies & Consistent Hashing
 
-#### Cache Eviction Algorithms
-- **LRU (Least Recently Used):** Evicts the key that has not been accessed for the longest time (Doubly Linked List + HashMap).
-- **LFU (Least Frequently Used):** Evicts the key with the lowest access count (requires frequency buckets and counters).
-- **FIFO (First-In, First-Out):** Evicts the oldest created key regardless of usage.
-
 #### Consistent Hashing with Virtual Nodes
 Standard modulo hashing ($\text{node} = \text{hash}(\text{key}) \pmod N$) forces remapping of nearly **all keys** when a node is added or removed.
 
@@ -409,7 +420,6 @@ flowchart TD
 Because true distributed systems rely on at-least-once delivery, consumers **must be designed to be idempotent**.
 
 ```sql
--- Pattern 1: Database Unique Constraint Deduplication
 CREATE TABLE processed_events (
     idempotency_key VARCHAR(64) PRIMARY KEY,
     processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -522,67 +532,224 @@ Monitors outbound service calls and transitions across three states:
 
 # 7. Must-Practice HLD System Archetypes
 
+---
+
 ### 7.1 Social Feeds & Notifications
 
-#### Twitter / Instagram News Feed (Hybrid Fan-Out Architecture)
-- **Challenge:** Millions of regular users follow celebrities with 100M+ followers.
-- **Architecture:**
-  - **Regular Users (Fan-Out on Write / Push):** When a user posts, push tweet ID to the timeline Redis cache of all their followers.
-  - **Celebrity Users (Fan-Out on Read / Pull):** For users with $>50,000$ followers, do not push to followers' caches. When a follower opens their feed, pull the celebrity's recent tweets and merge them dynamically into the follower's timeline.
+#### 1. Twitter / Instagram News Feed
+- **Problem Statement:** Design a scalable timeline feed supporting post creation, follower relationships, and home timeline generation for 500M users.
+- **Architectural Bottleneck (Celebrity Problem):**
+  - **Fan-Out on Write (Push):** When User A posts, write Tweet ID to the Redis timeline lists of all followers. Fast reads ($O(1)$), but when a celebrity with 100M followers tweets, the system must perform 100M Redis writes (fan-out storm).
+  - **Fan-Out on Read (Pull):** When User A opens their feed, fetch recent tweets from everyone they follow and merge-sort. Slow reads ($O(N)$ network calls).
+- **Solution (Hybrid Architecture):**
+  - **Regular Users ($<50,000$ followers):** Fan-out on write (push to followers' Redis timelines).
+  - **Celebrity Users ($>50,000$ followers):** Fan-out on read (do not push). When a user requests their feed, fetch the celebrity's tweets and merge them into the cached timeline in memory.
+- **Architecture Diagram:**
+```mermaid
+flowchart TD
+    User([User App]) -->|Post Tweet| API[API Gateway]
+    API --> TweetSvc[Tweet Service]
+    TweetSvc --> DB[(PostgreSQL)]
+    TweetSvc --> Kafka[Kafka Event Bus]
+    Kafka --> FanoutWorker[Fan-Out Workers]
+    FanoutWorker -->|Normal User: Push| RedisCache[(Redis Timeline Cache)]
+    User -->|Get Home Feed| FeedSvc[Feed Aggregator Service]
+    FeedSvc -->|1. Fetch Cached Feed| RedisCache
+    FeedSvc -->|2. Pull Followed Celebrities| DB
+    FeedSvc -->|3. Merge & Rank| User
+```
 
-#### Scalable Notification System
-- **Architecture:** API Gateway $\to$ Notification Orchestrator $\to$ Priority Queue (High: OTP/Verification, Low: Marketing) $\to$ Third-Party Adapters (APNs, FCM, Twilio, SendGrid) with circuit breakers and fallback providers.
+#### 2. Scalable Notification System
+- **Problem Statement:** Dispatch real-time notifications across Push (APNs, FCM), SMS (Twilio), and Email (SendGrid) at 100M notifications/day.
+- **Key Solution Points:**
+  - **Priority Queuing:** Route OTPs and security alerts to a High-Priority Kafka partition with dedicated workers; route marketing blasts to Low-Priority queues.
+  - **User Preference & Rate Limiting:** Enforce user notification settings (Do Not Disturb windows, frequency caps).
+  - **Third-Party Provider Fallback:** Wrap external vendor SDKs with Circuit Breakers; fallback from Twilio to AWS SNS if delivery latency spikes.
 
 ---
 
 ### 7.2 Real-Time & Stateful Systems
 
-#### WhatsApp / Slack Chat System
-- **Architecture:**
-  - Clients maintain persistent **WebSocket** connections to a pool of Chat Gateways.
-  - User-to-Gateway mapping tracked in a distributed Session Store (Redis).
-  - Messages persisted to an append-heavy wide-column store (**Apache Cassandra**).
-  - Group chats managed using Kafka partitioned by `groupId`.
+#### 1. WhatsApp / Slack Chat System
+- **Problem Statement:** Real-time 1-on-1 and group messaging with delivery receipts (Sent, Delivered, Read), presence indicators, and offline sync.
+- **Key Architectural Components:**
+  - **WebSocket Gateway Pool:** Maintains persistent, bi-directional TCP connections with active mobile/desktop clients.
+  - **Session Registry (Redis):** Stores `UserId -> GatewayServerId` mapping to route incoming messages directly to the server holding the recipient's open socket.
+  - **Message Storage (Apache Cassandra):** Wide-column store partitioned by `chat_id`, clustered by `message_id` (Snowflake ID) for high write throughput and chronological range queries.
+  - **Group Messaging:** Handled via Kafka partitioned by `groupId`; workers fan out messages to active member gateways.
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Alice
+    participant WS_A as Gateway A
+    participant Session as Redis Session Store
+    participant WS_B as Gateway B
+    actor Bob
+    participant DB as Cassandra DB
 
-#### Collaborative Documents (Google Docs / Notion)
-- **Mechanism:** Conflict-free Replicated Data Types (**CRDTs**) or **Operational Transformation (OT)** over WebSockets with version vectors to resolve concurrent edits without locks.
+    Alice->>WS_A: Send Message(to: Bob, text: "Hello")
+    WS_A->>DB: Save Message(chatId, msgId, "Hello")
+    WS_A->>Session: Lookup Gateway for Bob
+    Session-->>WS_A: Bob is on Gateway B
+    WS_A->>WS_B: Forward Message via Internal RPC
+    WS_B->>Bob: Deliver via WebSocket
+    Bob-->>WS_B: Send ACK (Delivered)
+    WS_B->>WS_A: Forward ACK
+    WS_A-->>Alice: Update Tick (Double Blue Check)
+```
+
+#### 2. Collaborative Documents (Google Docs / Notion)
+- **Problem Statement:** Multiple concurrent users editing the same rich text document in real time without conflicting overwrites.
+- **Mechanisms:**
+  - **Operational Transformation (OT):** Used by Google Docs. A central server acts as the single source of truth, transforming incoming insert/delete operation offsets against concurrent edits.
+  - **Conflict-free Replicated Data Types (CRDTs):** Used by Figma and Notion. Mathematically guaranteed eventual convergence without a centralized ordering server. Characters assigned unique fractional positional identifiers.
+
+#### 3. Real-Time Leaderboard
+- **Problem Statement:** Real-time game ranking system tracking 10M players, handling 50,000 score updates/sec, displaying Top-100 and surrounding ranks.
+- **Solution (Redis Sorted Sets):**
+  - **Update Score:** `ZINCRBY leaderboard:global 50 "user_123"` ($O(\log N)$).
+  - **Get Top-100:** `ZREVRANGE leaderboard:global 0 99 WITHSCORES` ($O(\log N + K)$).
+  - **Get User Rank:** `ZREVRANK leaderboard:global "user_123"` ($O(\log N)$).
+  - **Partitioning for Scale:** Shard leaderboards by country or game mode; for global aggregation, maintain tiered buckets or read replicas.
 
 ---
 
 ### 7.3 Location & High-Contention Booking
 
-#### Uber Ride-Sharing System
-- **Architecture:**
-  - Drivers stream coordinates every 4 seconds over WebSockets.
-  - Ingest service indexes locations into **Google S2** or **Uber H3** hexagonal hierarchical spatial indices stored in in-memory Redis GEO sets.
-  - Dispatch engine queries adjacent spatial cells in $O(1)$ time to match nearest drivers using Dijkstra ETA estimates.
+#### 1. Uber / Lyft Ride-Sharing System
+- **Problem Statement:** Real-time driver location tracking, spatial matching within radius $R$, surge pricing, and ETA calculation.
+- **Key Solutions:**
+  - **Geospatial Indexing:** Divide the globe into hierarchical spatial tiles using **Google S2** (Hilbert curve) or **Uber H3** (hexagonal grid).
+  - **Location Ingestion:** Drivers stream GPS coordinates every 4 seconds over WebSockets. Ingestion workers update the driver's current H3 cell in Redis GEO / in-memory spatial caches.
+  - **Driver Dispatch:** Given rider location, convert coordinates to H3 Cell ID, query adjacent ring cells, filter available drivers, and dispatch offers using Dijkstra road network ETA.
+```mermaid
+flowchart TD
+    Driver([Driver App]) -->|GPS Ping (every 4s)| WS[WebSocket Gateway]
+    WS --> LocationSvc[Location Ingestion Service]
+    LocationSvc --> RedisGeo[(Redis In-Memory Spatial Index: H3/S2)]
+    Rider([Rider App]) -->|Request Ride| DispatchSvc[Dispatch Matcher]
+    DispatchSvc -->|Query Nearby H3 Hexagons| RedisGeo
+    DispatchSvc --> SurgeSvc[Surge Pricing Engine]
+    DispatchSvc -->|Offer Trip| Driver
+```
 
-#### BookMyShow / Flash Sale System
-- **Architecture:**
-  - Fine-grained distributed seat locks in Redis with temporary TTL (10 minutes).
-  - Pessimistic locking or Optimistic Concurrency Control (`version` check) at DB transaction boundary to prevent double-booking.
+#### 2. BookMyShow / Flash Sale Booking
+- **Problem Statement:** Thousands of concurrent users attempting to book the exact same high-demand concert seats simultaneously. Prevent double-booking.
+- **Solution:**
+  - **Two-Phase Reservation with TTL:**
+    1. **Temporary Seat Lock:** Atomically acquire a lock on the seat in Redis with a 10-minute expiration:
+       `SET show:101:seat:A1 user_456 NX EX 600`
+    2. **Payment Processing:** If lock acquired, proceed to payment gateway.
+    3. **Final Booking:** Inside database transaction, update DB with Optimistic Concurrency Control (`version` column) or `SELECT ... FOR UPDATE` row lock:
+       ```sql
+       UPDATE show_seats SET status = 'BOOKED', version = version + 1
+       WHERE show_id = :showId AND seat_id = :seatId AND status = 'LOCKED' AND version = :version;
+       ```
+    4. **Timeout Handling:** If payment fails or TTL expires, Redis key naturally expires, freeing the seat for other users.
 
 ---
 
 ### 7.4 Media & Content Delivery
 
-#### YouTube / Netflix Video Streaming
-- **Architecture:**
-  - **Upload Pipeline:** Chunked upload to S3 $\to$ Kafka trigger $\to$ Distributed Transcoding DAG (workers convert video into multiple resolutions: 4K, 1080p, 720p across HLS and MPEG-DASH formats).
-  - **Delivery Pipeline:** Adaptive Bitrate Streaming (ABR) served via global multi-tier CDNs caching popular segments at Internet Service Provider (ISP) edge points.
+#### 1. YouTube / Netflix Video Streaming
+- **Problem Statement:** Ingest high-definition video uploads, transcode into multiple resolutions, and deliver globally with minimal buffering.
+- **Solution Architecture:**
+  - **Upload Pipeline:** Client requests presigned S3 URL; performs chunked resumable upload.
+  - **Transcoding Pipeline:** S3 upload triggers an event to Kafka. Distributed transcoding workers (using FFmpeg) execute a Directed Acyclic Graph (DAG) converting raw video into multiple bitrates (4K, 1080p, 720p, 480p) across **HLS** (`.m3u8` master manifest + `.ts` segments) and **MPEG-DASH** formats.
+  - **Streaming Delivery:** Player dynamically switches streams based on client network bandwidth (**Adaptive Bitrate Streaming / ABR**). Media segments cached at regional ISP CDN edge points.
+```mermaid
+flowchart LR
+    Creator([Video Creator]) -->|Resumable Chunked Upload| S3[(Raw S3 Bucket)]
+    S3 -->|ObjectCreated Event| Kafka[Kafka Event Bus]
+    Kafka --> Transcoder[Transcoding Worker DAG]
+    Transcoder -->|HLS / DASH 4K, 1080p, 720p| TargetS3[(Processed S3 Bucket)]
+    TargetS3 --> CDN[Global CDN Edge Points]
+    CDN -->|Adaptive Bitrate Stream| Viewer([Video Viewer App])
+```
 
-#### TinyURL (Distributed URL Shortener)
-- **Architecture:** 64-bit ID generator $\to$ Base62 encoding (`[a-zA-Z0-9]`) producing 7-character aliases. Highly read-heavy ($100:1$ ratio) optimized via multi-layer Redis caching.
+#### 2. TinyURL / Pastebin (High-Read Services)
+- **Problem Statement:** Shorten URLs and store long-form text pastes with configurable expiry. System is read-heavy ($100:1$ read-to-write ratio).
+- **Solution:**
+  - **64-bit ID Generation:** Twitter Snowflake generates a unique 64-bit integer.
+  - **Base62 Encoding:** Convert 64-bit integer into Base62 (`[0-9a-zA-Z]`), producing a 7-character alias (e.g., $62^7 \approx 3.5 \text{ Trillion}$ unique URLs).
+  - **Caching:** Cache top 20% most accessed URLs in Redis; on lookup, return HTTP `302 Found` (preserves analytics tracking) or `301 Moved Permanently` (browser caches redirect).
+  - **Pastebin Storage:** Metadata in PostgreSQL/MongoDB; paste payload ($>1\text{MB}$) stored as immutable blob in S3 with presigned read URLs.
 
 ---
 
 ### 7.5 FinTech & Core Infrastructure
 
-#### Payment Gateway & Digital Wallet
-- **Architecture:**
-  - **Double-Entry Bookkeeping:** Every monetary transaction consists of equal, opposite debit and credit entries; sum of all accounts remains zero.
-  - **Reconciliation Engine:** Asynchronous batch worker comparing internal ledger against external bank settlement files to detect anomalies.
+#### 1. Payment Gateway & Digital Wallet
+- **Problem Statement:** Process monetary transfers between user accounts with strict ACID guarantees, zero money loss, and auditability.
+- **Key Solutions:**
+  - **Double-Entry Bookkeeping:** Money is never created or destroyed. Every transaction consists of balanced debit and credit entries across ledger accounts:
+    $$\sum \text{Debits} - \sum \text{Credits} = 0$$
+  - **Idempotency Key:** Client sends unique `Idempotency-Key` header with every checkout request. Payment service checks idempotency table before initiating charge to prevent double-charging on network timeout retries.
+  - **Reconciliation Engine:** Asynchronous nightly batch process compares internal ledger transactions against external bank settlement files to detect discrepancies.
 
-#### Web Crawler
-- **Architecture:** URL Frontier (Priority Queue + Host Politeness Queues) $\to$ Fetcher Pool $\to$ HTML Parser $\to$ Bloom Filter for URL Deduplication $\to$ S3 Raw Document Store $\to$ Kafka stream for indexing.
+```sql
+-- Double-Entry Ledger Schema
+CREATE TABLE ledger_entries (
+    id VARCHAR(36) PRIMARY KEY,
+    transaction_id VARCHAR(36) NOT NULL,
+    account_id VARCHAR(36) NOT NULL,
+    entry_type VARCHAR(10) NOT NULL, -- DEBIT or CREDIT
+    amount DECIMAL(15, 2) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+```
 
+#### 2. Distributed Web Crawler
+- **Problem Statement:** Crawl 10 billion web pages, extract content, and feed the search indexer while respecting host politeness.
+- **Key Components:**
+  - **URL Frontier:** Dual-queue architecture:
+    - **Priority Queues:** Rank URLs based on PageRank and update frequency.
+    - **Politeness Queues:** Host-based queues enforcing delay between consecutive requests to the same domain (e.g., max 1 req/sec per host).
+  - **Deduplication:** In-memory **Bloom Filter** checks if a URL has already been visited; Document SimHash/MinHash detects near-duplicate page content.
+  - **Storage:** Raw HTML saved to S3; parsed text and links pushed to Kafka for search indexing.
+
+#### 3. Search Typeahead (Autocomplete)
+- **Problem Statement:** Provide real-time top-5 search completions as the user types, with latency $<50\text{ ms}$ at 50,000 QPS.
+- **Solution:**
+  - **Prefix Trie Structure:** Store search phrases in a Trie. To avoid traversing subtrees at runtime, pre-compute and store the **Top-K search phrases directly inside each node**:
+    ```text
+    Node ('c'): top = ["cars", "cat", "canvas"]
+      └── Node ('a'): top = ["cars", "cat", "canvas"]
+            └── Node ('r'): top = ["cars"]
+    ```
+  - **Offline Aggregation:** Log search queries to Kafka; a nightly Apache Spark/Flink job calculates query frequency and rebuilds the serialized Trie snapshots.
+  - **Serving Layer:** In-memory Redis cache storing serialized Top-K results for hot prefixes (`prefix:ca -> ["cars", "cat"]`).
+
+#### 4. Distributed Rate Limiter
+- **Problem Statement:** Protect downstream services from abuse by limiting users to $N$ requests per minute across a distributed cluster of microservices.
+- **Solution (Redis Lua Script - Sliding Window Counter):**
+  Atomic execution in Redis eliminates race conditions without distributed locks:
+
+```lua
+-- Redis Lua Script for Sliding Window Rate Limiting
+-- KEYS[1]: rate_limit:user_123
+-- ARGV[1]: current_timestamp (milliseconds)
+-- ARGV[2]: window_size_in_ms (60000)
+-- ARGV[3]: max_requests (100)
+
+local key = KEYS[1]
+local now = tonumber(ARGV[1])
+local window = tonumber(ARGV[2])
+local limit = tonumber(ARGV[3])
+local clear_before = now - window
+
+-- 1. Remove expired timestamps outside sliding window
+redis.call('ZREMRANGEBYSCORE', key, 0, clear_before)
+
+-- 2. Count requests in current window
+local current_requests = redis.call('ZCARD', key)
+
+if current_requests < limit then
+    -- 3. Add current request timestamp
+    redis.call('ZADD', key, now, now)
+    redis.call('PEXPIRE', key, window)
+    return 1 -- Allowed
+else
+    return 0 -- Rejected (HTTP 429 Too Many Requests)
+end
+```
