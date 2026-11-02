@@ -871,7 +871,8 @@ class Solution {
 Two pointers move inward from both ends, skipping characters that are not letters or digits. Mismatched characters mean the string is not a palindrome.
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -933,7 +934,8 @@ class Solution {
 Because the array is sorted, moving the left pointer up increases the sum and moving the right pointer down decreases it. This converges on the target in one pass.
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -1011,7 +1013,8 @@ class Solution {
 Sorting lets us fix one number and use two pointers on the rest, like Two Sum II. Duplicate values are skipped at every level so each unique triplet appears once.
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -1074,7 +1077,8 @@ class Solution {
 Start with the widest container. Moving the taller line inward can only shrink the width while the height stays capped by the shorter line, so we always move the shorter line.
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -1145,7 +1149,8 @@ Water at each index is limited by the smaller of the tallest bars on its left an
 ---
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -2079,7 +2084,8 @@ class Solution {
 Maintain `left` and `right` pointers and halve the search space at each step by comparing `target` with the element at `mid`.
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -2154,7 +2160,8 @@ class Solution {
 Treat the 2D matrix as a flat 1D sorted array of length $m \times n$. Use standard binary search with coordinate mapping $r = \text{mid} / n$ and $c = \text{mid} \pmod n$.
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -2231,7 +2238,8 @@ class Solution {
 Binary search the answer in the range $[1, \max(\text{piles})]$. For a given speed `mid`, calculate total hours using ceiling division `(pile + mid - 1) / mid`. If valid, try a smaller speed.
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -2299,7 +2307,8 @@ class Solution {
 Compare `nums[mid]` with `nums[right]`. If `nums[mid] > nums[right]`, the minimum lies in the right portion (`left = mid + 1`). Otherwise, the minimum lies at or to the left of `mid` (`right = mid`).
 
 #### 2. Algorithm Walkthrough
-1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, 
+ight = length - 1).
 2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
 3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
 4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
@@ -2377,7 +2386,8 @@ class Solution {
 In any rotated sorted array, dividing at `mid` always leaves at least one sorted half. Determine which half is sorted and check if `target` falls in its range to prune the search space.
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -2472,7 +2482,8 @@ class Solution {
 Store a list of timestamped entries for each key. Since timestamps are monotonically increasing, use binary search to locate the largest timestamp less than or equal to the query timestamp.
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -2563,7 +2574,8 @@ Binary search the partition of the smaller array so that the combined left half 
 ---
 
 #### 2. Algorithm Walkthrough
-1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and 
+ight = length - 1.
 2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
 3. **Search Space Reduction**: Compare 
 ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
@@ -3559,11 +3571,9 @@ class Solution {
 Recursively invert the left and right subtrees, then swap the left and right child pointers for the current node.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: Check if the current `root` is `null`; if so, return `null`.
+2. **Recursive Inversion**: Recursively invert the left and right subtrees (`invertTree(root.right)` and `invertTree(root.left)`).
+3. **Swap Child Pointers**: Assign the inverted right subtree to `root.left` and inverted left subtree to `root.right`, then return `root`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -3627,11 +3637,9 @@ class Solution {
 Use a depth-first search (DFS) post-order traversal to compute the depth of each subtree. The maximum depth of the current subtree is 1 plus the maximum depth of its left and right children.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: If `root == null`, the depth is `0`.
+2. **Recursive Traversal**: Compute `maxDepth(root.left)` and `maxDepth(root.right)` recursively for both subtrees.
+3. **Calculate Height**: Return `1 + Math.max(leftDepth, rightDepth)` representing the current level plus the deeper subtree path.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -3706,11 +3714,9 @@ class Solution {
 At each node, the longest path that has this node as its highest point is the sum of the maximum depths of its left and right subtrees. We maintain a global maximum diameter while recursively computing subtree heights.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: If the current node is `null`, return depth `0`.
+2. **Compute Subtree Depths**: Recursively compute the maximum depth of the left and right subtrees.
+3. **Update Diameter**: At each node, calculate the longest path passing through it (`leftDepth + rightDepth`) and update the global diameter, then return `1 + Math.max(leftDepth, rightDepth)`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -3803,11 +3809,9 @@ class Solution {
 Use a bottom-up DFS approach returning the height of the current subtree if balanced, or -1 if unbalanced. If any subtree is unbalanced, the failure propagates immediately without redundant calculations.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: An empty subtree (`null`) has depth `0` and is balanced.
+2. **Bottom-Up Check**: Recursively compute height of left and right subtrees. If any subtree is unbalanced (returns `-1`), propagate `-1` upwards immediately.
+3. **Balance Evaluation**: If `Math.abs(leftHeight - rightHeight) > 1`, return `-1`. Otherwise, return `1 + Math.max(leftHeight, rightHeight)`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -3880,11 +3884,9 @@ class Solution {
 Recursively compare both trees. If both nodes are null, they match; if only one is null or their values differ, they do not match; otherwise, check both their left subtrees and right subtrees.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: If both `p` and `q` are `null`, return `true`. If only one is `null` or their values differ (`p.val != q.val`), return `false`.
+2. **Recursive Verification**: Recursively check if the left subtrees match (`isSameTree(p.left, q.left)`) and the right subtrees match (`isSameTree(p.right, q.right)`).
+3. **Consolidate**: Return `true` only if both left and right comparisons return `true`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(min(n, m))
@@ -3957,11 +3959,9 @@ class Solution {
 Traverse each node in `root` using DFS; at each node, verify if the subtree rooted there matches `subRoot` completely using an `isSameTree` helper.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Base Case**: If `root == null`, return `false` (an empty tree cannot contain `subRoot`). If `subRoot == null`, return `true`.
+2. **Identity Check**: Check if the current tree rooted at `root` is identical to `subRoot` using a helper `isSameTree(root, subRoot)`.
+3. **Subtree Traversal**: If not identical, recursively check if `subRoot` exists in either the left or right subtrees (`isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)`).
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(m * n) where m and n are node counts of the two trees,
@@ -4041,11 +4041,9 @@ class Solution {
 In a BST, if both `p` and `q` are strictly smaller than the current node, the LCA must reside in the left subtree. If both are strictly greater, it must reside in the right subtree. Otherwise, the current node is the split point and hence the LCA.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Exploit BST Property**: In a BST, all nodes in the left subtree are smaller than `root.val`, and all nodes in the right subtree are greater than `root.val`.
+2. **Directed Traversal**: If both `p.val` and `q.val` are strictly smaller than `root.val`, LCA must be in the left subtree. If both are strictly greater, LCA must be in the right subtree.
+3. **Split Point (LCA Found)**: If one target is on the left and the other on the right, or one of them equals `root.val`, then `root` is the Lowest Common Ancestor.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(h)
@@ -4124,11 +4122,9 @@ class Solution {
 Use breadth-first search (BFS) with a queue. For each level, determine the current queue size, poll all nodes at that level to construct the level's value list, and push their children into the queue.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Queue Initialization**: Use a FIFO queue initialized with `root`. Return an empty list if `root == null`.
+2. **Level-by-Level Processing**: For each level, determine `int levelSize = queue.size()`. Loop `levelSize` times to dequeue nodes, record their values into a level list, and enqueue their non-null children.
+3. **Append Level**: Append each completed level list into the master result list.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4208,11 +4204,9 @@ class Solution {
 Perform a level-order traversal (BFS). At each level, the last node processed in that level's queue iteration corresponds to the rightmost visible node. Add its value to the result list.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Queue Initialization**: Use a BFS queue initialized with `root`. Return an empty list if `root == null`.
+2. **Capture Rightmost Node**: In each level loop of size `levelSize`, the last node processed (index `levelSize - 1`) is the rightmost visible node; append its value to the result list.
+3. **Enqueue Children**: Enqueue each node's left and right children for the subsequent level.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4287,11 +4281,9 @@ class Solution {
 Perform a preorder DFS traversal passing along the maximum node value encountered along the path from the root. If the current node value is at least this maximum, it is a good node; update the maximum and recurse on left and right children.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **DFS Traversal**: Recursively traverse the tree, passing the maximum value encountered so far on the path from the root (`maxSoFar`).
+2. **Evaluate Good Node**: If `node.val >= maxSoFar`, count the node as good (`count = 1`) and update `maxSoFar = Math.max(maxSoFar, node.val)`.
+3. **Recurse Subtrees**: Sum the good nodes from left and right children: `count + dfs(node.left, maxSoFar) + dfs(node.right, maxSoFar)`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4370,11 +4362,9 @@ class Solution {
 Recursively validate each node by enforcing strictly open boundaries `(min, max)`. When traversing left, the current node becomes the upper bound; when traversing right, it becomes the lower bound. Using `Long` bounds prevents integer overflow issues.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Range Bounds**: Track the valid open interval `(min, max)` for each node using `Long.MIN_VALUE` and `Long.MAX_VALUE` to avoid 32-bit overflow.
+2. **Check Current Node**: If `node == null`, return `true`. If `node.val <= min` or `node.val >= max`, return `false`.
+3. **Narrow Interval Recursively**: Validate left subtree with range `(min, node.val)` and right subtree with range `(node.val, max)`.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4454,11 +4444,9 @@ class Solution {
 An in-order traversal of a binary search tree visits nodes in ascending sorted order. By maintaining a counter of nodes visited in-order, we can stop the traversal and record the value once we reach the `k`th node.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Inorder Traversal Property**: An inorder traversal (`Left -> Root -> Right`) of a Binary Search Tree produces strictly ascending sorted values.
+2. **Iterative Stack**: Push all left children onto a stack until reaching the leftmost node.
+3. **Count & Terminate**: Pop nodes from the stack, decrement `k`, and check if `k == 0`. When `k == 0`, return the popped node's value. Otherwise, traverse its right child.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(h + k)
@@ -4538,11 +4526,9 @@ class Solution {
 In preorder traversal, the first unused element is always the current subtree's root. Locating this root in the inorder traversal (using an O(1) hash map lookup) splits the elements into the left subtree and right subtree, which are recursively constructed.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Root Identification**: The first element of `preorder` is always the root of the current subtree.
+2. **Find Split in Inorder**: Locate the root's value in the `inorder` array using a precomputed hash map; elements to the left form the left subtree, and elements to the right form the right subtree.
+3. **Recursive Subtree Construction**: Calculate `leftTreeSize = rootIndex - inStart`. Recursively construct the left child using corresponding subarray bounds, and right child using remaining bounds.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4623,11 +4609,9 @@ class Solution {
 For each node, compute the maximum gain that the left and right subtrees can contribute (clamping negative gains to 0). A full path turning at the current node has sum `node.val + leftGain + rightGain`, which updates the global maximum. The function returns `node.val + max(leftGain, rightGain)` to continue extending the path to the parent.
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Postorder DFS**: At each node, recursively compute the maximum contribution path from its left and right subtrees. Ignore negative contributions by clamping with `Math.max(0, gain)`.
+2. **Update Global Maximum**: Calculate the maximum path sum that bends through the current root: `node.val + leftGain + rightGain`, and update the global max sum.
+3. **Return Single Branch Contribution**: Return `node.val + Math.max(leftGain, rightGain)` to allow parent callers to extend the path.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
@@ -4723,11 +4707,9 @@ Serialize the tree using preorder traversal, writing comma-separated values and 
 ---
 
 #### 2. Algorithm Walkthrough
-1. **Base Case**: Check if the current node is 
-ull; if so, return the identity/base value (e.g.,  , 	rue, or 
-ull).
-2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
-3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+1. **Preorder Serialization**: Traverse the tree using preorder DFS (`Root, Left, Right`). Append node values separated by commas, and encode `null` nodes as `"#"`.
+2. **Deserialization Setup**: Split the serialized string by comma into a queue or token list.
+3. **Reconstruction**: Dequeue tokens sequentially; if token equals `"#"`, return `null`. Otherwise, construct a new `TreeNode` with the token's integer value and recursively construct its left and right children.
 
 #### 3. Complexity Analysis
 - **Time Complexity:** O(n)
