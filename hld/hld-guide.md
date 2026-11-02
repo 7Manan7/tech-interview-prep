@@ -299,7 +299,7 @@ graph TD
 - **Range-Based Sharding:** Shard keys split by contiguous intervals. Easy range queries, but causes hot spots if data is sequentially incrementing.
 - **Hash-Based Sharding:** $\text{ShardID} = \text{hash}(\text{key}) \pmod N$. Distributes traffic uniformly, but breaks range scans.
 - **Hot Key Salt Mitigation:** When a celebrity user receives millions of concurrent writes/reads, append random salt to the key:
-  $$\text{salted\_key} = \text{userId} + \text{"\_"} + \text{random}(1, 20)$$
+  `salted_key = userId + "_" + random(1, 20)`
   Writes distribute evenly across 20 shards. Reads query all 20 partitions and aggregate the results.
 
 ---
@@ -539,7 +539,7 @@ Monitors outbound service calls and transitions across three states:
 #### 1. Twitter / Instagram News Feed
 - **Problem Statement:** Design a scalable timeline feed supporting post creation, follower relationships, and home timeline generation for 500M users.
 - **Architectural Bottleneck (Celebrity Problem):**
-  - **Fan-Out on Write (Push):** When User A posts, write Tweet ID to the Redis timeline lists of all followers. Fast reads ($O(1)$), but when a celebrity with 100M followers tweets, the system must perform 100M Redis writes (fan-out storm).
+  - **Fan-Out on Write (Push):** When User A posts, write Tweet ID to the Redis timeline lists of all followers. Fast reads ( $O(1)$ ), but when a celebrity with 100M followers tweets, the system must perform 100M Redis writes (fan-out storm).
   - **Fan-Out on Read (Pull):** When User A opens their feed, fetch recent tweets from everyone they follow and merge-sort. Slow reads ($O(N)$ network calls).
 - **Solution (Hybrid Architecture):**
   - **Regular Users ($<50,000$ followers):** Fan-out on write (push to followers' Redis timelines).
