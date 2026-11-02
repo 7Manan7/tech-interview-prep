@@ -3689,7 +3689,29 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` of unique elements, return all possible subsets (the power set) without duplicate subsets.
+### Problem Description
+Given an array `nums` of unique integers, return all possible subsets (the power set) of `nums`.
+
+The solution set must not contain duplicate subsets. You may return the solution in any order.
+
+#### Example 1:
+```text
+Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+#### Example 2:
+```text
+Input: nums = [7]
+Output: [[],[7]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10`
+- `-10 <= nums[i] <= 10`
+- All the numbers of `nums` are **unique**.
+
+### Solution
 
 ```java
 import java.util.ArrayList;
@@ -3720,7 +3742,68 @@ class Solution {
 }
 ```
 
-**Explanation:** At each decision point, include the current number in the subset, recursively explore further elements starting at index `i + 1`, and then backtrack by removing the element. Each unique combination visited is copied into the result. Time is O(N * 2^N) and space is O(N) recursion stack space.
+### Detailed Explanation
+
+#### 1. Intuition & State-Space Tree
+A subset (or power set) of a set with $N$ unique elements contains $2^N$ total subsets because every number has two possibilities: **included** or **excluded**. 
+
+Instead of generating combinations randomly, we use a Depth-First Search (DFS) backtracking algorithm that systematically explores combinations in increasing order of index. Each node in the decision tree corresponds to a valid subset:
+
+```text
+                           []
+                /           |           \
+             [1]           [2]          [3]
+           /     \          |
+       [1, 2]   [1, 3]    [2, 3]
+         |
+      [1, 2, 3]
+```
+
+#### 2. Step-by-Step Backtracking Mechanism
+1. **Pre-order Recording**: Upon entering `backtrack(nums, start, current, result)`, `current` represents a newly discovered subset. We append a defensive copy `new ArrayList<>(current)` to `result`. Note that at depth 0, this records the empty set `[]`.
+2. **Forward-Only Branching**: The loop starts at `i = start` and runs to `nums.length - 1`:
+   - **Include**: Append `nums[i]` to `current`.
+   - **Recurse**: Call `backtrack(nums, i + 1, current, result)`. Passing `i + 1` guarantees that future choices are strictly to the right of `nums[i]`. This enforces a canonical order, preventing permutations such as generating both `[1, 2]` and `[2, 1]`.
+   - **Backtrack**: Remove `nums[i]` from the end of `current` (`current.remove(current.size() - 1)`). This restores the state before proceeding to test subsequent elements.
+3. **Base / Termination Condition**: When `start == nums.length`, the loop simply does not execute, returning back up the call stack naturally.
+
+#### 3. Execution Walkthrough (`nums = [1, 2, 3]`)
+- Start with `current = []` $\to$ Snapshot `[]`
+  - Loop `i=0` (`num=1`): Add `1`, `current = [1]` $\to$ Snapshot `[1]`
+    - Loop `i=1` (`num=2`): Add `2`, `current = [1, 2]` $\to$ Snapshot `[1, 2]`
+      - Loop `i=2` (`num=3`): Add `3`, `current = [1, 2, 3]` $\to$ Snapshot `[1, 2, 3]`
+        - Recurse `start=3` (out of bounds) $\to$ return
+      - Remove `3`: `current = [1, 2]`
+    - Remove `2`: `current = [1]`
+    - Loop `i=2` (`num=3`): Add `3`, `current = [1, 3]` $\to$ Snapshot `[1, 3]`
+      - Recurse `start=3` (out of bounds) $\to$ return
+    - Remove `3`: `current = [1]`
+  - Remove `1`: `current = []`
+  - Loop `i=1` (`num=2`): Add `2`, `current = [2]` $\to$ Snapshot `[2]`
+    - Loop `i=2` (`num=3`): Add `3`, `current = [2, 3]` $\to$ Snapshot `[2, 3]`
+      - Recurse `start=3` (out of bounds) $\to$ return
+    - Remove `3`: `current = [2]`
+  - Remove `2`: `current = []`
+  - Loop `i=2` (`num=3`): Add `3`, `current = [3]` $\to$ Snapshot `[3]`
+    - Recurse `start=3` (out of bounds) $\to$ return
+  - Remove `3`: `current = []`
+- **Output:** `[[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]`
+
+#### 4. Alternative Approach: Bit Manipulation
+Every subset of $N$ elements maps directly to a binary integer between $0$ and $2^N - 1$:
+- The $j$-th bit indicates whether `nums[j]` is present.
+- For example, `binary 101` (decimal 5) means elements at index 0 and index 2 are present $\to$ subset `[nums[0], nums[2]]`.
+- For $N \le 10$, iterating an integer mask from $0$ to $(1 \ll N) - 1$ produces all subsets iteratively in $O(N \cdot 2^N)$.
+
+#### 5. Complexity Analysis
+- **Time Complexity:** $O(N \cdot 2^N)$
+  - A set of size $N$ has exactly $2^N$ subsets.
+  - For each subset, copying the elements into `result` takes $O(N)$ operations on average.
+  - Overall runtime is bounded by $O(N \cdot 2^N)$, which for $N \le 10$ is $\le 10 \times 1024 \approx 10^4$ operations (runs in $< 5 \text{ ms}$).
+- **Space Complexity:** $O(N)$ auxiliary space
+  - The recursion stack reaches a maximum depth of $N$.
+  - The temporary `current` list stores at most $N$ elements at any given time.
+  - (Excluding the output storage of size $O(N \cdot 2^N)$).
 
 ## 72. Combination Sum
 

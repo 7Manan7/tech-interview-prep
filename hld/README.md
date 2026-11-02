@@ -1,53 +1,37 @@
 # 🏛️ High-Level Design (HLD) & System Design
 
-High-Level System Design rounds evaluate your ability to design scalable, reliable, highly available, and fault-tolerant distributed architectures for large-scale production applications.
+High-Level System Design rounds evaluate your ability to architect scalable, reliable, highly available, and fault-tolerant distributed systems under real-world traffic, latency, and data constraints.
+
+> 📖 **Full Master Guide**: For comprehensive deep-dives, architectural diagrams, formulas, trade-offs, schemas, and case study solutions, see the **[HLD Distributed Systems Master Guide](./hld-guide.md)**.
 
 ---
 
 ## ⏱️ The 45-Minute System Design Interview Framework
 
-A structured conversation is key to acing HLD interviews. Avoid jumping directly into drawing architecture diagrams.
+A structured, methodical approach is essential for pacing an HLD interview:
 
 ```
-00-05 min: Requirements Clarification (Functional & Non-Functional)
-05-10 min: Capacity Estimation (Traffic, Storage, Bandwidth, Memory)
-10-15 min: API Design & Data Model (Core Entities, Schemas, SQL vs NoSQL)
-15-25 min: High-Level Architecture (Client -> DNS -> CDN -> LB -> Services -> DB/Cache)
-25-35 min: Deep Dive into Critical Components (Bottlenecks, Concurrency, Algorithms)
-35-45 min: Scalability, Fault Tolerance, Failure Modes & Trade-offs
+00-05 min: Requirements Clarification (Functional & Non-Functional, SLAs)
+05-10 min: Capacity Estimation (Traffic QPS, Bandwidth, 5-Year Storage, Cache RAM)
+10-15 min: API Design & Data Model (Core Entities, Schemas, SQL vs. NoSQL)
+15-25 min: High-Level Architecture (Client -> DNS -> CDN -> LB -> Microservices -> DB/Cache)
+25-35 min: Deep Dive into Critical Components (Bottlenecks, Partitioning, Concurrency, Algorithms)
+35-45 min: Scalability, Resilience, Failure Modes & Trade-offs (Saga, Circuit Breaker, Retries)
 ```
 
 ---
 
-## 🧱 Core Distributed Systems Building Blocks
+## 🏛️ The 7 Pillars of Distributed System Design
 
-### 1. CAP Theorem & PACELC
-- In the presence of a network **Partition (P)**, a distributed system must choose between **Consistency (C)** and **Availability (A)**.
-- **PACELC extension:** If there is a Partition (P), how does the system choose between Availability (A) and Consistency (C); Else (E), how does it choose between Latency (L) and Consistency (C)?
-
-### 2. Consistent Hashing
-- Distributes requests across a dynamic pool of cache/DB nodes.
-- Uses a virtual ring ($0$ to $2^{32}-1$) with virtual nodes to minimize data migration when nodes join or leave ($O(K/N)$ keys remapped).
-
-### 3. Caching Strategies
-- **Cache-Aside (Lazy Loading):** Application reads cache first; if miss, reads DB and updates cache.
-- **Write-Through:** Application writes to cache; cache synchronously writes to DB.
-- **Write-Back (Write-Behind):** Application writes to cache; cache asynchronously writes to DB in batches (high throughput, risk of data loss on crash).
-- **Cache Invalidation:** TTL, explicit eviction on update, write-around.
-
-### 4. Database Scaling & Partitioning
-- **Vertical Scaling vs Horizontal Sharding:** Sharding by Hash, Range, or Directory-based.
-- **Replication:** Single-leader (Master-Replica with read replicas), Multi-leader, Leaderless (Quorum read/write: $R + W > N$).
-- **SQL vs NoSQL:**
-  - *Relational (PostgreSQL, MySQL):* Structured schema, ACID compliance, complex joins.
-  - *Document (MongoDB):* Hierarchical, schema-flexible data.
-  - *Key-Value (Redis, DynamoDB):* Fast single-key reads/writes, session storage.
-  - *Wide-Column (Cassandra):* Heavy write throughput, time-series, log ingestion.
-
-### 5. Asynchronous Processing & Messaging
-- **Message Queues (RabbitMQ):** Task queuing, worker queues, point-to-point.
-- **Distributed Streaming Logs (Apache Kafka):** High-throughput, distributed event log with consumer groups, partitioned topics, and offset tracking.
-- **Handling Idempotency:** Utilizing idempotency keys (`UUID` in header) to avoid duplicate payments or actions.
+| # | Pillar | Focus & Key Concepts | Deep Dive |
+|---|---|---|---|
+| 1 | **Distributed Systems Fundamentals** | CAP & PACELC theorems, linearizability vs. eventual consistency, Quorum tunings ($R+W>N$), back-of-the-envelope estimation | [Section 1](./hld-guide.md#1-distributed-systems-fundamentals--trade-offs) |
+| 2 | **Networking, APIs & Edge** | TCP vs. UDP, HTTP/1.1 vs. HTTP/2 vs. HTTP/3 (QUIC), REST vs. gRPC vs. GraphQL, WebSockets/SSE, Anycast DNS, L4 vs. L7 LB | [Section 2](./hld-guide.md#2-networking-apis--edge-infrastructure) |
+| 3 | **Data Storage & Scaling** | SQL vs. NoSQL matrix, B+ Trees vs. LSM Trees & SSTables, Single/Multi-Leader & Leaderless replication, Range/Hash sharding | [Section 3](./hld-guide.md#3-data-storage-internals--database-scaling) |
+| 4 | **Caching & Consistent Hashing** | Cache-Aside, Write-Through, Write-Behind, Cache Stampede/Penetration mitigations, Consistent Hashing rings with virtual nodes | [Section 4](./hld-guide.md#4-caching-consistent-hashing--performance) |
+| 5 | **Messaging & Event Streaming** | Task Queues (RabbitMQ/SQS) vs. Append-only logs (Kafka), At-least-once with idempotent consumers, Backpressure, DLQs | [Section 5](./hld-guide.md#5-asynchronous-messaging--event-streaming) |
+| 6 | **Coordination & Resilience** | Saga pattern (Orchestration/Choreography), Outbox + CDC, Snowflake 64-bit IDs, Circuit Breakers, Rate Limiters, Observability | [Section 6](./hld-guide.md#6-microservices-coordination-resilience--observability) |
+| 7 | **Must-Practice System Archetypes** | Feeds (Twitter), Real-time Chat (WhatsApp), Location Dispatch (Uber), Video Streaming (Netflix), FinTech Ledgers | [Section 7](./hld-guide.md#7-must-practice-hld-system-archetypes) |
 
 ---
 
@@ -55,27 +39,30 @@ A structured conversation is key to acing HLD interviews. Avoid jumping directly
 
 | # | System | Key Architectural Challenges | Core Technologies & Patterns |
 |---|---|---|---|
-| 1 | **URL Shortener (TinyURL)** | Low latency read/write, base62 encoding vs token service, collision handling | Redis Cache, Base62, Distributed ID Generator, NoSQL / RDBMS |
-| 2 | **Distributed Rate Limiter** | Synchronization across clusters, microsecond latency | Redis (`INCR` with TTL, Lua scripts), Token Bucket |
-| 3 | **Chat Application (WhatsApp / Slack)** | Bi-directional communication, presence detection, offline message storage | WebSockets, Cassandra / HBase, Redis Pub/Sub, Kafka |
-| 4 | **Video Streaming (Netflix / YouTube)** | Video transcoding, global low-latency playback, adaptive bitrate streaming | CDN, Chunked upload, HLS / DASH protocols, S3 / Object storage |
-| 5 | **Ride Sharing (Uber / Lyft)** | Geospatial queries, dynamic pricing, real-time driver tracking | QuadTree, Google S2 / Uber H3 spatial index, WebSockets, Redis |
-| 6 | **Flash Sale / Ticket Booking** | Massive burst traffic, inventory overselling prevention | Redis distributed locks, Kafka queue-based order placement, optimistic locking |
-| 7 | **Distributed ID Generator** | Unique, time-sortable 64-bit IDs without coordination | Twitter Snowflake algorithm (Timestamp + Worker ID + Sequence) |
-| 8 | **Web Crawler** | Politeness, deduplication, fault tolerance, massive URL frontier | Bloom Filters, Priority Queues, DFS/BFS with host-based queues, S3 |
+| 1 | **URL Shortener (TinyURL)** | Low-latency read/write, Base62 encoding, 64-bit ID generation | Redis, Base62, Snowflake ID, NoSQL / RDBMS |
+| 2 | **Distributed Rate Limiter** | Synchronized state across clusters, microsecond latency | Redis (`INCR` with TTL, Lua scripts), Token Bucket |
+| 3 | **Chat Application (WhatsApp / Slack)** | Bi-directional communication, presence detection, message ordering | WebSockets, Cassandra / HBase, Redis Pub/Sub, Kafka |
+| 4 | **Video Streaming (Netflix / YouTube)** | Video transcoding DAGs, global edge streaming, adaptive bitrate | CDN, Chunked upload, HLS / DASH protocols, S3 |
+| 5 | **Ride-Sharing (Uber / Lyft)** | Geospatial indexing, dynamic pricing, real-time driver dispatch | Google S2 / Uber H3, Redis GEO, WebSockets |
+| 6 | **Flash Sale / Ticket Booking** | Massive burst traffic, inventory overselling prevention | Redis distributed locks, Kafka queue, optimistic locking |
+| 7 | **Distributed ID Generator** | Unique, time-sortable 64-bit IDs without coordination | Twitter Snowflake (Timestamp + Node ID + Sequence) |
+| 8 | **Web Crawler** | Politeness, deduplication, fault tolerance, massive URL frontier | Bloom Filters, Priority Queues, Host Queues, S3 |
 
 ---
 
-## 📐 Standard Architecture Blueprint
+## 📐 Standard Distributed Architecture Blueprint
 
 ```text
 [ Client (Web/Mobile) ]
           │
           ▼
-   [ DNS / Cloudflare CDN ]
+   [ Anycast DNS / Cloudflare CDN ] (Edge Caching, DDoS Protection)
           │
           ▼
-   [ API Gateway / Load Balancer ] (Nginx / Envoy / AWS ALB)
+   [ L4 Load Balancer (NLB) ] (TCP High-Throughput Routing)
+          │
+          ▼
+   [ API Gateway / L7 LB ] (Envoy / Kong: Auth, Rate Limiting, SSL Termination)
           │
      ┌────┴────────────────────────┬──────────────────────┐
      ▼                             ▼                      ▼
@@ -91,4 +78,3 @@ A structured conversation is key to acing HLD interviews. Avoid jumping directly
                   ▼
          [ Read Replicas ]
 ```
-

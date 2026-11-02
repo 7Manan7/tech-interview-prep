@@ -10,7 +10,7 @@ A curated, comprehensive guide and code repository for cracking Technical Softwa
 | :--- | :--- | :--- |
 | **[🧩 Data Structures & Algorithms (DSA)](./dsa/README.md)** | Problem Solving & LeetCode Patterns | • Complete [NeetCode 150 Java Solutions](./dsa/neetcode150.md) with code & explanations<br>• Two Pointers, Sliding Window, DP, Trees, Graphs |
 | **[📐 Low-Level Design (LLD)](./lld/README.md)** | Object-Oriented Design & Machine Coding | • Complete [LLD Master Guide](./lld/lld-guide.md) (All 7 Pillars with code & schemas)<br>• [Gang of Four Design Patterns](./lld/design-patterns/README.md) & [Implementations](./lld/design-patterns/patterns-guide.md)<br>• [Categorized Case Studies](./lld/problems/README.md) & [Solutions](./lld/problems/case-studies.md) |
-| **[🏛️ High-Level Design (HLD)](./hld/README.md)** | Distributed Systems & Architecture | • System Design Framework & Scaling Strategies<br>• Caching, DB Sharding, Message Queues, CAP Theorem<br>• Case Studies (URL Shortener, Chat App, Ride Sharing, Netflix) |
+| **[🏛️ High-Level Design (HLD)](./hld/README.md)** | Distributed Systems & Architecture | • Complete [HLD Master Guide](./hld/hld-guide.md) (All 7 Pillars with trade-offs & schemas)<br>• Caching, DB Sharding, Consistent Hashing & Kafka<br>• Case Studies (Twitter Feed, Chat, Uber, Netflix, FinTech) |
 | **[☕ Java & Backend Engineering](./java/README.md)** | Language Deep Dive & Concurrency | • Core Java, Collections internals & Java 8–21 features<br>• [Multithreading & Concurrency](./java/concurrency/README.md) (Locks, ThreadPools, Virtual Threads)<br>• [JVM Internals & Performance](./java/jvm/README.md) (Memory Model, GC algorithms, JIT) |
 
 ---
@@ -33,7 +33,8 @@ tech-interview-prep/
 │       ├── README.md             # Categorized problem index & 5 archetypes
 │       └── case-studies.md       # Case studies deep-dive with code & algorithms
 ├── hld/
-│   └── README.md                 # System design framework, components & case studies
+│   ├── README.md                 # System design framework, 7 pillars & component matrix
+│   └── hld-guide.md              # Complete 7-pillar distributed systems master guide
 └── java/
     ├── README.md                 # Java overview & core concepts
     ├── core-java/                # Collections, OOP concepts, Memory & Streams
