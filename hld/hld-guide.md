@@ -607,9 +607,9 @@ sequenceDiagram
 #### 3. Real-Time Leaderboard
 - **Problem Statement:** Real-time game ranking system tracking 10M players, handling 50,000 score updates/sec, displaying Top-100 and surrounding ranks.
 - **Solution (Redis Sorted Sets):**
-  - **Update Score:** `ZINCRBY leaderboard:global 50 "user_123"` ($O(\log N)$).
-  - **Get Top-100:** `ZREVRANGE leaderboard:global 0 99 WITHSCORES` ($O(\log N + K)$).
-  - **Get User Rank:** `ZREVRANK leaderboard:global "user_123"` ($O(\log N)$).
+  - **Update Score:** `ZINCRBY leaderboard:global 50 "user_123"` ( $O(\log N)$ ).
+  - **Get Top-100:** `ZREVRANGE leaderboard:global 0 99 WITHSCORES` ( $O(\log N + K)$ ).
+  - **Get User Rank:** `ZREVRANK leaderboard:global "user_123"` ( $O(\log N)$ ).
   - **Partitioning for Scale:** Shard leaderboards by country or game mode; for global aggregation, maintain tiered buckets or read replicas.
 
 ---
@@ -624,13 +624,13 @@ sequenceDiagram
   - **Driver Dispatch:** Given rider location, convert coordinates to H3 Cell ID, query adjacent ring cells, filter available drivers, and dispatch offers using Dijkstra road network ETA.
 ```mermaid
 flowchart TD
-    Driver([Driver App]) -->|GPS Ping (every 4s)| WS[WebSocket Gateway]
-    WS --> LocationSvc[Location Ingestion Service]
-    LocationSvc --> RedisGeo[(Redis In-Memory Spatial Index: H3/S2)]
-    Rider([Rider App]) -->|Request Ride| DispatchSvc[Dispatch Matcher]
-    DispatchSvc -->|Query Nearby H3 Hexagons| RedisGeo
-    DispatchSvc --> SurgeSvc[Surge Pricing Engine]
-    DispatchSvc -->|Offer Trip| Driver
+    Driver["Driver App"] -->|"GPS Ping (every 4s)"| WS["WebSocket Gateway"]
+    WS --> LocationSvc["Location Ingestion Service"]
+    LocationSvc --> RedisGeo[("Redis In-Memory Spatial Index: H3/S2")]
+    Rider["Rider App"] -->|"Request Ride"| DispatchSvc["Dispatch Matcher"]
+    DispatchSvc -->|"Query Nearby H3 Hexagons"| RedisGeo
+    DispatchSvc --> SurgeSvc["Surge Pricing Engine"]
+    DispatchSvc -->|"Offer Trip"| Driver
 ```
 
 #### 2. BookMyShow / Flash Sale Booking
