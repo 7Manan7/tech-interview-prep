@@ -216,8 +216,26 @@ Each problem includes a short description, a Java solution, a `main` method with
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums`, return `true` if any value appears at least twice, otherwise return `false`.
+### Problem Description
+Given an integer array `nums`, return `true` if any value appears at least twice, otherwise return `false`.
 
+#### Example 1:
+```text
+Input: nums = [1, 2, 3, 1]
+Output: true
+```
+
+#### Example 2:
+```text
+Input: nums = [1, 2, 3, 4]
+Output: false
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -238,14 +256,45 @@ class Solution {
 }
 ```
 
-**Explanation:** A `HashSet` tracks values seen so far. `add` returns `false` when the value already exists, which means a duplicate. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A `HashSet` tracks values seen so far. `add` returns `false` when the value already exists, which means a duplicate.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 2. Valid Anagram
 
 [Back to Index](#index)
 
-**Problem:** Given strings `s` and `t`, return `true` if `t` is an anagram of `s`.
+### Problem Description
+Given strings `s` and `t`, return `true` if `t` is an anagram of `s`.
 
+#### Example 1:
+```text
+Input: s = "anagram", t = "nagaram"
+Output: true
+```
+
+#### Example 2:
+```text
+Input: s = "rat", t = "car"
+Output: false
+```
+
+#### Constraints:
+- `1 <= s.length, t.length <= 10^5`
+- `s` and `t` consist of lowercase English letters.
+
+### Solution
 ```java
 class Solution {
     public boolean isAnagram(String s, String t) {
@@ -269,14 +318,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Increment counts for characters in `s` and decrement for characters in `t`. If the two strings are anagrams, every count ends at zero. Time is O(n) and space is O(1) since the alphabet is fixed at 26 letters.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Increment counts for characters in `s` and decrement for characters in `t`. If the two strings are anagrams, every count ends at zero.
+
+#### 2. Algorithm Walkthrough
+1. **Frequency Tracking**: Initialize a fixed-size frequency array of size 26 for English lowercase letters.
+2. **Single Pass Counting**: Traverse each character in the string(s), incrementing or decrementing corresponding frequency buckets in constant time.
+3. **Verification**: Scan the frequency array; if all character counts are balanced (equal to zero), the condition is satisfied.
+4. **Result**: Return true if frequencies match, otherwise false.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) since the alphabet is fixed at 26 letters
 
 ## 3. Two Sum
 
 [Back to Index](#index)
 
-**Problem:** Given `nums` and a `target`, return indices of the two numbers that add up to `target`.
+### Problem Description
+Given `nums` and a `target`, return indices of the two numbers that add up to `target`.
 
+#### Example 1:
+```text
+Input: nums = [2, 7, 11, 15], target = 9
+Output: [0, 1]
+```
+
+#### Example 2:
+```text
+Input: nums = [3, 2, 4], target = 6
+Output: [1, 2]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -301,14 +382,39 @@ class Solution {
 }
 ```
 
-**Explanation:** For each number, compute the complement needed to reach the target and check whether it was already seen. The map stores value to index. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+For each number, compute the complement needed to reach the target and check whether it was already seen. The map stores value to index.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 4. Group Anagrams
 
 [Back to Index](#index)
 
-**Problem:** Given an array of strings, group the anagrams together.
+### Problem Description
+Given an array of strings, group the anagrams together.
 
+#### Example 1:
+```text
+Input: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+Output: [[bat], [nat, tan], [ate, eat, tea]] (order of groups may vary)
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -332,14 +438,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Anagrams have identical sorted characters, so the sorted string works as a key. Time is O(n * k log k) where k is the maximum string length, and space is O(n * k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Anagrams have identical sorted characters, so the sorted string works as a key.
+
+#### 2. Algorithm Walkthrough
+1. **Frequency Tracking**: Initialize a fixed-size frequency array of size 26 for English lowercase letters.
+2. **Single Pass Counting**: Traverse each character in the string(s), incrementing or decrementing corresponding frequency buckets in constant time.
+3. **Verification**: Scan the frequency array; if all character counts are balanced (equal to zero), the condition is satisfied.
+4. **Result**: Return true if frequencies match, otherwise false.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n * k log k) where k is the maximum string length,
+- **Space Complexity:** O(n * k)
 
 ## 5. Top K Frequent Elements
 
 [Back to Index](#index)
 
-**Problem:** Given `nums` and `k`, return the `k` most frequent elements.
+### Problem Description
+Given `nums` and `k`, return the `k` most frequent elements.
 
+#### Example 1:
+```text
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Output: [1, 2]
+```
+
+#### Example 2:
+```text
+Input: nums = [1], k = 1
+Output: [1]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `1 <= k <= nums.length`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -376,14 +514,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Count frequencies, then use bucket sort, where the index is the frequency. Walking buckets from high to low frequency collects the top k. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Count frequencies, then use bucket sort, where the index is the frequency. Walking buckets from high to low frequency collects the top k.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 6. Encode and Decode Strings
 
 [Back to Index](#index)
 
-**Problem:** Design an algorithm to encode a list of strings into one string and decode it back, so that it works for any characters.
+### Problem Description
+Design an algorithm to encode a list of strings into one string and decode it back, so that it works for any characters.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -419,14 +582,44 @@ class Codec {
 }
 ```
 
-**Explanation:** Prefixing each string with its length lets the decoder know exactly how many characters to read, so delimiters inside the strings do not cause problems. Time is O(total characters) and space is O(total characters).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Prefixing each string with its length lets the decoder know exactly how many characters to read, so delimiters inside the strings do not cause problems.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(total characters)
+- **Space Complexity:** O(total characters)
 
 ## 7. Product of Array Except Self
 
 [Back to Index](#index)
 
-**Problem:** Return an array where each element equals the product of all other elements, without using division.
+### Problem Description
+Return an array where each element equals the product of all other elements, without using division.
 
+#### Example 1:
+```text
+Input: nums = [1, 2, 3, 4]
+Output: [24, 12, 8, 6]
+```
+
+#### Example 2:
+```text
+Input: nums = [-1, 1, 0, -3, 3]
+Output: [0, 0, 9, 0, 0]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -458,14 +651,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Prefix products fill the result in a left-to-right pass, and suffix products are multiplied in during a right-to-left pass with a running variable. Time is O(n) and extra space is O(1), not counting the output array.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Prefix products fill the result in a left-to-right pass, and suffix products are multiplied in during a right-to-left pass with a running variable. Time is O(n) and extra space is O(1), not counting the output array.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 8. Valid Sudoku
 
 [Back to Index](#index)
 
-**Problem:** Determine whether a 9x9 Sudoku board is valid. Only the filled cells need to be validated. Digits `1-9` must appear at most once per row, column, and 3x3 box.
+### Problem Description
+Determine whether a 9x9 Sudoku board is valid. Only the filled cells need to be validated. Digits `1-9` must appear at most once per row, column, and 3x3 box.
 
+#### Example 1:
+```text
+Input: board = board
+Output: true
+```
+
+#### Example 2:
+```text
+Input: board = board
+Output: false
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -507,14 +730,45 @@ class Solution {
 }
 ```
 
-**Explanation:** A single `HashSet` stores strings describing each digit's presence in a row, column, or box. If any string is already present, the board is invalid. The board is always 9x9, so time and space are both O(1) in practice.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A single `HashSet` stores strings describing each digit's presence in a row, column, or box. If any string is already present, the board is invalid. The board is always 9x9, so time and space are both O(1) in practice.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 9. Longest Consecutive Sequence
 
 [Back to Index](#index)
 
-**Problem:** Given an unsorted array, return the length of the longest consecutive sequence of integers. The solution must run in O(n) time.
+### Problem Description
+Given an unsorted array, return the length of the longest consecutive sequence of integers. The solution must run in O(n) time.
 
+#### Example 1:
+```text
+Input: nums = [100, 4, 200, 1, 3, 2]
+Output: 4
+```
+
+#### Example 2:
+```text
+Input: nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+Output: 9
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -543,9 +797,23 @@ class Solution {
 }
 ```
 
-**Explanation:** Putting numbers in a set allows O(1) lookups. Each sequence is only walked from its smallest element (the one where `num - 1` is absent), so every number is visited a constant number of times. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Putting numbers in a set allows O(1) lookups. Each sequence is only walked from its smallest element (the one where `num - 1` is absent), so every number is visited a constant number of times. Time is O(n) and space is O(n).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Two Pointers
 
@@ -553,8 +821,26 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Return `true` if a string is a palindrome after converting to lowercase and ignoring non-alphanumeric characters.
+### Problem Description
+Return `true` if a string is a palindrome after converting to lowercase and ignoring non-alphanumeric characters.
 
+#### Example 1:
+```text
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+```
+
+#### Example 2:
+```text
+Input: s = "race a car"
+Output: false
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public boolean isPalindrome(String s) {
@@ -579,14 +865,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Two pointers move inward from both ends, skipping characters that are not letters or digits. Mismatched characters mean the string is not a palindrome. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Two pointers move inward from both ends, skipping characters that are not letters or digits. Mismatched characters mean the string is not a palindrome.
+
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 11. Two Sum II - Input Array Is Sorted
 
 [Back to Index](#index)
 
-**Problem:** Given a sorted array `numbers` and a `target`, return the 1-indexed positions of two numbers that add up to `target`.
+### Problem Description
+Given a sorted array `numbers` and a `target`, return the 1-indexed positions of two numbers that add up to `target`.
 
+#### Example 1:
+```text
+Input: numbers = [2, 7, 11, 15], target = 9
+Output: [1, 2]
+```
+
+#### Example 2:
+```text
+Input: numbers = [2, 3, 4], target = 6
+Output: [1, 3]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -610,14 +927,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Because the array is sorted, moving the left pointer up increases the sum and moving the right pointer down decreases it. This converges on the target in one pass. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Because the array is sorted, moving the left pointer up increases the sum and moving the right pointer down decreases it. This converges on the target in one pass.
+
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 12. 3Sum
 
 [Back to Index](#index)
 
-**Problem:** Return all unique triplets `[a, b, c]` in `nums` such that `a + b + c == 0`.
+### Problem Description
+Return all unique triplets `[a, b, c]` in `nums` such that `a + b + c == 0`.
 
+#### Example 1:
+```text
+Input: nums = [-1, 0, 1, 2, -1, -4]
+Output: [[-1, -1, 2], [-1, 0, 1]]
+```
+
+#### Example 2:
+```text
+Input: nums = [0, 1, 1]
+Output: []
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -657,14 +1005,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Sorting lets us fix one number and use two pointers on the rest, like Two Sum II. Duplicate values are skipped at every level so each unique triplet appears once. Time is O(n^2) and space is O(1) beyond the output (ignoring sort overhead).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sorting lets us fix one number and use two pointers on the rest, like Two Sum II. Duplicate values are skipped at every level so each unique triplet appears once.
+
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^2)
+- **Space Complexity:** O(1) beyond the output (ignoring sort overhead)
 
 ## 13. Container With Most Water
 
 [Back to Index](#index)
 
-**Problem:** Given heights of vertical lines, find two lines that together with the x-axis form a container holding the most water.
+### Problem Description
+Given heights of vertical lines, find two lines that together with the x-axis form a container holding the most water.
 
+#### Example 1:
+```text
+Input: height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+Output: 49
+```
+
+#### Example 2:
+```text
+Input: height = [1, 1]
+Output: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int maxArea(int[] height) {
@@ -689,14 +1068,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Start with the widest container. Moving the taller line inward can only shrink the width while the height stays capped by the shorter line, so we always move the shorter line. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Start with the widest container. Moving the taller line inward can only shrink the width while the height stays capped by the shorter line, so we always move the shorter line.
+
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 14. Trapping Rain Water
 
 [Back to Index](#index)
 
-**Problem:** Given an elevation map, compute how much rain water can be trapped after raining.
+### Problem Description
+Given an elevation map, compute how much rain water can be trapped after raining.
 
+#### Example 1:
+```text
+Input: height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+Output: 6
+```
+
+#### Example 2:
+```text
+Input: height = [4, 2, 0, 3, 2, 5]
+Output: 9
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int trap(int[] height) {
@@ -727,10 +1137,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Water at each index is limited by the smaller of the tallest bars on its left and right. Processing from whichever side is currently lower means that side's max is already the binding constraint, so one pass with two pointers is enough. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Water at each index is limited by the smaller of the tallest bars on its left and right. Processing from whichever side is currently lower means that side's max is already the binding constraint, so one pass with two pointers is enough. Time is O(n) and space is O(1).
 
 ---
 
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 
 # Sliding Window
@@ -739,8 +1161,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an array `prices` where `prices[i]` is the price of a given stock on the `i`th day, find the maximum profit you can achieve from a single buy and sell transaction. If no profit can be achieved, return `0`.
+### Problem Description
+Given an array `prices` where `prices[i]` is the price of a given stock on the `i`th day, find the maximum profit you can achieve from a single buy and sell transaction. If no profit can be achieved, return `0`.
 
+#### Example 1:
+```text
+Input: prices = prices
+Output: Expected: 5
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -764,14 +1198,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Track the minimum purchase price seen so far and calculate profit at each day, updating the maximum profit. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Track the minimum purchase price seen so far and calculate profit at each day, updating the maximum profit.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 16. Longest Substring Without Repeating Characters
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s`, find the length of the longest substring without duplicate characters.
+### Problem Description
+Given a string `s`, find the length of the longest substring without duplicate characters.
 
+#### Example 1:
+```text
+Input: s = "abcabcbb"
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -798,14 +1256,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a sliding window with a hash map storing the most recent index of each character, advancing the left boundary when duplicates are encountered. Time is O(n) and space is O(min(m, n)) where m is the character set size.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a sliding window with a hash map storing the most recent index of each character, advancing the left boundary when duplicates are encountered.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(min(m, n)) where m is the character set size
 
 ## 17. Longest Repeating Character Replacement
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s` and an integer `k`, return the length of the longest substring containing the same letter you can achieve after choosing at most `k` characters and replacing them with any other uppercase English character.
+### Problem Description
+Given a string `s` and an integer `k`, return the length of the longest substring containing the same letter you can achieve after choosing at most `k` characters and replacing them with any other uppercase English character.
 
+#### Example 1:
+```text
+Input: s = "AABABBA", k = 1
+Output: Expected: 4
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public int characterReplacement(String s, int k) {
@@ -829,14 +1312,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain a sliding window and track the count of the most frequent character; if the window size minus the max frequency exceeds `k`, shrink the window from the left. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain a sliding window and track the count of the most frequent character; if the window size minus the max frequency exceeds `k`, shrink the window from the left.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 18. Permutation in String
 
 [Back to Index](#index)
 
-**Problem:** Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
+### Problem Description
+Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
 
+#### Example 1:
+```text
+Input: s1 = "ab", s2 = "eidbaooo"
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -866,14 +1373,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Slide a fixed-size window of length `s1.length()` across `s2` and compare character frequency arrays. Time is O(n2) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Slide a fixed-size window of length `s1.length()` across `s2` and compare character frequency arrays.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n2)
+- **Space Complexity:** O(1)
 
 ## 19. Minimum Window Substring
 
 [Back to Index](#index)
 
-**Problem:** Given two strings `s` and `t`, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If no such substring exists, return `""`.
+### Problem Description
+Given two strings `s` and `t`, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If no such substring exists, return `""`.
 
+#### Example 1:
+```text
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: Expected: "BANC"
+```
+
+#### Constraints:
+- `1 <= s.length, t.length <= 10^5`
+- `s` and `t` consist of lowercase English letters.
+
+### Solution
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -919,14 +1450,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Expand a sliding window until all characters of `t` are covered, then contract from the left to find the minimal valid window. Time is O(m + n) and space is O(m + n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Expand a sliding window until all characters of `t` are covered, then contract from the left to find the minimal valid window.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m + n)
+- **Space Complexity:** O(m + n)
 
 ## 20. Sliding Window Maximum
 
 [Back to Index](#index)
 
-**Problem:** Given an array of integers `nums` and a sliding window of size `k` moving from left to right, return the max sliding window.
+### Problem Description
+Given an array of integers `nums` and a sliding window of size `k` moving from left to right, return the max sliding window.
 
+#### Example 1:
+```text
+Input: nums = nums, k = 3
+Output: Expected: [3, 3, 5, 5, 6, 7]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `1 <= k <= nums.length`
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -962,10 +1519,24 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a monotonic decreasing deque to store indices of potential maxima within the current window of size `k`. Time is O(n) and space is O(k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a monotonic decreasing deque to store indices of potential maxima within the current window of size `k`. Time is O(n) and space is O(k).
 
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Stack
 
@@ -973,8 +1544,26 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
+### Problem Description
+Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 
+#### Example 1:
+```text
+Input: s = "()[]{]"
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: s = "(]"
+Output: Expected: false
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -999,14 +1588,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Push expected closing brackets onto a stack when opening brackets appear, and verify that actual closing brackets match the stack top. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Push expected closing brackets onto a stack when opening brackets appear, and verify that actual closing brackets match the stack top.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 22. Min Stack
 
 [Back to Index](#index)
 
-**Problem:** Design a stack that supports `push`, `pop`, `top`, and retrieving the minimum element in constant time.
+### Problem Description
+Design a stack that supports `push`, `pop`, `top`, and retrieving the minimum element in constant time.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: -3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -1054,14 +1668,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use an auxiliary stack to keep track of the minimum value seen so far for each element in the primary stack. Time is O(1) for all operations and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use an auxiliary stack to keep track of the minimum value seen so far for each element in the primary stack.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1) for all operations
+- **Space Complexity:** O(n)
 
 ## 23. Evaluate Reverse Polish Notation
 
 [Back to Index](#index)
 
-**Problem:** Evaluate the value of an arithmetic expression in Reverse Polish Notation given an array of string tokens representing valid operators (`+`, `-`, `*`, `/`) and integers.
+### Problem Description
+Evaluate the value of an arithmetic expression in Reverse Polish Notation given an array of string tokens representing valid operators (`+`, `-`, `*`, `/`) and integers.
 
+#### Example 1:
+```text
+Input: tokens = tokens
+Output: Expected: 9
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -1105,14 +1744,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a stack to hold operands, popping the top two operands to apply each operator and pushing the result back. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a stack to hold operands, popping the top two operands to apply each operator and pushing the result back.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 24. Generate Parentheses
 
 [Back to Index](#index)
 
-**Problem:** Given `n` pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+### Problem Description
+Given `n` pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
+#### Example 1:
+```text
+Input: n = 3
+Output: Expected: [((())), (()()), (())(), ()(()), ()()()]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -1148,14 +1812,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Use backtracking to recursively place opening parentheses while `open < n` and closing parentheses while `close < open`. Time is O(4^n / sqrt(n)) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use backtracking to recursively place opening parentheses while `open < n` and closing parentheses while `close < open`.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(4^n / sqrt(n))
+- **Space Complexity:** O(n)
 
 ## 25. Daily Temperatures
 
 [Back to Index](#index)
 
-**Problem:** Given an array of integers `temperatures` representing daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the `i`th day to get a warmer temperature. If there is no future day for which this is possible, keep `answer[i] == 0`.
+### Problem Description
+Given an array of integers `temperatures` representing daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the `i`th day to get a warmer temperature. If there is no future day for which this is possible, keep `answer[i] == 0`.
 
+#### Example 1:
+```text
+Input: temperatures = temps
+Output: Expected: [1, 1, 4, 2, 1, 1, 0, 0]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -1185,14 +1873,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain a monotonic decreasing stack of day indices, popping previous days when a warmer day is encountered to calculate waiting distances. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain a monotonic decreasing stack of day indices, popping previous days when a warmer day is encountered to calculate waiting distances.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 26. Car Fleet
 
 [Back to Index](#index)
 
-**Problem:** There are `n` cars at given `position` and `speed` traveling along a one-lane road toward a destination `target`. A car can never pass another car ahead of it. Return the number of car fleets that arrive at the destination.
+### Problem Description
+There are `n` cars at given `position` and `speed` traveling along a one-lane road toward a destination `target`. A car can never pass another car ahead of it. Return the number of car fleets that arrive at the destination.
 
+#### Example 1:
+```text
+Input: target = target, position = position, speed = speed
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -1227,14 +1940,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort cars by initial position descending and calculate arrival time to target; a car behind that arrives faster joins the fleet ahead. Time is O(n log n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort cars by initial position descending and calculate arrival time to target; a car behind that arrives faster joins the fleet ahead.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
 
 ## 27. Largest Rectangle in Histogram
 
 [Back to Index](#index)
 
-**Problem:** Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return the area of the largest rectangle in the histogram.
+### Problem Description
+Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return the area of the largest rectangle in the histogram.
 
+#### Example 1:
+```text
+Input: heights = heights
+Output: Expected: 10
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -1265,9 +2002,23 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a monotonic increasing stack to track bar indices; when a shorter bar is encountered, calculate rectangle areas for bars in the stack using the popped bar's height. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a monotonic increasing stack to track bar indices; when a shorter bar is encountered, calculate rectangle areas for bars in the stack using the popped bar's height. Time is O(n) and space is O(n).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Stack**: Use a stack data structure to maintain elements or indices in order.
+2. **Monotonic Invariant Check**: While the stack is not empty and the current element resolves or violates the top element's condition, pop and process.
+3. **Push & Continue**: Push the current element onto the stack to establish the new candidate boundary.
+4. **Final Flush**: Return the accumulated result or check stack emptiness.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Binary Search
 
@@ -1275,8 +2026,27 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, return its index; otherwise, return `-1`.
+### Problem Description
+Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, return its index; otherwise, return `-1`.
 
+#### Example 1:
+```text
+Input: nums = nums, target = 9
+Output: Expected: 4
+```
+
+#### Example 2:
+```text
+Input: nums = nums, target = 2
+Output: Expected: -1
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int search(int[] nums, int target) {
@@ -1303,14 +2073,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain `left` and `right` pointers and halve the search space at each step by comparing `target` with the element at `mid`. Time is O(log n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain `left` and `right` pointers and halve the search space at each step by comparing `target` with the element at `mid`.
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
 
 ## 29. Search a 2D Matrix
 
 [Back to Index](#index)
 
-**Problem:** You are given an `m x n` integer matrix `matrix` with each row sorted in non-decreasing order and the first integer of each row greater than the last integer of the previous row. Given an integer `target`, return `true` if `target` is in `matrix` or `false` otherwise in $O(\log(m \cdot n))$ time.
+### Problem Description
+You are given an `m x n` integer matrix `matrix` with each row sorted in non-decreasing order and the first integer of each row greater than the last integer of the previous row. Given an integer `target`, return `true` if `target` is in `matrix` or `false` otherwise in $O(\log(m \cdot n))$ time.
 
+#### Example 1:
+```text
+Input: matrix = matrix, target = 3
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: matrix = matrix, target = 13
+Output: Expected: false
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -1346,14 +2148,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Treat the 2D matrix as a flat 1D sorted array of length $m \times n$. Use standard binary search with coordinate mapping $r = \text{mid} / n$ and $c = \text{mid} \pmod n$. Time is O(log(m * n)) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Treat the 2D matrix as a flat 1D sorted array of length $m \times n$. Use standard binary search with coordinate mapping $r = \text{mid} / n$ and $c = \text{mid} \pmod n$.
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log(m * n))
+- **Space Complexity:** O(1)
 
 ## 30. Koko Eating Bananas
 
 [Back to Index](#index)
 
-**Problem:** Koko loves to eat bananas. There are `n` piles of bananas, the $i$-th pile has `piles[i]` bananas. Guards will return in `h` hours. Return the minimum integer `k` such that she can eat all the bananas within `h` hours.
+### Problem Description
+Koko loves to eat bananas. There are `n` piles of bananas, the $i$-th pile has `piles[i]` bananas. Guards will return in `h` hours. Return the minimum integer `k` such that she can eat all the bananas within `h` hours.
 
+#### Example 1:
+```text
+Input: piles = piles1, h = 8
+Output: Expected: 4
+```
+
+#### Example 2:
+```text
+Input: piles = piles2, h = 5
+Output: Expected: 30
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
@@ -1391,14 +2225,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Binary search the answer in the range $[1, \max(\text{piles})]$. For a given speed `mid`, calculate total hours using ceiling division `(pile + mid - 1) / mid`. If valid, try a smaller speed. Time is O(n * log(max(piles))) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Binary search the answer in the range $[1, \max(\text{piles})]$. For a given speed `mid`, calculate total hours using ceiling division `(pile + mid - 1) / mid`. If valid, try a smaller speed.
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n * log(max(piles)))
+- **Space Complexity:** O(1)
 
 ## 31. Find Minimum in Rotated Sorted Array
 
 [Back to Index](#index)
 
-**Problem:** Suppose an array of length `n` sorted in ascending order is rotated between `1` and `n` times. Given the sorted rotated array `nums` of unique elements, return the minimum element of this array.
+### Problem Description
+Suppose an array of length `n` sorted in ascending order is rotated between `1` and `n` times. Given the sorted rotated array `nums` of unique elements, return the minimum element of this array.
 
+#### Example 1:
+```text
+Input: nums = nums1
+Output: Expected: 1
+```
+
+#### Example 2:
+```text
+Input: nums = nums2
+Output: Expected: 0
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int findMin(int[] nums) {
@@ -1427,14 +2293,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Compare `nums[mid]` with `nums[right]`. If `nums[mid] > nums[right]`, the minimum lies in the right portion (`left = mid + 1`). Otherwise, the minimum lies at or to the left of `mid` (`right = mid`). Time is O(log n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Compare `nums[mid]` with `nums[right]`. If `nums[mid] > nums[right]`, the minimum lies in the right portion (`left = mid + 1`). Otherwise, the minimum lies at or to the left of `mid` (`right = mid`).
+
+#### 2. Algorithm Walkthrough
+1. **Boundary Pointers**: Initialize two pointers at opposing ends of the array or search space (left = 0, ight = length - 1).
+2. **Evaluate Invariant**: Compare the values at both pointers against the problem condition.
+3. **Shrink Search Space**: Greedily advance the left pointer or decrement the right pointer to find optimal candidates.
+4. **Termination**: Stop once the two pointers meet or cross, ensuring an optimal single-pass solution.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
 
 ## 32. Search in Rotated Sorted Array
 
 [Back to Index](#index)
 
-**Problem:** Given the array `nums` after the possible rotation and an integer `target`, return the index of `target` if it is in `nums`, or `-1` if it is not in `nums`. You must write an algorithm with $O(\log n)$ runtime complexity.
+### Problem Description
+Given the array `nums` after the possible rotation and an integer `target`, return the index of `target` if it is in `nums`, or `-1` if it is not in `nums`. You must write an algorithm with $O(\log n)$ runtime complexity.
 
+#### Example 1:
+```text
+Input: nums = nums, target = 0
+Output: Expected: 4
+```
+
+#### Example 2:
+```text
+Input: nums = nums, target = 3
+Output: Expected: -1
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int search(int[] nums, int target) {
@@ -1473,14 +2371,40 @@ class Solution {
 }
 ```
 
-**Explanation:** In any rotated sorted array, dividing at `mid` always leaves at least one sorted half. Determine which half is sorted and check if `target` falls in its range to prune the search space. Time is O(log n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+In any rotated sorted array, dividing at `mid` always leaves at least one sorted half. Determine which half is sorted and check if `target` falls in its range to prune the search space.
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
 
 ## 33. Time Based Key-Value Store
 
 [Back to Index](#index)
 
-**Problem:** Design a time-based key-value data structure that can store multiple values for the same key at different timestamps and retrieve the key's value at a certain timestamp.
+### Problem Description
+Design a time-based key-value data structure that can store multiple values for the same key at different timestamps and retrieve the key's value at a certain timestamp.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: bar
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1542,14 +2466,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Store a list of timestamped entries for each key. Since timestamps are monotonically increasing, use binary search to locate the largest timestamp less than or equal to the query timestamp. Time is O(1) for `set`, O(log n) for `get`, and space is O(m) total storage.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Store a list of timestamped entries for each key. Since timestamps are monotonically increasing, use binary search to locate the largest timestamp less than or equal to the query timestamp.
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1) for `set`, O(log n) for `get`,
+- **Space Complexity:** O(m) total storage
 
 ## 34. Median of Two Sorted Arrays
 
 [Back to Index](#index)
 
-**Problem:** Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return the median of the two sorted arrays in $O(\log(m+n))$ runtime complexity.
+### Problem Description
+Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return the median of the two sorted arrays in $O(\log(m+n))$ runtime complexity.
 
+#### Example 1:
+```text
+Input: nums1 = nums1, nums2 = nums2
+Output: Expected: 2.0
+```
+
+#### Example 2:
+```text
+Input: nums1 = nums3, nums2 = nums4
+Output: Expected: 2.5
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -1598,10 +2554,25 @@ class Solution {
 }
 ```
 
-**Explanation:** Binary search the partition of the smaller array so that the combined left half contains half of all elements and every element on the left is $\le$ every element on the right. Time is O(log(min(m, n))) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Binary search the partition of the smaller array so that the combined left half contains half of all elements and every element on the left is $\le$ every element on the right. Time is O(log(min(m, n))) and space is O(1).
 
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Binary Search Boundaries**: Initialize boundary pointers left = 0 and ight = length - 1.
+2. **Midpoint Calculation**: At each iteration, calculate mid = left + (right - left) / 2 to safely avoid integer overflow.
+3. **Search Space Reduction**: Compare 
+ums[mid] with the target or check monotonic conditions to discard half of the remaining search space.
+4. **Termination**: Return the target index when matched or the boundary position when search terminates.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Linked List
 
@@ -1609,8 +2580,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given the `head` of a singly linked list, reverse the list, and return the reversed list.
+### Problem Description
+Given the `head` of a singly linked list, reverse the list, and return the reversed list.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 5->4->3->2->1
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1645,14 +2628,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain three pointers `prev`, `curr`, and `nextTemp` to iteratively reverse the link direction for each node in a single pass. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain three pointers `prev`, `curr`, and `nextTemp` to iteratively reverse the link direction for each node in a single pass.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 36. Merge Two Sorted Lists
 
 [Back to Index](#index)
 
-**Problem:** You are given the heads of two sorted linked lists `list1` and `list2`. Merge the two lists into one sorted list by splicing together the nodes of the first two lists and return its head.
+### Problem Description
+You are given the heads of two sorted linked lists `list1` and `list2`. Merge the two lists into one sorted list by splicing together the nodes of the first two lists and return its head.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1->1->2->3->4->4
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1695,14 +2702,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a dummy node and a tail pointer. Repeatedly attach the node with the smaller value from either list until one is exhausted, then append the remaining list. Time is O(n + m) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a dummy node and a tail pointer. Repeatedly attach the node with the smaller value from either list until one is exhausted, then append the remaining list.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n + m)
+- **Space Complexity:** O(1)
 
 ## 37. Reorder List
 
 [Back to Index](#index)
 
-**Problem:** You are given the head of a singly linked-list $L_0 \to L_1 \to \dots \to L_{n-1} \to L_n$. Reorder the list to be: $L_0 \to L_n \to L_1 \to L_{n-1} \to L_2 \to L_{n-2} \to \dots$ without modifying node values.
+### Problem Description
+You are given the head of a singly linked-list $L_0 \to L_1 \to \dots \to L_{n-1} \to L_n$. Reorder the list to be: $L_0 \to L_n \to L_1 \to L_{n-1} \to L_2 \to L_{n-2} \to \dots$ without modifying node values.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1->4->2->3
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1759,14 +2790,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Split the list into two halves using slow and fast pointers, reverse the second half, and interleave the nodes of the two halves. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Split the list into two halves using slow and fast pointers, reverse the second half, and interleave the nodes of the two halves.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 38. Remove Nth Node From End of List
 
 [Back to Index](#index)
 
-**Problem:** Given the `head` of a linked list, remove the $n$-th node from the end of the list and return its head.
+### Problem Description
+Given the `head` of a linked list, remove the $n$-th node from the end of the list and return its head.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1->2->3->5
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1807,14 +2862,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Advance a `fast` pointer $n$ steps ahead from a dummy node. Then advance both `fast` and `slow` together until `fast` reaches the end; `slow` will be directly before the target node to delete. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Advance a `fast` pointer $n$ steps ahead from a dummy node. Then advance both `fast` and `slow` together until `fast` reaches the end; `slow` will be directly before the target node to delete.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 39. Copy List with Random Pointer
 
 [Back to Index](#index)
 
-**Problem:** A linked list of length `n` is given such that each node contains an additional `random` pointer, which could point to any node in the list, or `null`. Construct a deep copy of the list.
+### Problem Description
+A linked list of length `n` is given such that each node contains an additional `random` pointer, which could point to any node in the list, or `null`. Construct a deep copy of the list.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 7 next: 13
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -1869,14 +2948,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a hash map mapping original nodes to cloned copies. Populate nodes in a first pass, then hook up `next` and `random` pointers in a second pass. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a hash map mapping original nodes to cloned copies. Populate nodes in a first pass, then hook up `next` and `random` pointers in a second pass.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 40. Add Two Numbers
 
 [Back to Index](#index)
 
-**Problem:** You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+### Problem Description
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 7->0->8
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1924,14 +3028,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Iterate through both lists node by node, computing `sum = carry + l1.val + l2.val`, creating new nodes with `sum % 10`, and carrying forward `sum / 10`. Time is O(max(n, m)) and space is O(max(n, m)).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Iterate through both lists node by node, computing `sum = carry + l1.val + l2.val`, creating new nodes with `sum % 10`, and carrying forward `sum / 10`.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(max(n, m))
+- **Space Complexity:** O(max(n, m))
 
 ## 41. Linked List Cycle Detection
 
 [Back to Index](#index)
 
-**Problem:** Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
+### Problem Description
+Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 
+#### Example 1:
+```text
+Input: head = n1
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: head = n5
+Output: Expected: false
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -1973,14 +3107,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Floyd's Tortoise and Hare algorithm uses two pointers moving at speeds of 1 and 2 nodes per step. If a cycle exists, `fast` will inevitably lap and meet `slow`. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Floyd's Tortoise and Hare algorithm uses two pointers moving at speeds of 1 and 2 nodes per step. If a cycle exists, `fast` will inevitably lap and meet `slow`.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 42. Find the Duplicate Number
 
 [Back to Index](#index)
 
-**Problem:** Given an array of integers `nums` containing $n + 1$ integers where each integer is in the range $[1, n]$ inclusive, return the duplicate number without modifying the array and using only constant extra space.
+### Problem Description
+Given an array of integers `nums` containing $n + 1$ integers where each integer is in the range $[1, n]$ inclusive, return the duplicate number without modifying the array and using only constant extra space.
 
+#### Example 1:
+```text
+Input: nums = nums1
+Output: Expected: 2
+```
+
+#### Example 2:
+```text
+Input: nums = nums2
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int findDuplicate(int[] nums) {
@@ -2014,14 +3178,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Treat the array as a functional directed graph $i \to \text{nums}[i]$. Since values are in $[1, n]$ with $n+1$ values, a cycle exists. Use Floyd's cycle detection to find the intersection, then advance pointers at equal speed from index 0 and intersection to locate the duplicate. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Treat the array as a functional directed graph $i \to \text{nums}[i]$. Since values are in $[1, n]$ with $n+1$ values, a cycle exists. Use Floyd's cycle detection to find the intersection, then advance pointers at equal speed from index 0 and intersection to locate the duplicate.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 43. LRU Cache
 
 [Back to Index](#index)
 
-**Problem:** Design a data structure that follows the constraints of a Least Recently Used (LRU) cache supporting `get` and `put` in $O(1)$ average time complexity.
+### Problem Description
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache supporting `get` and `put` in $O(1)$ average time complexity.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -2104,14 +3292,39 @@ class Solution {
 }
 ```
 
-**Explanation:** A hash map provides $O(1)$ key lookup to doubly linked list nodes. The doubly linked list maintains usage order by moving accessed nodes to the head and evicting from the tail in $O(1)$ time. Time is O(1) for both `get` and `put`, and space is O(capacity).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A hash map provides $O(1)$ key lookup to doubly linked list nodes. The doubly linked list maintains usage order by moving accessed nodes to the head and evicting from the tail in $O(1)$ time.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1) for both `get` and `put`,
+- **Space Complexity:** O(capacity)
 
 ## 44. Merge k Sorted Lists
 
 [Back to Index](#index)
 
-**Problem:** You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
+### Problem Description
+You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1->1->2->3->4->4->5->6
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 import java.util.PriorityQueue;
 
@@ -2166,14 +3379,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Initialize a min-heap with the head node of each of the $k$ lists. Continuously extract the minimum node, append it to the result list, and push its next node into the heap. Time is O(N log k) where N is total nodes and k is number of lists, and space is O(k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Initialize a min-heap with the head node of each of the $k$ lists. Continuously extract the minimum node, append it to the result list, and push its next node into the heap.
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N log k) where N is total nodes and k is number of lists,
+- **Space Complexity:** O(k)
 
 ## 45. Reverse Nodes in k-Group
 
 [Back to Index](#index)
 
-**Problem:** Given the `head` of a linked list, reverse the nodes of the list `k` at a time, and return the modified list. If the number of nodes is not a multiple of `k` then left-out nodes at the end should remain as-is.
+### Problem Description
+Given the `head` of a linked list, reverse the nodes of the list `k` at a time, and return the modified list. If the number of nodes is not a multiple of `k` then left-out nodes at the end should remain as-is.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 2->1->4->3->5
+```
+
+#### Constraints:
+- The number of nodes in the list is in the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+### Solution
 ```java
 class Solution {
     static class ListNode {
@@ -2241,9 +3478,22 @@ class Solution {
 }
 ```
 
-**Explanation:** For each group of $k$ nodes, find the $k$-th node. If fewer than $k$ nodes remain, terminate. Otherwise, reverse the $k$ nodes in-place, connect the previous group's tail to the new head, and advance pointer `groupPrev`. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+For each group of $k$ nodes, find the $k$-th node. If fewer than $k$ nodes remain, terminate. Otherwise, reverse the $k$ nodes in-place, connect the previous group's tail to the new head, and advance pointer `groupPrev`. Time is O(n) and space is O(1).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Pointer Setup**: Initialize pointers (prev, curr, or runner pointers) to track positions without losing list references.
+2. **Iterative Traversal**: Traverse the linked list node by node, safely updating pointers and checking termination conditions (curr != null).
+3. **Return New Head**: Return the updated head pointer of the restructured linked list.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Trees
 
@@ -2251,8 +3501,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, invert the tree (mirror all left and right subtrees), and return its root.
+### Problem Description
+Given the root of a binary tree, invert the tree (mirror all left and right subtrees), and return its root.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2291,14 +3553,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Recursively invert the left and right subtrees, then swap the left and right child pointers for the current node. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Recursively invert the left and right subtrees, then swap the left and right child pointers for the current node.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 47. Maximum Depth of Binary Tree
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, return its maximum depth, defined as the number of nodes along the longest path from the root node down to the farthest leaf node.
+### Problem Description
+Given the root of a binary tree, return its maximum depth, defined as the number of nodes along the longest path from the root node down to the farthest leaf node.
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: 3 (expected: 3)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2333,14 +3621,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a depth-first search (DFS) post-order traversal to compute the depth of each subtree. The maximum depth of the current subtree is 1 plus the maximum depth of its left and right children. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a depth-first search (DFS) post-order traversal to compute the depth of each subtree. The maximum depth of the current subtree is 1 plus the maximum depth of its left and right children.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 48. Diameter of Binary Tree
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, return the length of the diameter of the tree, which is the length of the longest path between any two nodes in a tree (measured in number of edges).
+### Problem Description
+Given the root of a binary tree, return the length of the diameter of the tree, which is the length of the longest path between any two nodes in a tree (measured in number of edges).
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: 3 (expected: 3)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2386,14 +3700,46 @@ class Solution {
 }
 ```
 
-**Explanation:** At each node, the longest path that has this node as its highest point is the sum of the maximum depths of its left and right subtrees. We maintain a global maximum diameter while recursively computing subtree heights. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+At each node, the longest path that has this node as its highest point is the sum of the maximum depths of its left and right subtrees. We maintain a global maximum diameter while recursively computing subtree heights.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 49. Balanced Binary Tree
 
 [Back to Index](#index)
 
-**Problem:** Given a binary tree, determine if it is height-balanced, meaning the depth of the two subtrees of every node never differs by more than one.
+### Problem Description
+Given a binary tree, determine if it is height-balanced, meaning the depth of the two subtrees of every node never differs by more than one.
 
+#### Example 1:
+```text
+Input: root = root1
+Output: Output: true (expected: true)
+```
+
+#### Example 2:
+```text
+Input: root = root2
+Output: Output: false (expected: false)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2451,14 +3797,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a bottom-up DFS approach returning the height of the current subtree if balanced, or -1 if unbalanced. If any subtree is unbalanced, the failure propagates immediately without redundant calculations. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a bottom-up DFS approach returning the height of the current subtree if balanced, or -1 if unbalanced. If any subtree is unbalanced, the failure propagates immediately without redundant calculations.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 50. Same Tree
 
 [Back to Index](#index)
 
-**Problem:** Given the roots of two binary trees `p` and `q`, write a function to check if they are the same (structurally identical and all corresponding nodes have the same values).
+### Problem Description
+Given the roots of two binary trees `p` and `q`, write a function to check if they are the same (structurally identical and all corresponding nodes have the same values).
 
+#### Example 1:
+```text
+Input: p = t1, q = t2
+Output: Output: true (expected: true)
+```
+
+#### Example 2:
+```text
+Input: p = t1, q = t3
+Output: Output: false (expected: false)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2496,14 +3874,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Recursively compare both trees. If both nodes are null, they match; if only one is null or their values differ, they do not match; otherwise, check both their left subtrees and right subtrees. Time is O(min(n, m)) and space is O(min(h1, h2)) where h1 and h2 are the heights of the two trees.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Recursively compare both trees. If both nodes are null, they match; if only one is null or their values differ, they do not match; otherwise, check both their left subtrees and right subtrees.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(min(n, m))
+- **Space Complexity:** O(min(h1, h2)) where h1 and h2 are the heights of the two trees
 
 ## 51. Subtree of Another Tree
 
 [Back to Index](#index)
 
-**Problem:** Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.
+### Problem Description
+Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.
 
+#### Example 1:
+```text
+Input: root = root, subRoot = subRoot
+Output: Output: true (expected: true)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2547,14 +3951,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Traverse each node in `root` using DFS; at each node, verify if the subtree rooted there matches `subRoot` completely using an `isSameTree` helper. Time is O(m * n) where m and n are node counts of the two trees, and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Traverse each node in `root` using DFS; at each node, verify if the subtree rooted there matches `subRoot` completely using an `isSameTree` helper.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n) where m and n are node counts of the two trees,
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 52. Lowest Common Ancestor of a Binary Search Tree
 
 [Back to Index](#index)
 
-**Problem:** Given a binary search tree (BST) and two nodes `p` and `q`, find the lowest common ancestor (LCA) of `p` and `q`.
+### Problem Description
+Given a binary search tree (BST) and two nodes `p` and `q`, find the lowest common ancestor (LCA) of `p` and `q`.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2605,14 +4035,40 @@ class Solution {
 }
 ```
 
-**Explanation:** In a BST, if both `p` and `q` are strictly smaller than the current node, the LCA must reside in the left subtree. If both are strictly greater, it must reside in the right subtree. Otherwise, the current node is the split point and hence the LCA. Time is O(h) and space is O(1) iterative where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+In a BST, if both `p` and `q` are strictly smaller than the current node, the LCA must reside in the left subtree. If both are strictly greater, it must reside in the right subtree. Otherwise, the current node is the split point and hence the LCA.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(h)
+- **Space Complexity:** O(1) iterative where h is the tree height
 
 ## 53. Binary Tree Level Order Traversal
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).
+### Problem Description
+Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: [[3], [9, 20], [15, 7]] (expected: [[3], [9, 20], [15, 7]])
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2662,14 +4118,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Use breadth-first search (BFS) with a queue. For each level, determine the current queue size, poll all nodes at that level to construct the level's value list, and push their children into the queue. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use breadth-first search (BFS) with a queue. For each level, determine the current queue size, poll all nodes at that level to construct the level's value list, and push their children into the queue.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 54. Binary Tree Right Side View
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, imagine yourself standing on the right side of it; return the values of the nodes you can see ordered from top to bottom.
+### Problem Description
+Given the root of a binary tree, imagine yourself standing on the right side of it; return the values of the nodes you can see ordered from top to bottom.
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: [1, 3, 4] (expected: [1, 3, 4])
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2720,14 +4202,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Perform a level-order traversal (BFS). At each level, the last node processed in that level's queue iteration corresponds to the rightmost visible node. Add its value to the result list. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Perform a level-order traversal (BFS). At each level, the last node processed in that level's queue iteration corresponds to the rightmost visible node. Add its value to the result list.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 55. Count Good Nodes in Binary Tree
 
 [Back to Index](#index)
 
-**Problem:** Given a binary tree root, a node X in the tree is named good if in the path from the root to X there are no nodes with a value greater than X. Return the number of good nodes in the binary tree.
+### Problem Description
+Given a binary tree root, a node X in the tree is named good if in the path from the root to X there are no nodes with a value greater than X. Return the number of good nodes in the binary tree.
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: 4 (expected: 4)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2773,14 +4281,46 @@ class Solution {
 }
 ```
 
-**Explanation:** Perform a preorder DFS traversal passing along the maximum node value encountered along the path from the root. If the current node value is at least this maximum, it is a good node; update the maximum and recurse on left and right children. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Perform a preorder DFS traversal passing along the maximum node value encountered along the path from the root. If the current node value is at least this maximum, it is a good node; update the maximum and recurse on left and right children.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 56. Validate Binary Search Tree
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST requires that all nodes in the left subtree have values strictly less than the node's value, and all nodes in the right subtree have values strictly greater than the node's value, recursively for all subtrees.
+### Problem Description
+Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST requires that all nodes in the left subtree have values strictly less than the node's value, and all nodes in the right subtree have values strictly greater than the node's value, recursively for all subtrees.
 
+#### Example 1:
+```text
+Input: root = validRoot
+Output: Output: true (expected: true)
+```
+
+#### Example 2:
+```text
+Input: root = invalidRoot
+Output: Output: false (expected: false)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2824,14 +4364,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Recursively validate each node by enforcing strictly open boundaries `(min, max)`. When traversing left, the current node becomes the upper bound; when traversing right, it becomes the lower bound. Using `Long` bounds prevents integer overflow issues. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Recursively validate each node by enforcing strictly open boundaries `(min, max)`. When traversing left, the current node becomes the upper bound; when traversing right, it becomes the lower bound. Using `Long` bounds prevents integer overflow issues.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 57. Kth Smallest Element in a BST
 
 [Back to Index](#index)
 
-**Problem:** Given the root of a binary search tree, and an integer `k`, return the `k`th smallest value (1-indexed) of all the values of the nodes in the tree.
+### Problem Description
+Given the root of a binary search tree, and an integer `k`, return the `k`th smallest value (1-indexed) of all the values of the nodes in the tree.
 
+#### Example 1:
+```text
+Input: root = root, k = 1
+Output: Output: 1 (expected: 1)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2882,14 +4448,40 @@ class Solution {
 }
 ```
 
-**Explanation:** An in-order traversal of a binary search tree visits nodes in ascending sorted order. By maintaining a counter of nodes visited in-order, we can stop the traversal and record the value once we reach the `k`th node. Time is O(h + k) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+An in-order traversal of a binary search tree visits nodes in ascending sorted order. By maintaining a counter of nodes visited in-order, we can stop the traversal and record the value once we reach the `k`th node.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(h + k)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 58. Construct Binary Tree from Preorder and Inorder Traversal
 
 [Back to Index](#index)
 
-**Problem:** Given two integer arrays `preorder` and `inorder` where `preorder` is the preorder traversal of a binary tree and `inorder` is the inorder traversal of the same tree, construct and return the binary tree.
+### Problem Description
+Given two integer arrays `preorder` and `inorder` where `preorder` is the preorder traversal of a binary tree and `inorder` is the inorder traversal of the same tree, construct and return the binary tree.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2940,14 +4532,40 @@ class Solution {
 }
 ```
 
-**Explanation:** In preorder traversal, the first unused element is always the current subtree's root. Locating this root in the inorder traversal (using an O(1) hash map lookup) splits the elements into the left subtree and right subtree, which are recursively constructed. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+In preorder traversal, the first unused element is always the current subtree's root. Locating this root in the inorder traversal (using an O(1) hash map lookup) splits the elements into the left subtree and right subtree, which are recursively constructed.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 
 ## 59. Binary Tree Maximum Path Sum
 
 [Back to Index](#index)
 
-**Problem:** A path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge connecting them. Return the maximum path sum of any non-empty path in the tree.
+### Problem Description
+A path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge connecting them. Return the maximum path sum of any non-empty path in the tree.
 
+#### Example 1:
+```text
+Input: root = root
+Output: Output: 42 (expected: 42)
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -2999,14 +4617,40 @@ class Solution {
 }
 ```
 
-**Explanation:** For each node, compute the maximum gain that the left and right subtrees can contribute (clamping negative gains to 0). A full path turning at the current node has sum `node.val + leftGain + rightGain`, which updates the global maximum. The function returns `node.val + max(leftGain, rightGain)` to continue extending the path to the parent. Time is O(n) and space is O(h) where h is the tree height.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+For each node, compute the maximum gain that the left and right subtrees can contribute (clamping negative gains to 0). A full path turning at the current node has sum `node.val + leftGain + rightGain`, which updates the global maximum. The function returns `node.val + max(leftGain, rightGain)` to continue extending the path to the parent.
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) where h is the tree height
 
 ## 60. Serialize and Deserialize Binary Tree
 
 [Back to Index](#index)
 
-**Problem:** Design an algorithm to serialize a binary tree into a string and deserialize that string back into the original binary tree structure.
+### Problem Description
+Design an algorithm to serialize a binary tree into a string and deserialize that string back into the original binary tree structure.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- The number of nodes in the tree is in the range `[0, 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -3071,9 +4715,24 @@ class Solution {
 }
 ```
 
-**Explanation:** Serialize the tree using preorder traversal, writing comma-separated values and using `"N"` to represent null children. Deserialize by splitting the string into a queue of tokens and recursively reconstructing the tree in preorder fashion. Time is O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Serialize the tree using preorder traversal, writing comma-separated values and using `"N"` to represent null children. Deserialize by splitting the string into a queue of tokens and recursively reconstructing the tree in preorder fashion. Time is O(n) and space is O(n).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Base Case**: Check if the current node is 
+ull; if so, return the identity/base value (e.g.,  , 	rue, or 
+ull).
+2. **Recursive Descent**: Recursively invoke traversal on the left and right subtrees.
+3. **Combine Results**: Aggregate subtree computations at the root level and return the consolidated result.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Tries
 
@@ -3081,8 +4740,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Implement a trie (prefix tree) data structure with `insert`, `search`, and `startsWith` methods for lowercase English letters.
+### Problem Description
+Implement a trie (prefix tree) data structure with `insert`, `search`, and `startsWith` methods for lowercase English letters.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     static class Trie {
@@ -3143,14 +4814,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Each tree node holds an array of 26 pointers for letters 'a' through 'z' and a boolean flag indicating if the node marks the end of a word. Traversing character-by-character allows exact match checks and prefix checks. Time is O(L) for all operations where L is the length of the string, and space is O(N * L) where N is the total number of words inserted.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Each tree node holds an array of 26 pointers for letters 'a' through 'z' and a boolean flag indicating if the node marks the end of a word. Traversing character-by-character allows exact match checks and prefix checks.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(L) for all operations where L is the length of the string,
+- **Space Complexity:** O(N * L) where N is the total number of words inserted
 
 ## 62. Design Add and Search Words Data Structure
 
 [Back to Index](#index)
 
-**Problem:** Design a data structure that supports adding new words and finding if a string matches any previously added string, supporting the wildcard character `.` which matches any letter.
+### Problem Description
+Design a data structure that supports adding new words and finding if a string matches any previously added string, supporting the wildcard character `.` which matches any letter.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     static class WordDictionary {
@@ -3217,14 +4912,38 @@ class Solution {
 }
 ```
 
-**Explanation:** A trie stores the words. Standard insertion traverses direct child references. When searching, encountering a regular character follows that single branch; encountering a `.` wildcard branches recursively across all non-null child nodes. Time is O(L) for `addWord` and O(26^L) worst-case for `search` with all dots, and space is O(N * L) for storing words.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A trie stores the words. Standard insertion traverses direct child references. When searching, encountering a regular character follows that single branch; encountering a `.` wildcard branches recursively across all non-null child nodes.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(L) for `addWord` and O(26^L) worst-case for `search` with all dots,
+- **Space Complexity:** O(N * L) for storing words
 
 ## 63. Word Search II
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` board of characters and a list of strings `words`, return all words on the board where words must be constructed from letters of sequentially adjacent cells (horizontally or vertically neighboring).
+### Problem Description
+Given an `m x n` board of characters and a list of strings `words`, return all words on the board where words must be constructed from letters of sequentially adjacent cells (horizontally or vertically neighboring).
 
+#### Example 1:
+```text
+Input: board = board, words = words
+Output: [oath, eat]
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -3301,9 +5020,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Building a trie from the target words allows prefix pruning during DFS exploration of the grid. Storing the word string directly at terminal nodes avoids string reconstructions and allows O(1) deduplication by setting `node.word = null` once found. Time is O(M * N * 4 * 3^(L - 1)) where M and N are grid dimensions and L is the maximum word length, and space is O(W * L) for the trie.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Building a trie from the target words allows prefix pruning during DFS exploration of the grid. Storing the word string directly at terminal nodes avoids string reconstructions and allows O(1) deduplication by setting `node.word = null` once found. Time is O(M * N * 4 * 3^(L - 1)) where M and N are grid dimensions and L is the maximum word length, and space is O(W * L) for the trie.
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Heap / Priority Queue
 
@@ -3311,8 +5043,21 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Design a class to find the `k`th largest element in a stream.
+### Problem Description
+Design a class to find the `k`th largest element in a stream.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `1 <= k <= nums.length`
+
+### Solution
 ```java
 import java.util.PriorityQueue;
 
@@ -3349,14 +5094,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain a min-heap bounded at size `k`. The root of the min-heap always holds the smallest among the top `k` elements seen so far, which is precisely the `k`th largest element. Time is O(N log k) for initialization and O(log k) per `add` call, and space is O(k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain a min-heap bounded at size `k`. The root of the min-heap always holds the smallest among the top `k` elements seen so far, which is precisely the `k`th largest element.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N log k) for initialization and O(log k) per `add` call,
+- **Space Complexity:** O(k)
 
 ## 65. Last Stone Weight
 
 [Back to Index](#index)
 
-**Problem:** You are given an array of integers `stones` where `stones[i]` is the weight of the `i`th stone. Each turn, the two heaviest stones `x` and `y` (`x <= y`) are smashed together. If `x == y`, both stones are destroyed. If `x != y`, stone `x` is destroyed and stone `y` has new weight `y - x`. Return the weight of the last remaining stone, or 0 if none remain.
+### Problem Description
+You are given an array of integers `stones` where `stones[i]` is the weight of the `i`th stone. Each turn, the two heaviest stones `x` and `y` (`x <= y`) are smashed together. If `x == y`, both stones are destroyed. If `x != y`, stone `x` is destroyed and stone `y` has new weight `y - x`. Return the weight of the last remaining stone, or 0 if none remain.
 
+#### Example 1:
+```text
+Input: stones = [2, 7, 4, 1, 8, 1]
+Output: 1
+```
+
+#### Example 2:
+```text
+Input: stones = [1]
+Output: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Collections;
 import java.util.PriorityQueue;
@@ -3387,14 +5162,38 @@ class Solution {
 }
 ```
 
-**Explanation:** A max-heap keeps stones sorted so the two heaviest stones can be retrieved in O(log N) time each round. After smashing, if there is a remainder, it is pushed back into the heap until at most one stone is left. Time is O(N log N) and space is O(N).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A max-heap keeps stones sorted so the two heaviest stones can be retrieved in O(log N) time each round. After smashing, if there is a remainder, it is pushed back into the heap until at most one stone is left.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N log N)
+- **Space Complexity:** O(N)
 
 ## 66. K Closest Points to Origin
 
 [Back to Index](#index)
 
-**Problem:** Given an array of points where `points[i] = [xi, yi]` represents a point on the X-Y plane and an integer `k`, return the `k` closest points to the origin `(0, 0)`.
+### Problem Description
+Given an array of points where `points[i] = [xi, yi]` represents a point on the X-Y plane and an integer `k`, return the `k` closest points to the origin `(0, 0)`.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -3431,14 +5230,45 @@ class Solution {
 }
 ```
 
-**Explanation:** A max-heap of capacity `k` tracks the `k` points closest to the origin. If the heap size exceeds `k`, the farthest point among the current `k + 1` elements is removed from the root. Time is O(N log k) and space is O(k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A max-heap of capacity `k` tracks the `k` points closest to the origin. If the heap size exceeds `k`, the farthest point among the current `k + 1` elements is removed from the root.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N log k)
+- **Space Complexity:** O(k)
 
 ## 67. Kth Largest Element in an Array
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` and an integer `k`, return the `k`th largest element in the array without sorting.
+### Problem Description
+Given an integer array `nums` and an integer `k`, return the `k`th largest element in the array without sorting.
 
+#### Example 1:
+```text
+Input: nums = [3, 2, 1, 5, 6, 4], k = 2
+Output: 5
+```
+
+#### Example 2:
+```text
+Input: nums = [3, 2, 3, 1, 2, 4, 5, 5, 6], k = 4
+Output: 4
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `1 <= k <= nums.length`
+
+### Solution
 ```java
 import java.util.PriorityQueue;
 
@@ -3464,15 +5294,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintaining a min-heap of size `k` ensures that after examining all numbers, the root contains the smallest of the `k` largest values, which is the `k`th largest overall. Time is O(N log k) and space is O(k).
+### Detailed Explanation
 
+#### 1. Intuition & Approach
+Maintaining a min-heap of size `k` ensures that after examining all numbers, the root contains the smallest of the `k` largest values, which is the `k`th largest overall.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N log k)
+- **Space Complexity:** O(k)
 
 ## 68. Task Scheduler
 
 [Back to Index](#index)
 
-**Problem:** Given a characters array `tasks` representing tasks a CPU needs to do and an integer cooldown period `n` between two identical tasks, return the minimum number of CPU intervals needed to finish all tasks.
+### Problem Description
+Given a characters array `tasks` representing tasks a CPU needs to do and an integer cooldown period `n` between two identical tasks, return the minimum number of CPU intervals needed to finish all tasks.
 
+#### Example 1:
+```text
+Input: tasks = ['A', 'A', 'A', 'B', 'B', 'B'], n = 2
+Output: 8
+```
+
+#### Example 2:
+```text
+Input: tasks = ['A', 'A', 'A', 'B', 'B', 'B'], n = 0
+Output: 6
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int leastInterval(char[] tasks, int n) {
@@ -3504,14 +5363,38 @@ class Solution {
 }
 ```
 
-**Explanation:** The schedule length is bottlenecked by the task(s) with the maximum frequency `maxFreq`. Placing them requires `maxFreq - 1` blocks of size `n + 1`, followed by the final instances of all tasks tied for `maxFreq`. If the total number of tasks exceeds this idle-filled frame, no idle time is needed and the answer is `tasks.length`. Time is O(N) where N is the number of tasks, and space is O(1) for the 26-element array.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+The schedule length is bottlenecked by the task(s) with the maximum frequency `maxFreq`. Placing them requires `maxFreq - 1` blocks of size `n + 1`, followed by the final instances of all tasks tied for `maxFreq`. If the total number of tasks exceeds this idle-filled frame, no idle
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** needed and the answer is `tasks.length`. Time is O(N) where N is the number of tasks,
+- **Space Complexity:** O(1) for the 26-element array
 
 ## 69. Design Twitter
 
 [Back to Index](#index)
 
-**Problem:** Design a simplified Twitter service supporting posting tweets, following/unfollowing users, and retrieving the 10 most recent tweets in a user's news feed.
+### Problem Description
+Design a simplified Twitter service supporting posting tweets, following/unfollowing users, and retrieving the 10 most recent tweets in a user's news feed.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -3626,14 +5509,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Each user maintains a singly-linked list of their tweets (latest first) and a set of followees. Generating the news feed merges the linked lists of all followees using a max-heap of size at most the number of followees, pulling up to 10 most recent tweets. Time is O(1) for `postTweet`, `follow`, and `unfollow`, and O(K log K) for `getNewsFeed` where K is the number of followed users. Space is O(U + T) where U is total users and T is total tweets.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Each user maintains a singly-linked list of their tweets (latest first) and a set of followees. Generating the news feed merges the linked lists of all followees using a max-heap of size at most the number of followees, pulling up to 10 most recent tweets.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1) for `postTweet`, `follow`, and `unfollow`, and O(K log K) for `getNewsFeed` where K is the number of followed users
+- **Space Complexity:** O(U + T) where U is total users and T is total tweets
 
 ## 70. Find Median from Data Stream
 
 [Back to Index](#index)
 
-**Problem:** Design a data structure that supports adding integer numbers from a data stream and finding the median of all elements seen so far.
+### Problem Description
+Design a data structure that supports adding integer numbers from a data stream and finding the median of all elements seen so far.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Collections;
 import java.util.PriorityQueue;
@@ -3679,9 +5587,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Two heaps maintain the stream partitioned into two equal (or balanced by 1) halves. The max-heap holds the smaller half, while the min-heap holds the larger half. The median is either the top of the max-heap (if odd count) or the average of both heap roots (if even count). Time is O(log N) for `addNum` and O(1) for `findMedian`, and space is O(N).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Two heaps maintain the stream partitioned into two equal (or balanced by 1) halves. The max-heap holds the smaller half, while the min-heap holds the larger half. The median is either the top of the max-heap (if odd count) or the average of both heap roots (if even count). Time is O(log N) for `addNum` and O(1) for `findMedian`, and space is O(N).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Backtracking
 
@@ -3809,8 +5730,26 @@ Every subset of $N$ elements maps directly to a binary integer between $0$ and $
 
 [Back to Index](#index)
 
-**Problem:** Given an array of distinct integers `candidates` and a target integer `target`, return all unique combinations of `candidates` where the chosen numbers sum to `target`. Each number may be used an unlimited number of times.
+### Problem Description
+Given an array of distinct integers `candidates` and a target integer `target`, return all unique combinations of `candidates` where the chosen numbers sum to `target`. Each number may be used an unlimited number of times.
 
+#### Example 1:
+```text
+Input: candidates = [2, 3, 6, 7], target = 7
+Output: [[2, 2, 3], [7]]
+```
+
+#### Example 2:
+```text
+Input: candidates = [2, 3, 5], target = 8
+Output: [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -3849,14 +5788,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort candidates first to enable early pruning when candidate value exceeds the remaining target. Passing the same index `i` into the recursive call allows unlimited reuse of the candidate while preventing duplicate permutations. Time is O(2^(target / min_candidate)) and space is O(target / min_candidate) for recursion depth.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort candidates first to enable early pruning when candidate value exceeds the remaining target. Passing the same index `i` into the recursive call allows unlimited reuse of the candidate while preventing duplicate permutations.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(2^(target / min_candidate))
+- **Space Complexity:** O(target / min_candidate) for recursion depth
 
 ## 73. Permutations
 
 [Back to Index](#index)
 
-**Problem:** Given an array `nums` of distinct integers, return all the possible permutations.
+### Problem Description
+Given an array `nums` of distinct integers, return all the possible permutations.
 
+#### Example 1:
+```text
+Input: nums = [1, 2, 3]
+Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -3895,14 +5858,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a boolean `used` array to track which elements are already part of the current permutation. Try every unused number at each step, recurse until all numbers are chosen, and then backtrack. Time is O(N * N!) and space is O(N) recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a boolean `used` array to track which elements are already part of the current permutation. Try every unused number at each step, recurse until all numbers are chosen, and then backtrack.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N * N!)
+- **Space Complexity:** O(N) recursion stack
 
 ## 74. Subsets II
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` that may contain duplicates, return all possible subsets (the power set) without duplicate subsets.
+### Problem Description
+Given an integer array `nums` that may contain duplicates, return all possible subsets (the power set) without duplicate subsets.
 
+#### Example 1:
+```text
+Input: nums = [1, 2, 2]
+Output: [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -3938,15 +5925,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Sorting groups identical numbers adjacent to each other. Whenever `i > start` and `nums[i] == nums[i - 1]`, skipping the element prevents generating identical subsets at the same tree depth while still allowing duplicate numbers to appear across deeper recursive calls. Time is O(N * 2^N) and space is O(N) recursion stack.
+### Detailed Explanation
 
+#### 1. Intuition & Approach
+Sorting groups identical numbers adjacent to each other. Whenever `i > start` and `nums[i] == nums[i - 1]`, skipping the element prevents generating identical subsets at the same tree depth while still allowing duplicate numbers to appear across deeper recursive calls.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N * 2^N)
+- **Space Complexity:** O(N) recursion stack
 
 ## 75. Combination Sum II
 
 [Back to Index](#index)
 
-**Problem:** Given a collection of candidate numbers `candidates` and a target number `target`, find all unique combinations in `candidates` where the candidate numbers sum to `target`. Each number in `candidates` may only be used once in the combination, and the solution must not contain duplicate combinations.
+### Problem Description
+Given a collection of candidate numbers `candidates` and a target number `target`, find all unique combinations in `candidates` where the candidate numbers sum to `target`. Each number in `candidates` may only be used once in the combination, and the solution must not contain duplicate combinations.
 
+#### Example 1:
+```text
+Input: candidates = [10, 1, 2, 7, 6, 1, 5], target = 8
+Output: [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]
+```
+
+#### Example 2:
+```text
+Input: candidates = [2, 5, 2, 1, 2], target = 5
+Output: [[1, 2, 2], [5]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -3990,14 +6006,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Sorting groups identical numbers and allows early pruning when candidate value exceeds the remaining target. Passing `i + 1` ensures each candidate index is used at most once, and skipping `candidates[i] == candidates[i - 1]` for `i > start` eliminates identical combination branches. Time is O(2^N) and space is O(N) recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sorting groups identical numbers and allows early pruning when candidate value exceeds the remaining target. Passing `i + 1` ensures each candidate index is used at most once, and skipping `candidates[i] == candidates[i - 1]` for `i > start` eliminates identical combination branches.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(2^N)
+- **Space Complexity:** O(N) recursion stack
 
 ## 76. Word Search
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` grid of characters `board` and a string `word`, return `true` if `word` exists in the grid constructed from sequentially adjacent cells without reusing any cell.
+### Problem Description
+Given an `m x n` grid of characters `board` and a string `word`, return `true` if `word` exists in the grid constructed from sequentially adjacent cells without reusing any cell.
 
+#### Example 1:
+```text
+Input: board = board, word = "ABCCED"
+Output: true
+```
+
+#### Example 2:
+```text
+Input: board = board, word = "SEE"
+Output: true
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 class Solution {
     public boolean exist(char[][] board, String word) {
@@ -4048,14 +6094,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Depth-first search traverses from each cell matching the first letter. In-place modification (`'#'`) avoids extra memory for visited tracking and gets restored on backtrack. Time is O(M * N * 3^L) where L is the length of `word` (3 branches because we never move backward to the cell we just came from), and space is O(L) for the recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Depth-first search traverses from each cell matching the first letter. In-place modification (`'#'`) avoids extra memory for visited tracking and gets restored on backtrack.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(M * N * 3^L) where L is the length of `word` (3 branches because we never move backward to the cell we just came from),
+- **Space Complexity:** O(L) for the recursion stack
 
 ## 77. Palindrome Partitioning
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s`, partition `s` such that every substring of the partition is a palindrome. Return all possible palindrome partitionings of `s`.
+### Problem Description
+Given a string `s`, partition `s` such that every substring of the partition is a palindrome. Return all possible palindrome partitionings of `s`.
 
+#### Example 1:
+```text
+Input: s = "aab"
+Output: [[a, a, b], [aa, b]]
+```
+
+#### Example 2:
+```text
+Input: s = "a"
+Output: [[a]]
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -4099,14 +6175,44 @@ class Solution {
 }
 ```
 
-**Explanation:** At each index `start`, examine every prefix substring `s[start...end]`. If it is a palindrome, add it to the path and recursively partition the remainder `s[end + 1...]`, backtracking afterwards. Time is O(N * 2^N) and space is O(N) recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+At each index `start`, examine every prefix substring `s[start...end]`. If it is a palindrome, add it to the path and recursively partition the remainder `s[end + 1...]`, backtracking afterwards.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(N * 2^N)
+- **Space Complexity:** O(N) recursion stack
 
 ## 78. Letter Combinations of a Phone Number
 
 [Back to Index](#index)
 
-**Problem:** Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent based on classic telephone keypad buttons.
+### Problem Description
+Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent based on classic telephone keypad buttons.
 
+#### Example 1:
+```text
+Input: digits = "23"
+Output: [ad, ae, af, bd, be, bf, cd, ce, cf]
+```
+
+#### Example 2:
+```text
+Input: digits = ""
+Output: []
+```
+
+#### Constraints:
+- `1 <= nums.length <= 15`
+- `-10 <= nums[i] <= 10`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -4157,14 +6263,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Digits are mapped to character sets via a lookup array. A recursive DFS explores each possible letter for the current digit, advancing index by 1 until the combination reaches the input length. Time is O(4^N * N) where N is the length of digits (since keys 7 and 9 have 4 letters), and space is O(N) recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Digits are mapped to character sets via a lookup array. A recursive DFS explores each possible letter for the current digit, advancing index by 1 until the combination reaches the input length.
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(4^N * N) where N is the length of digits (since keys 7 and 9 have 4 letters),
+- **Space Complexity:** O(N) recursion stack
 
 ## 79. N-Queens
 
 [Back to Index](#index)
 
-**Problem:** Place `n` queens on an `n x n` chessboard such that no two queens attack each other, returning all distinct board configurations.
+### Problem Description
+Place `n` queens on an `n x n` chessboard such that no two queens attack each other, returning all distinct board configurations.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -4230,9 +6360,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Place queens row by row. Conflicting placements are pruned in O(1) time using hash sets for columns (`c`), positive diagonals (`r + c`), and negative diagonals (`r - c`). Once row reaches `n`, a valid placement is formatted and stored. Time is O(N!) and space is O(N) for sets and board recursion.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Place queens row by row. Conflicting placements are pruned in O(1) time using hash sets for columns (`c`), positive diagonals (`r + c`), and negative diagonals (`r - c`). Once row reaches `n`, a valid placement is formatted and stored. Time is O(N!) and space is O(N) for sets and board recursion.
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Decision Tree Setup**: Model the problem as a recursive state-space exploration tree where each level represents a choice.
+2. **Base Condition**: If the current state meets the target or explores all elements, record the current path snapshot into the result list.
+3. **Choose-Explore-Backtrack**: Iterate through valid candidate choices, add candidate to path, recurse with next index, and undo the choice upon return.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Graphs
 
@@ -4240,8 +6383,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+### Problem Description
+Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
 
+#### Example 1:
+```text
+Input: grid = grid
+Output: Expected: 1
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4286,14 +6441,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Traverse the grid and launch a depth-first search (DFS) whenever an unvisited land cell `'1'` is found, incrementing the island counter and sinking connected land cells by flipping them to `'0'`. Time is O(m * n) and space is O(m * n) for the recursion stack in the worst case.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Traverse the grid and launch a depth-first search (DFS) whenever an unvisited land cell `'1'` is found, incrementing the island counter and sinking connected land cells by flipping them to `'0'`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n) for the recursion stack in the worst case
 
 ## 81. Clone Graph
 
 [Back to Index](#index)
 
-**Problem:** Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (`val`) and a list of its neighbors (`List<Node>`).
+### Problem Description
+Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (`val`) and a list of its neighbors (`List<Node>`).
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: 1 with 2 neighbors
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4354,14 +6533,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use depth-first search along with a hash map mapping each original node to its cloned copy to prevent infinite loops from graph cycles and reconstruct neighbor connections recursively. Time is O(V + E) and space is O(V) for the hash map and call stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use depth-first search along with a hash map mapping each original node to its cloned copy to prevent infinite loops from graph cycles and reconstruct neighbor connections recursively.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V) for the hash map and call stack
 
 ## 82. Max Area of Island
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` binary matrix `grid`, an island is a group of `1`'s (representing land) connected 4-directionally. Return the maximum area of an island in `grid`. If there is no island, return `0`.
+### Problem Description
+Given an `m x n` binary matrix `grid`, an island is a group of `1`'s (representing land) connected 4-directionally. Return the maximum area of an island in `grid`. If there is no island, return `0`.
 
+#### Example 1:
+```text
+Input: grid = grid
+Output: Expected: 6
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4406,14 +6610,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Iterate through each cell and perform DFS on discovering land (`1`), computing the island's area by recursively summing connected land tiles while resetting visited cells to `0`. Time is O(m * n) and space is O(m * n) for the recursion stack.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Iterate through each cell and perform DFS on discovering land (`1`), computing the island's area by recursively summing connected land tiles while resetting visited cells to `0`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n) for the recursion stack
 
 ## 83. Pacific Atlantic Water Flow
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` matrix of non-negative integers `heights` representing the height of each unit cell in a continent, water can flow from any cell adjacent to the Pacific Ocean (top and left borders) into the Pacific, and adjacent to the Atlantic Ocean (bottom and right borders) into the Atlantic. Water flows to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Return a list of grid coordinates `[r, c]` where water can flow to both oceans.
+### Problem Description
+Given an `m x n` matrix of non-negative integers `heights` representing the height of each unit cell in a continent, water can flow from any cell adjacent to the Pacific Ocean (top and left borders) into the Pacific, and adjacent to the Atlantic Ocean (bottom and right borders) into the Atlantic. Water flows to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Return a list of grid coordinates `[r, c]` where water can flow to both oceans.
 
+#### Example 1:
+```text
+Input: heights = heights
+Output: Expected: [[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4471,14 +6699,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Instead of checking water flow from every cell to oceans, reverse the flow and use DFS starting from the Pacific and Atlantic borders inward toward cells of equal or greater height. Coordinates reachable from both oceans form the result. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Instead of checking water flow from every cell to oceans, reverse the flow and use DFS starting from the Pacific and Atlantic borders inward toward cells of equal or greater height. Coordinates reachable from both oceans form the result.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 84. Surrounded Regions
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` matrix `board` containing `'X'` and `'O'`, capture all regions that are 4-directionally surrounded by `'X'`. A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region. Any `'O'` connected to the boundary is not captured.
+### Problem Description
+Given an `m x n` matrix `board` containing `'X'` and `'O'`, capture all regions that are 4-directionally surrounded by `'X'`. A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region. Any `'O'` connected to the boundary is not captured.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: [[X, X, X, X], [X, X, X, X], [X, X, X, X], [X, O, X, X]]
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4533,14 +6785,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Run DFS starting from all boundary `'O'` cells to mark non-surrounded regions with a temporary symbol `'T'`. Then traverse the grid, changing all remaining `'O'`s to `'X'` and converting `'T'`s back to `'O'`. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Run DFS starting from all boundary `'O'` cells to mark non-surrounded regions with a temporary symbol `'T'`. Then traverse the grid, changing all remaining `'O'`s to `'X'` and converting `'T'`s back to `'O'`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 85. Rotting Oranges
 
 [Back to Index](#index)
 
-**Problem:** You are given an `m x n` grid where each cell can have one of three values: `0` representing an empty cell, `1` representing a fresh orange, or `2` representing a rotten orange. Every minute, any fresh orange 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no cell has a fresh orange, or `-1` if impossible.
+### Problem Description
+You are given an `m x n` grid where each cell can have one of three values: `0` representing an empty cell, `1` representing a fresh orange, or `2` representing a rotten orange. Every minute, any fresh orange 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no cell has a fresh orange, or `-1` if impossible.
 
+#### Example 1:
+```text
+Input: grid = grid
+Output: Expected: 4
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4597,14 +6873,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Multi-source breadth-first search (BFS) starting with all initially rotten oranges in a queue. Each level of the BFS corresponds to one minute of rotting spreading to adjacent fresh oranges. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Multi-source breadth-first search (BFS) starting with all initially rotten oranges in a queue. Each level of the BFS corresponds to one minute of rotting spreading to adjacent fresh oranges.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 86. Walls and Gates
 
 [Back to Index](#index)
 
-**Problem:** You are given an `m x n` grid initialized with `-1` (a wall or obstacle), `0` (a gate), and `2147483647` / `INF` (an empty room). Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, leave it as `INF`.
+### Problem Description
+You are given an `m x n` grid initialized with `-1` (a wall or obstacle), `0` (a gate), and `2147483647` / `INF` (an empty room). Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, leave it as `INF`.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: [[3, -1, 0, 1], [2, 2, 1, -1], [1, -1, 2, -1], [0, -1, 3, 4]]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4653,15 +6953,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Initialize a multi-source BFS queue with all gate locations (`0`). Expand outward layer by layer, updating empty rooms (`INF`) with their shortest distance from any gate upon first visitation. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
 
+#### 1. Intuition & Approach
+Initialize a multi-source BFS queue with all gate locations (`0`). Expand outward layer by layer, updating empty rooms (`INF`) with their shortest distance from any gate upon first visitation.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 87. Course Schedule
 
 [Back to Index](#index)
 
-**Problem:** There are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [a, b]` indicates that you must take course `b` first if you want to take course `a`. Return `true` if you can finish all courses, or `false` otherwise.
+### Problem Description
+There are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [a, b]` indicates that you must take course `b` first if you want to take course `a`. Return `true` if you can finish all courses, or `false` otherwise.
 
+#### Example 1:
+```text
+Input: numCourses = numCourses, prerequisites = prerequisites
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4710,14 +7033,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Kahn's algorithm for topological sorting: compute in-degrees for each course, push 0 in-degree courses into a BFS queue, and decrement neighbor in-degrees as nodes are processed. If all courses are processed, no cycle exists. Time is O(V + E) and space is O(V + E).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Kahn's algorithm for topological sorting: compute in-degrees for each course, push 0 in-degree courses into a BFS queue, and decrement neighbor in-degrees as nodes are processed. If all courses are processed, no cycle exists.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
 
 ## 88. Course Schedule II
 
 [Back to Index](#index)
 
-**Problem:** There are a total of `numCourses` courses labeled from `0` to `numCourses - 1`. Given `prerequisites` where `prerequisites[i] = [a, b]`, return the ordering of courses you should take to finish all courses. If impossible, return an empty array.
+### Problem Description
+There are a total of `numCourses` courses labeled from `0` to `numCourses - 1`. Given `prerequisites` where `prerequisites[i] = [a, b]`, return the ordering of courses you should take to finish all courses. If impossible, return an empty array.
 
+#### Example 1:
+```text
+Input: numCourses = numCourses, prerequisites = prerequisites
+Output: Expected: [0, 1, 2, 3] (or [0, 2, 1, 3])
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4768,14 +7115,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Extend Kahn's algorithm by appending each course with zero in-degree to an ordering array as it is dequeued. If the total number of processed courses equals `numCourses`, return the topological order; otherwise, return an empty array due to a cycle. Time is O(V + E) and space is O(V + E).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Extend Kahn's algorithm by appending each course with zero in-degree to an ordering array as it is dequeued. If the total number of processed courses equals `numCourses`, return the topological order; otherwise, return an empty array due to a cycle.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
 
 ## 89. Redundant Connection
 
 [Back to Index](#index)
 
-**Problem:** A graph is given as a tree of `n` nodes labeled from `1` to `n`, with one additional edge added. Return an edge that can be removed so that the resulting graph is a tree of `n` nodes. If there are multiple answers, return the answer that occurs last in the input.
+### Problem Description
+A graph is given as a tree of `n` nodes labeled from `1` to `n`, with one additional edge added. Return an edge that can be removed so that the resulting graph is a tree of `n` nodes. If there are multiple answers, return the answer that occurs last in the input.
 
+#### Example 1:
+```text
+Input: edges = edges
+Output: Expected: [2, 3]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4815,14 +7186,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Disjoint Set Union (Union-Find) with path compression: iterate through each edge, finding the roots of both endpoints. If both nodes already share the same root, adding this edge forms a cycle, so this edge is the redundant connection. Time is O(n * α(n)) ≈ O(n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Disjoint Set Union (Union-Find) with path compression: iterate through each edge, finding the roots of both endpoints. If both nodes already share the same root, adding this edge forms a cycle, so this edge is the redundant connection.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n * α(n)) ≈ O(n)
+- **Space Complexity:** O(n)
 
 ## 90. Number of Connected Components in an Undirected Graph
 
 [Back to Index](#index)
 
-**Problem:** You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer `n` and an array `edges` where `edges[i] = [a, b]` indicates an edge between `a` and `b`. Return the number of connected components in the graph.
+### Problem Description
+You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer `n` and an array `edges` where `edges[i] = [a, b]` indicates an edge between `a` and `b`. Return the number of connected components in the graph.
 
+#### Example 1:
+```text
+Input: n = n, edges = edges
+Output: Expected: 2
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4863,14 +7258,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Union-Find initialized with `n` individual components. For each edge, merge the sets of the two vertices; if they were in different components, decrement the component count by 1. Time is O(V + E * α(V)) and space is O(V).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Union-Find initialized with `n` individual components. For each edge, merge the sets of the two vertices; if they were in different components, decrement the component count by 1.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V + E * α(V))
+- **Space Complexity:** O(V)
 
 ## 91. Graph Valid Tree
 
 [Back to Index](#index)
 
-**Problem:** Given `n` nodes labeled from `0` to `n - 1` and a list of undirected edges, determine whether these edges make up a valid tree.
+### Problem Description
+Given `n` nodes labeled from `0` to `n - 1` and a list of undirected edges, determine whether these edges make up a valid tree.
 
+#### Example 1:
+```text
+Input: n = n, edges = edges
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4912,14 +7331,38 @@ class Solution {
 }
 ```
 
-**Explanation:** A graph of `n` nodes is a valid tree if and only if it has exactly `n - 1` edges and contains no cycles. Use Union-Find to detect cycles; if any edge connects two nodes already having the same root, a cycle exists. Time is O(V + E * α(V)) and space is O(V).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+A graph of `n` nodes is a valid tree if and only if it has exactly `n - 1` edges and contains no cycles. Use Union-Find to detect cycles; if any edge connects two nodes already having the same root, a cycle exists.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V + E * α(V))
+- **Space Complexity:** O(V)
 
 ## 92. Word Ladder
 
 [Back to Index](#index)
 
-**Problem:** A transformation sequence from `beginWord` to `endWord` using a dictionary `wordList` changes one letter at a time, where each intermediate word must exist in `wordList`. Return the number of words in the shortest transformation sequence from `beginWord` to `endWord`, or `0` if no such sequence exists.
+### Problem Description
+A transformation sequence from `beginWord` to `endWord` using a dictionary `wordList` changes one letter at a time, where each intermediate word must exist in `wordList`. Return the number of words in the shortest transformation sequence from `beginWord` to `endWord`, or `0` if no such sequence exists.
 
+#### Example 1:
+```text
+Input: beginWord = beginWord, endWord = endWord, wordList = wordList
+Output: Expected: 5
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -4973,10 +7416,24 @@ class Solution {
 }
 ```
 
-**Explanation:** Breadth-first search treats each valid word as a node and single-letter transformations as edges. Using a hash set for fast lookups, each position is replaced with letters `'a'` to `'z'`; removing visited words from the set ensures optimal shortest path discovery. Time is O(M^2 * N) where M is word length and N is dictionary size, and space is O(M * N).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Breadth-first search treats each valid word as a node and single-letter transformations as edges. Using a hash set for fast lookups, each position is replaced with letters `'a'` to `'z'`; removing visited words from the set ensures optimal shortest path discovery. Time is O(M^2 * N) where M is word length and N is dictionary size, and space is O(M * N).
 
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Advanced Graphs
 
@@ -4984,8 +7441,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given a list of airline tickets represented by pairs of departure and arrival airports `[from, to]`, reconstruct the itinerary in order starting from `"JFK"`. If there are multiple valid itineraries, return the itinerary with the smallest lexical order.
+### Problem Description
+Given a list of airline tickets represented by pairs of departure and arrival airports `[from, to]`, reconstruct the itinerary in order starting from `"JFK"`. If there are multiple valid itineraries, return the itinerary with the smallest lexical order.
 
+#### Example 1:
+```text
+Input: tickets = tickets
+Output: Expected: [JFK, MUC, LHR, SFO, SJC]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5024,14 +7493,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Hierholzer's algorithm for finding an Eulerian path: construct a graph where outgoing airports are stored in a min-heap (PriorityQueue) for lexicographical order. Traverse with DFS, polling destinations, and add airports to the front of the list in post-order. Time is O(E * log E) and space is O(V + E).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Hierholzer's algorithm for finding an Eulerian path: construct a graph where outgoing airports are stored in a min-heap (PriorityQueue) for lexicographical order. Traverse with DFS, polling destinations, and add airports to the front of the list in post-order.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(E * log E)
+- **Space Complexity:** O(V + E)
 
 ## 94. Min Cost to Connect All Points
 
 [Back to Index](#index)
 
-**Problem:** You are given an array `points` representing 2D integer coordinates `[xi, yi]`. The cost of connecting two points is the Manhattan distance: `|xi - xj| + |yi - yj|`. Return the minimum cost to make all points connected.
+### Problem Description
+You are given an array `points` representing 2D integer coordinates `[xi, yi]`. The cost of connecting two points is the Manhattan distance: `|xi - xj| + |yi - yj|`. Return the minimum cost to make all points connected.
 
+#### Example 1:
+```text
+Input: points = points
+Output: Expected: 20
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5077,14 +7571,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Prim's algorithm for Minimum Spanning Tree (MST) on a dense complete graph. Maintain the minimum distance from the current MST to each remaining point, greedily choosing the lowest cost vertex to include and relaxing distances to all unvisited vertices. Time is O(V^2) and space is O(V).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Prim's algorithm for Minimum Spanning Tree (MST) on a dense complete graph. Maintain the minimum distance from the current MST to each remaining point, greedily choosing the lowest cost vertex to include and relaxing distances to all unvisited vertices.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(V^2)
+- **Space Complexity:** O(V)
 
 ## 95. Network Delay Time
 
 [Back to Index](#index)
 
-**Problem:** You are given a network of `n` nodes labeled from `1` to `n` and a list of travel times `times[i] = (ui, vi, wi)`. From a starting node `k`, return the minimum time needed for all `n` nodes to receive the signal, or `-1` if impossible.
+### Problem Description
+You are given a network of `n` nodes labeled from `1` to `n` and a list of travel times `times[i] = (ui, vi, wi)`. From a starting node `k`, return the minimum time needed for all `n` nodes to receive the signal, or `-1` if impossible.
 
+#### Example 1:
+```text
+Input: times = times, n = n, k = k
+Output: Expected: 2
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5137,14 +7655,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Dijkstra's shortest path algorithm using a min-priority queue to determine the minimum time to reach each node from source `k`. The final answer is the maximum shortest time among all nodes, or `-1` if any node remains unreachable. Time is O(E * log V) and space is O(V + E).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Dijkstra's shortest path algorithm using a min-priority queue to determine the minimum time to reach each node from source `k`. The final answer is the maximum shortest time among all nodes, or `-1` if any node remains unreachable.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Hash State**: Maintain a hash-based lookup structure (Set or Map) to store visited values or frequencies in constant expected time.
+2. **Linear Scan**: Iterate through the input collection, computing target criteria (e.g., complement, frequency bucket, or character presence).
+3. **Lookup & Invariant Check**: If the target already exists in the set/map, return the solution or trigger the condition immediately.
+4. **Update State**: Otherwise, insert the current element into the hash table and continue until exhaustion.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(E * log V)
+- **Space Complexity:** O(V + E)
 
 ## 96. Swim in Rising Water
 
 [Back to Index](#index)
 
-**Problem:** You are given an `n x n` integer grid where `grid[i][j]` represents elevation. At time `t`, water depth everywhere is `t`, allowing swimming between adjacent cells if both elevations are at most `t`. Return the least time required to swim from `(0, 0)` to `(n - 1, n - 1)`.
+### Problem Description
+You are given an `n x n` integer grid where `grid[i][j]` represents elevation. At time `t`, water depth everywhere is `t`, allowing swimming between adjacent cells if both elevations are at most `t`. Return the least time required to swim from `(0, 0)` to `(n - 1, n - 1)`.
 
+#### Example 1:
+```text
+Input: grid = grid
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5190,14 +7733,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Modified Dijkstra's algorithm where the cost of a path is defined as the maximum elevation encountered along the path. A priority queue greedily expands the path having the minimum peak elevation so far until reaching `(n - 1, n - 1)`. Time is O(n^2 * log n) and space is O(n^2).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Modified Dijkstra's algorithm where the cost of a path is defined as the maximum elevation encountered along the path. A priority queue greedily expands the path having the minimum peak elevation so far until reaching `(n - 1, n - 1)`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^2 * log n)
+- **Space Complexity:** O(n^2)
 
 ## 97. Path With Minimum Effort
 
 [Back to Index](#index)
 
-**Problem:** Given a 2D array `heights` of size `rows x columns`, a route's effort from `(0, 0)` to `(rows - 1, columns - 1)` is the maximum absolute difference in heights between two consecutive cells of the route. Return the minimum effort required.
+### Problem Description
+Given a 2D array `heights` of size `rows x columns`, a route's effort from `(0, 0)` to `(rows - 1, columns - 1)` is the maximum absolute difference in heights between two consecutive cells of the route. Return the minimum effort required.
 
+#### Example 1:
+```text
+Input: heights = heights
+Output: Expected: 2
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5252,14 +7819,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Dijkstra's algorithm tracking the minimum possible maximum step elevation difference to reach each cell. Using a priority queue ordered by effort, pop the cell with least effort and relax neighbor distances with `max(currentEffort, |heightDifference|)`. Time is O(m * n * log(m * n)) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Dijkstra's algorithm tracking the minimum possible maximum step elevation difference to reach each cell. Using a priority queue ordered by effort, pop the cell with least effort and relax neighbor distances with `max(currentEffort, |heightDifference|)`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n * log(m * n))
+- **Space Complexity:** O(m * n)
 
 ## 98. Cheapest Flights Within K Stops
 
 [Back to Index](#index)
 
-**Problem:** There are `n` cities connected by flights `flights[i] = [fromi, toi, pricei]`. Return the cheapest price from `src` to `dst` with at most `k` stops, or `-1` if no such route exists.
+### Problem Description
+There are `n` cities connected by flights `flights[i] = [fromi, toi, pricei]`. Return the cheapest price from `src` to `dst` with at most `k` stops, or `-1` if no such route exists.
 
+#### Example 1:
+```text
+Input: n = n, flights = flights, src = src, dst = dst, k = k
+Output: Expected: 700
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.*;
 
@@ -5299,9 +7890,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Bellman-Ford algorithm executed for `k + 1` iterations (allowing at most `k` intermediate stops). In each iteration, update distances using a copy of the previous round's prices to ensure edges are relaxed using paths of length at most `i`. Time is O(k * E) and space is O(V).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Bellman-Ford algorithm executed for `k + 1` iterations (allowing at most `k` intermediate stops). In each iteration, update distances using a copy of the previous round's prices to ensure edges are relaxed using paths of length at most `i`. Time is O(k * E) and space is O(V).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # 1-D Dynamic Programming
 
@@ -5309,8 +7913,26 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** You are climbing a staircase that takes `n` steps to reach the top. Each time you can climb either 1 or 2 steps. Return the number of distinct ways to climb to the top.
+### Problem Description
+You are climbing a staircase that takes `n` steps to reach the top. Each time you can climb either 1 or 2 steps. Return the number of distinct ways to climb to the top.
 
+#### Example 1:
+```text
+Input: n = 2
+Output: Expected: 2
+```
+
+#### Example 2:
+```text
+Input: n = 3
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int climbStairs(int n) {
@@ -5333,14 +7955,44 @@ class Solution {
 }
 ```
 
-**Explanation:** The number of ways to reach step `i` is the sum of ways to reach step `i - 1` and step `i - 2` (Fibonacci recurrence), maintained with two variables for constant space. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+The number of ways to reach step `i` is the sum of ways to reach step `i - 1` and step `i - 2` (Fibonacci recurrence), maintained with two variables for constant space.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 100. Min Cost Climbing Stairs
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `cost` where `cost[i]` is the cost of the `i`-th step on a staircase, you can start from step 0 or step 1. Once you pay the cost, you can take one or two steps. Return the minimum cost to reach the top floor.
+### Problem Description
+Given an integer array `cost` where `cost[i]` is the cost of the `i`-th step on a staircase, you can start from step 0 or step 1. Once you pay the cost, you can take one or two steps. Return the minimum cost to reach the top floor.
 
+#### Example 1:
+```text
+Input: cost = [10, 15, 20]
+Output: Expected: 15
+```
+
+#### Example 2:
+```text
+Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+Output: Expected: 6
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
@@ -5361,14 +8013,44 @@ class Solution {
 }
 ```
 
-**Explanation:** The minimum cost to step onto step `i` is `cost[i] + min(dp[i-1], dp[i-2])`, and the top floor can be reached from either of the last two steps. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+The minimum cost to step onto step `i` is `cost[i] + min(dp[i-1], dp[i-2])`, and the top floor can be reached from either of the last two steps.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 101. House Robber
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` representing the amount of money in each house along a street, return the maximum amount of money you can rob tonight without alerting the police (adjacent houses cannot be robbed together).
+### Problem Description
+Given an integer array `nums` representing the amount of money in each house along a street, return the maximum amount of money you can rob tonight without alerting the police (adjacent houses cannot be robbed together).
 
+#### Example 1:
+```text
+Input: nums = [1, 2, 3, 1]
+Output: Expected: 4
+```
+
+#### Example 2:
+```text
+Input: nums = [2, 7, 9, 3, 1]
+Output: Expected: 12
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int rob(int[] nums) {
@@ -5389,14 +8071,44 @@ class Solution {
 }
 ```
 
-**Explanation:** At each house, choose either to skip it (carrying forward the previous maximum) or rob it (adding its value to the maximum up to two houses prior), tracking the two states with rolling variables. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+At each house, choose either to skip it (carrying forward the previous maximum) or rob it (adding its value to the maximum up to two houses prior), tracking the two states with rolling variables.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 102. House Robber II
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` representing the amount of money in houses arranged in a circle (the first and last houses are adjacent), return the maximum amount of money you can rob without robbing two adjacent houses.
+### Problem Description
+Given an integer array `nums` representing the amount of money in houses arranged in a circle (the first and last houses are adjacent), return the maximum amount of money you can rob without robbing two adjacent houses.
 
+#### Example 1:
+```text
+Input: nums = [2, 3, 2]
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: nums = [1, 2, 3, 1]
+Output: Expected: 4
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int rob(int[] nums) {
@@ -5424,14 +8136,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Since the first and last houses cannot both be robbed, solve two separate House Robber instances (excluding the last house, and excluding the first house) and take the maximum. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Since the first and last houses cannot both be robbed, solve two separate House Robber instances (excluding the last house, and excluding the first house) and take the maximum.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 103. Longest Palindromic Substring
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s`, return the longest palindromic substring in `s`.
+### Problem Description
+Given a string `s`, return the longest palindromic substring in `s`.
 
+#### Example 1:
+```text
+Input: s = "babad"
+Output: Expected: "bab" or "aba"
+```
+
+#### Example 2:
+```text
+Input: s = "cbbd"
+Output: Expected: "bb"
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public String longestPalindrome(String s) {
@@ -5465,14 +8207,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Expand outward from every single character (odd-length palindromes) and between every adjacent pair (even-length palindromes) while tracking the longest palindrome bounds. Time is O(n^2) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Expand outward from every single character (odd-length palindromes) and between every adjacent pair (even-length palindromes) while tracking the longest palindrome bounds.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^2)
+- **Space Complexity:** O(1)
 
 ## 104. Palindromic Substrings
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s`, return the number of palindromic substrings in it.
+### Problem Description
+Given a string `s`, return the number of palindromic substrings in it.
 
+#### Example 1:
+```text
+Input: s = "abc"
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: s = "aaa"
+Output: Expected: 6
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public int countSubstrings(String s) {
@@ -5502,14 +8274,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Expand outward around all possible centers (each index and each gap between indices), incrementing the count for each valid palindrome found. Time is O(n^2) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Expand outward around all possible centers (each index and each gap between indices), incrementing the count for each valid palindrome found.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^2)
+- **Space Complexity:** O(1)
 
 ## 105. Decode Ways
 
 [Back to Index](#index)
 
-**Problem:** A message containing letters from A-Z can be encoded into numbers using the mapping 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26". Given a string `s` of digits, return the number of ways to decode it.
+### Problem Description
+A message containing letters from A-Z can be encoded into numbers using the mapping 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26". Given a string `s` of digits, return the number of ways to decode it.
 
+#### Example 1:
+```text
+Input: s = "12"
+Output: Expected: 2
+```
+
+#### Example 2:
+```text
+Input: s = "226"
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public int numDecodings(String s) {
@@ -5541,14 +8343,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Each position adds valid single-digit decodings (1-9) from `dp[i-1]` and valid two-digit decodings (10-26) from `dp[i-2]`, tracking values using two rolling variables. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Each position adds valid single-digit decodings (1-9) from `dp[i-1]` and valid two-digit decodings (10-26) from `dp[i-2]`, tracking values using two rolling variables.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 106. Coin Change
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `coins` representing coin denominations and an integer `amount`, return the fewest number of coins needed to make up that amount, or -1 if it cannot be made up.
+### Problem Description
+Given an integer array `coins` representing coin denominations and an integer `amount`, return the fewest number of coins needed to make up that amount, or -1 if it cannot be made up.
 
+#### Example 1:
+```text
+Input: coins = [1, 2, 5], amount = 11
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: coins = [2], amount = 3
+Output: Expected: -1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -5578,14 +8410,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Use bottom-up dynamic programming where `dp[i]` stores the minimum coins required to make amount `i`, transitioning via `dp[i] = min(dp[i], dp[i - coin] + 1)`. Time is O(amount * len(coins)) and space is O(amount).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use bottom-up dynamic programming where `dp[i]` stores the minimum coins required to make amount `i`, transitioning via `dp[i] = min(dp[i], dp[i - coin] + 1)`.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(amount * len(coins))
+- **Space Complexity:** O(amount)
 
 ## 107. Maximum Product Subarray
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums`, find a contiguous non-empty subarray that has the largest product and return that product.
+### Problem Description
+Given an integer array `nums`, find a contiguous non-empty subarray that has the largest product and return that product.
 
+#### Example 1:
+```text
+Input: nums = [2, 3, -2, 4]
+Output: Expected: 6
+```
+
+#### Example 2:
+```text
+Input: nums = [-2, 0, -1]
+Output: Expected: 0
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int maxProduct(int[] nums) {
@@ -5616,14 +8479,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain running maximum and minimum products ending at each index because multiplying a negative number by a negative minimum can produce a new maximum. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain running maximum and minimum products ending at each index because multiplying a negative number by a negative minimum can produce a new maximum.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 108. Word Break
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s` and a dictionary of strings `wordDict`, return true if `s` can be segmented into a space-separated sequence of one or more dictionary words.
+### Problem Description
+Given a string `s` and a dictionary of strings `wordDict`, return true if `s` can be segmented into a space-separated sequence of one or more dictionary words.
 
+#### Example 1:
+```text
+Input: s = "leetcode", wordDict = Arrays.asList("leet", "code"
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: s = "applepenapple", wordDict = Arrays.asList("apple", "pen"
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 import java.util.Arrays;
 import java.util.HashSet;
@@ -5657,14 +8550,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Define `dp[i]` as whether the prefix of length `i` can be segmented into words, setting `dp[i] = true` if some partition point `j` has `dp[j] == true` and substring `s[j...i-1]` in the set. Time is O(n^3) and space is O(n + total dictionary length).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Define `dp[i]` as whether the prefix of length `i` can be segmented into words, setting `dp[i] = true` if some partition point `j` has `dp[j] == true` and substring `s[j...i-1]` in the set.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^3)
+- **Space Complexity:** O(n + total dictionary length)
 
 ## 109. Longest Increasing Subsequence
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
+### Problem Description
+Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
 
+#### Example 1:
+```text
+Input: nums = [10, 9, 2, 5, 3, 7, 101, 18]
+Output: Expected: 4
+```
+
+#### Example 2:
+```text
+Input: nums = [0, 1, 0, 3, 2, 3]
+Output: Expected: 4
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int lengthOfLIS(int[] nums) {
@@ -5695,14 +8619,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain a `tails` array where `tails[i]` stores the smallest tail of all increasing subsequences of length `i + 1`, updating elements via binary search (patience sorting). Time is O(n log n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain a `tails` array where `tails[i]` stores the smallest tail of all increasing subsequences of length `i + 1`, updating elements via binary search (patience sorting).
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
 
 ## 110. Partition Equal Subset Sum
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums`, return true if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+### Problem Description
+Given an integer array `nums`, return true if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
 
+#### Example 1:
+```text
+Input: nums = [1, 5, 11, 5]
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: nums = [1, 2, 3, 5]
+Output: Expected: false
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public boolean canPartition(int[] nums) {
@@ -5730,9 +8685,23 @@ class Solution {
 }
 ```
 
-**Explanation:** Formulates as a 0/1 knapsack problem seeking a subset summing to `totalSum / 2`, solved with a 1D boolean array traversed backwards to ensure each number is used at most once. Time is O(n * target) and space is O(target), where target = sum / 2.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Formulates as a 0/1 knapsack problem seeking a subset summing to `totalSum / 2`, solved with a 1D boolean array traversed backwards to ensure each number is used at most once. Time is O(n * target) and space is O(target), where target = sum / 2.
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # 2-D Dynamic Programming
 
@@ -5740,8 +8709,26 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given the integers `m` and `n` representing the dimensions of an `m x n` grid, return the number of possible unique paths from the top-left corner `(0, 0)` to the bottom-right corner `(m - 1, n - 1)`. The robot can only move either down or right at any point in time.
+### Problem Description
+Given the integers `m` and `n` representing the dimensions of an `m x n` grid, return the number of possible unique paths from the top-left corner `(0, 0)` to the bottom-right corner `(m - 1, n - 1)`. The robot can only move either down or right at any point in time.
 
+#### Example 1:
+```text
+Input: m = 3, n = 7
+Output: Expected: 28
+```
+
+#### Example 2:
+```text
+Input: m = 3, n = 2
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -5765,14 +8752,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Compute unique paths using a 1D dynamic programming array where each cell `dp[j]` represents the number of ways to reach column `j`, updated by adding paths from the cell above (`dp[j]`) and the cell to the left (`dp[j - 1]`). Time is O(m * n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Compute unique paths using a 1D dynamic programming array where each cell `dp[j]` represents the number of ways to reach column `j`, updated by adding paths from the cell above (`dp[j]`) and the cell to the left (`dp[j - 1]`).
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(n)
 
 ## 112. Longest Common Subsequence
 
 [Back to Index](#index)
 
-**Problem:** Given two strings `text1` and `text2`, return the length of their longest common subsequence. If there is no common subsequence, return `0`.
+### Problem Description
+Given two strings `text1` and `text2`, return the length of their longest common subsequence. If there is no common subsequence, return `0`.
 
+#### Example 1:
+```text
+Input: text1 = "abcde", text2 = "ace"
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: text1 = "abc", text2 = "def"
+Output: Expected: 0
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int longestCommonSubsequence(String text1, String text2) {
@@ -5801,14 +8819,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use 2D dynamic programming where `dp[i][j]` represents the LCS length of prefixes `text1[0..i-1]` and `text2[0..j-1]`. If characters match, extend the diagonal value by 1; otherwise, take the maximum of excluding the current character from either string. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use 2D dynamic programming where `dp[i][j]` represents the LCS length of prefixes `text1[0..i-1]` and `text2[0..j-1]`. If characters match, extend the diagonal value by 1; otherwise, take the maximum of excluding the current character from either string.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 113. Best Time to Buy and Sell Stock with Cooldown
 
 [Back to Index](#index)
 
-**Problem:** You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day. Find the maximum profit you can achieve with unlimited transactions, with the condition that after selling your stock, you cannot buy stock on the next day (cooldown of 1 day).
+### Problem Description
+You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day. Find the maximum profit you can achieve with unlimited transactions, with the condition that after selling your stock, you cannot buy stock on the next day (cooldown of 1 day).
 
+#### Example 1:
+```text
+Input: prices = prices
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -5836,14 +8879,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain three state variables tracking maximum profit: `held` (holding a stock), `sold` (just sold, triggering cooldown next day), and `rest` (cooldown or holding cash). Transitions occur day-by-day in constant space. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain three state variables tracking maximum profit: `held` (holding a stock), `sold` (just sold, triggering cooldown next day), and `rest` (cooldown or holding cash). Transitions occur day-by-day in constant space.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 114. Coin Change II
 
 [Back to Index](#index)
 
-**Problem:** You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the number of combinations that make up that amount. You may assume you have an infinite number of each kind of coin.
+### Problem Description
+You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the number of combinations that make up that amount. You may assume you have an infinite number of each kind of coin.
 
+#### Example 1:
+```text
+Input: amount = 5, coins = coins
+Output: Expected: 4
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int change(int amount, int[] coins) {
@@ -5867,14 +8934,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Solve using unbounded knapsack dynamic programming where the outer loop iterates over coin denominations to ensure combinations (not permutations) are counted, adding ways to make `i - coin` to `dp[i]`. Time is O(n * amount) and space is O(amount).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Solve using unbounded knapsack dynamic programming where the outer loop iterates over coin denominations to ensure combinations (not permutations) are counted, adding ways to make `i - coin` to `dp[i]`.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n * amount)
+- **Space Complexity:** O(amount)
 
 ## 115. Target Sum
 
 [Back to Index](#index)
 
-**Problem:** You are given an integer array `nums` and an integer `target`. Build an expression using `+` and `-` before each integer in `nums` and evaluate it. Return the number of different expressions that evaluate to `target`.
+### Problem Description
+You are given an integer array `nums` and an integer `target`. Build an expression using `+` and `-` before each integer in `nums` and evaluate it. Return the number of different expressions that evaluate to `target`.
 
+#### Example 1:
+```text
+Input: nums = nums, target = 3
+Output: Expected: 5
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int findTargetSumWays(int[] nums, int target) {
@@ -5908,14 +9001,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Transform the problem into finding a subset of numbers whose sum equals `(totalSum + target) / 2`, then count valid subsets using 0/1 knapsack dynamic programming iterating backwards to avoid reusing elements. Time is O(n * S) where S is (totalSum + target) / 2 and space is O(S).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Transform the problem into finding a subset of numbers whose sum equals `(totalSum + target) / 2`, then count valid subsets using 0/1 knapsack dynamic programming iterating backwards to avoid reusing elements.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n * S) where S is (totalSum + target) / 2
+- **Space Complexity:** O(S)
 
 ## 116. Interleaving String
 
 [Back to Index](#index)
 
-**Problem:** Given strings `s1`, `s2`, and `s3`, determine whether `s3` is formed by an interleaving of `s1` and `s2`.
+### Problem Description
+Given strings `s1`, `s2`, and `s3`, determine whether `s3` is formed by an interleaving of `s1` and `s2`.
 
+#### Example 1:
+```text
+Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
+Output: Expected: false
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public boolean isInterleave(String s1, String s2, String s3) {
@@ -5955,14 +9079,39 @@ class Solution {
 }
 ```
 
-**Explanation:** Use 2D dynamic programming where `dp[i][j]` indicates whether `s3[0..i+j-1]` can be formed by interleaving prefixes `s1[0..i-1]` and `s2[0..j-1]`, transitioning from valid subproblems when characters match. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use 2D dynamic programming where `dp[i][j]` indicates whether `s3[0..i+j-1]` can be formed by interleaving prefixes `s1[0..i-1]` and `s2[0..j-1]`, transitioning from valid subproblems when characters match.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 117. Longest Increasing Path in a Matrix
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` integers matrix, return the length of the longest increasing path in matrix. From each cell, you can move in four directions (up, down, left, right), but not diagonally or outside the boundary.
+### Problem Description
+Given an `m x n` integers matrix, return the length of the longest increasing path in matrix. From each cell, you can move in four directions (up, down, left, right), but not diagonally or outside the boundary.
 
+#### Example 1:
+```text
+Input: matrix = matrix
+Output: Expected: 4
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 class Solution {
     private int[][] memo;
@@ -6011,14 +9160,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Model the matrix as a directed acyclic graph (DAG) where edges point to strictly greater neighbors, and find the longest path using DFS with memoization on each cell. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Model the matrix as a directed acyclic graph (DAG) where edges point to strictly greater neighbors, and find the longest path using DFS with memoization on each cell.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 118. Distinct Subsequences
 
 [Back to Index](#index)
 
-**Problem:** Given two strings `s` and `t`, return the number of distinct subsequences of `s` which equals `t`.
+### Problem Description
+Given two strings `s` and `t`, return the number of distinct subsequences of `s` which equals `t`.
 
+#### Example 1:
+```text
+Input: s = "rabbbit", t = "rabbit"
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: s = "babgbag", t = "bag"
+Output: Expected: 5
+```
+
+#### Constraints:
+- `1 <= s.length, t.length <= 10^5`
+- `s` and `t` consist of lowercase English letters.
+
+### Solution
 ```java
 class Solution {
     public int numDistinct(String s, String t) {
@@ -6051,14 +9230,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Use 2D dynamic programming where `dp[i][j]` is the count of distinct subsequences of `s[0..i-1]` matching `t[0..j-1]`. If characters match, add occurrences using the character (`dp[i - 1][j - 1]`) and omitting it (`dp[i - 1][j]`); otherwise, only omit it. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use 2D dynamic programming where `dp[i][j]` is the count of distinct subsequences of `s[0..i-1]` matching `t[0..j-1]`. If characters match, add occurrences using the character (`dp[i - 1][j - 1]`) and omitting it (`dp[i - 1][j]`); otherwise, only omit it.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 119. Edit Distance
 
 [Back to Index](#index)
 
-**Problem:** Given two strings `word1` and `word2`, return the minimum number of operations required to convert `word1` to `word2`. Permitted operations are inserting, deleting, or replacing a character.
+### Problem Description
+Given two strings `word1` and `word2`, return the minimum number of operations required to convert `word1` to `word2`. Permitted operations are inserting, deleting, or replacing a character.
 
+#### Example 1:
+```text
+Input: word1 = "horse", word2 = "ros"
+Output: Expected: 3
+```
+
+#### Example 2:
+```text
+Input: word1 = "intention", word2 = "execution"
+Output: Expected: 5
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int minDistance(String word1, String word2) {
@@ -6096,14 +9306,40 @@ class Solution {
 }
 ```
 
-**Explanation:** Compute minimum operations using 2D dynamic programming where `dp[i][j]` represents the edit distance between `word1[0..i-1]` and `word2[0..j-1]`. If characters match, cost is zero; otherwise, take 1 plus the minimum of insert, delete, or replace operations. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Compute minimum operations using 2D dynamic programming where `dp[i][j]` represents the edit distance between `word1[0..i-1]` and `word2[0..j-1]`. If characters match, cost is zero; otherwise, take 1 plus the minimum of insert, delete, or replace operations.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m * n)
 
 ## 120. Burst Balloons
 
 [Back to Index](#index)
 
-**Problem:** You are given `n` balloons, indexed from `0` to `n - 1`, where each balloon is painted with a number on it represented by an array `nums`. If you burst the `i`-th balloon, you get `nums[i - 1] * nums[i] * nums[i + 1]` coins. If `i - 1` or `i + 1` goes out of bounds, treat it as a balloon with value `1`. Return the maximum coins you can collect by bursting the balloons wisely.
+### Problem Description
+You are given `n` balloons, indexed from `0` to `n - 1`, where each balloon is painted with a number on it represented by an array `nums`. If you burst the `i`-th balloon, you get `nums[i - 1] * nums[i] * nums[i + 1]` coins. If `i - 1` or `i + 1` goes out of bounds, treat it as a balloon with value `1`. Return the maximum coins you can collect by bursting the balloons wisely.
 
+#### Example 1:
+```text
+Input: nums = nums
+Output: Expected: 167
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `1 <= k <= nums.length`
+
+### Solution
 ```java
 class Solution {
     public int maxCoins(int[] nums) {
@@ -6140,14 +9376,45 @@ class Solution {
 }
 ```
 
-**Explanation:** Pad the array with 1 at both boundaries and use interval dynamic programming, where `dp[left][right]` stores the maximum coins obtained by bursting all balloons in `[left, right]`. We choose each balloon `k` as the last balloon to burst in the range, decoupling the left and right subproblems. Time is O(n^3) and space is O(n^2).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Pad the array with 1 at both boundaries and use interval dynamic programming, where `dp[left][right]` stores the maximum coins obtained by bursting all balloons in `[left, right]`. We choose each balloon `k` as the last balloon to burst in the range, decoupling the left and right subproblems.
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^3)
+- **Space Complexity:** O(n^2)
 
 ## 121. Regular Expression Matching
 
 [Back to Index](#index)
 
-**Problem:** Given an input string `s` and a pattern `p`, implement regular expression matching with support for `'.'` (which matches any single character) and `'*'` (which matches zero or more of the preceding element). The matching must cover the entire input string.
+### Problem Description
+Given an input string `s` and a pattern `p`, implement regular expression matching with support for `'.'` (which matches any single character) and `'*'` (which matches zero or more of the preceding element). The matching must cover the entire input string.
 
+#### Example 1:
+```text
+Input: s = "aa", p = "a"
+Output: Expected: false
+```
+
+#### Example 2:
+```text
+Input: s = "aa", p = "a*"
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public boolean isMatch(String s, String p) {
@@ -6189,9 +9456,23 @@ class Solution {
 }
 ```
 
-**Explanation:** Use 2D dynamic programming where `dp[i][j]` represents whether `s[0..i-1]` matches `p[0..j-1]`. If the current pattern character is `'*'`, branch into zero matches of the preceding element or one/more matches if the preceding character matches the current character of `s`. Time is O(m * n) and space is O(m * n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use 2D dynamic programming where `dp[i][j]` represents whether `s[0..i-1]` matches `p[0..j-1]`. If the current pattern character is `'*'`, branch into zero matches of the preceding element or one/more matches if the preceding character matches the current character of `s`. Time is O(m * n) and space is O(m * n).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Define Subproblem State**: Create a DP array where dp[i] stores the optimal answer for the subproblem of size i.
+2. **Base Case Initialization**: Populate known base cases (e.g., dp[0] = 0 or dp[1] = 1).
+3. **State Transition**: Iterate through states, computing each dp[i] from previously solved subproblems using the recurrence relation.
+4. **Result Extraction**: The final answer resides in the terminal cell of the DP table.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Greedy
 
@@ -6199,8 +9480,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums`, find the subarray with the largest sum, and return *its sum*.
+### Problem Description
+Given an integer array `nums`, find the subarray with the largest sum, and return *its sum*.
 
+#### Example 1:
+```text
+Input: nums = nums
+Output: Expected: 6
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int maxSubArray(int[] nums) {
@@ -6223,14 +9516,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Use Kadane's algorithm. Maintain a running sum `curSum` and reset it to `0` whenever it drops below zero, updating `maxSum` at each element. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use Kadane's algorithm. Maintain a running sum `curSum` and reset it to `0` whenever it drops below zero, updating `maxSum` at each element.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 123. Jump Game
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `nums` where each element represents your maximum jumping length from that position, return `true` if you can reach the last index starting from index `0`, or `false` otherwise.
+### Problem Description
+Given an integer array `nums` where each element represents your maximum jumping length from that position, return `true` if you can reach the last index starting from index `0`, or `false` otherwise.
 
+#### Example 1:
+```text
+Input: nums = [2, 3, 1, 1, 4]
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: nums = [3, 2, 1, 0, 4]
+Output: Expected: false
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public boolean canJump(int[] nums) {
@@ -6253,14 +9576,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Work backwards greedily from the last index. If index `i` can reach the current `goal` (`i + nums[i] >= goal`), update `goal` to `i`. If the goal reaches `0`, the destination is reachable. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Work backwards greedily from the last index. If index `i` can reach the current `goal` (`i + nums[i] >= goal`), update `goal` to `i`. If the goal reaches `0`, the destination is reachable.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 124. Jump Game II
 
 [Back to Index](#index)
 
-**Problem:** Given a 0-indexed array of integers `nums` of length `n`, return the minimum number of jumps to reach index `n - 1`. You can assume that you can always reach the last index.
+### Problem Description
+Given a 0-indexed array of integers `nums` of length `n`, return the minimum number of jumps to reach index `n - 1`. You can assume that you can always reach the last index.
 
+#### Example 1:
+```text
+Input: nums = [2, 3, 1, 1, 4]
+Output: Expected: 2
+```
+
+#### Example 2:
+```text
+Input: nums = [2, 3, 0, 1, 4]
+Output: Expected: 2
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int jump(int[] nums) {
@@ -6287,14 +9640,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Use a greedy BFS level-by-level approach. At each step, record the farthest index reachable. When the current jump window boundary `curEnd` is reached, increment `jumps` and extend the boundary to `farthest`. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use a greedy BFS level-by-level approach. At each step, record the farthest index reachable. When the current jump window boundary `curEnd` is reached, increment `jumps` and extend the boundary to `farthest`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 125. Gas Station
 
 [Back to Index](#index)
 
-**Problem:** There are `n` gas stations along a circular route where station `i` has `gas[i]` fuel and costs `cost[i]` to travel to station `i + 1`. Return the starting station index to complete the full circuit clockwise once, or `-1` if impossible.
+### Problem Description
+There are `n` gas stations along a circular route where station `i` has `gas[i]` fuel and costs `cost[i]` to travel to station `i + 1`. Return the starting station index to complete the full circuit clockwise once, or `-1` if impossible.
 
+#### Example 1:
+```text
+Input: gas = gas, cost = cost
+Output: Expected: 3
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
@@ -6331,14 +9708,44 @@ class Solution {
 }
 ```
 
-**Explanation:** If total gas is less than total cost, completing the circuit is impossible. Otherwise, a unique valid start station is guaranteed to exist: iterate through stations and if current tank drops below 0, reset start to `i + 1` and tank to `0`. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+If total gas is less than total cost, completing the circuit is impossible. Otherwise, a unique valid start station is guaranteed to exist: iterate through stations and if current tank drops below 0, reset start to `i + 1` and tank to `0`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 126. Hand of Straights
 
 [Back to Index](#index)
 
-**Problem:** Given an integer array `hand` and an integer `groupSize`, return `true` if the hand can be rearranged into groups of `groupSize` consecutive cards, or `false` otherwise.
+### Problem Description
+Given an integer array `hand` and an integer `groupSize`, return `true` if the hand can be rearranged into groups of `groupSize` consecutive cards, or `false` otherwise.
 
+#### Example 1:
+```text
+Input: hand = hand, groupSize = 3
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: hand = [1, 2, 3, 4, 5], groupSize = 4
+Output: Expected: false
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.TreeMap;
 
@@ -6378,14 +9785,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Count card frequencies in a `TreeMap` to process keys in sorted order. For each smallest available card with frequency `f`, deduct `f` copies from each card in `[card, card + groupSize - 1]`. Time is O(n log k) where `k` is the number of distinct cards, and space is O(k).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Count card frequencies in a `TreeMap` to process keys in sorted order. For each smallest available card with frequency `f`, deduct `f` copies from each card in `[card, card + groupSize - 1]`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log k) where `k` is the number of distinct cards,
+- **Space Complexity:** O(k)
 
 ## 127. Merge Triplets to Form Target Triplet
 
 [Back to Index](#index)
 
-**Problem:** Given a 2D integer array `triplets` and an integer array `target = [x, y, z]`, return `true` if you can obtain `target` by repeatedly taking component-wise maximums of selected triplets, or `false` otherwise.
+### Problem Description
+Given a 2D integer array `triplets` and an integer array `target = [x, y, z]`, return `true` if you can obtain `target` by repeatedly taking component-wise maximums of selected triplets, or `false` otherwise.
 
+#### Example 1:
+```text
+Input: triplets = triplets, target = target
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public boolean mergeTriplets(int[][] triplets, int[] target) {
@@ -6413,14 +9844,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Ignore any triplet containing a value exceeding the corresponding target component, as taking a max with it would invalidate that coordinate. Among valid triplets, verify whether triplets exist matching each individual target element. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Ignore any triplet containing a value exceeding the corresponding target component, as taking a max with it would invalidate that coordinate. Among valid triplets, verify whether triplets exist matching each individual target element.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 128. Partition Labels
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s`, partition it into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
+### Problem Description
+Given a string `s`, partition it into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
 
+#### Example 1:
+```text
+Input: s = str
+Output: Expected: [9, 7, 8]
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -6455,14 +9910,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Precompute the last occurrence of each character. Traverse the string and expand the current partition's boundary `end` to include the last occurrence of each encountered character; when index `i` reaches `end`, close the partition. Time is O(n) and space is O(1) auxiliary space (26 characters).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Precompute the last occurrence of each character. Traverse the string and expand the current partition's boundary `end` to include the last occurrence of each encountered character; when index `i` reaches `end`, close the partition.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) auxiliary space (26 characters)
 
 ## 129. Valid Parenthesis String
 
 [Back to Index](#index)
 
-**Problem:** Given a string `s` containing only `'('`, `')'`, and `'*'`, return `true` if `s` is valid. `'*'` can be treated as a single `'('`, a single `')'`, or an empty string `""`.
+### Problem Description
+Given a string `s` containing only `'('`, `')'`, and `'*'`, return `true` if `s` is valid. `'*'` can be treated as a single `'('`, a single `')'`, or an empty string `""`.
 
+#### Example 1:
+```text
+Input: s = "()"
+Output: Expected: true
+```
+
+#### Example 2:
+```text
+Input: s = "(*)"
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= s.length <= 10^5`
+- `s` consists of printable ASCII characters.
+
+### Solution
 ```java
 class Solution {
     public boolean checkValidString(String s) {
@@ -6500,9 +9985,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain the range `[cmin, cmax]` of possible open parentheses count. `cmin` decreases with `')'` or `'*'` (bounded by 0), and `cmax` increases with `'('` or `'*'`. If `cmax < 0`, more closing parentheses exist than can be balanced; string is valid if `cmin == 0` at the end. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain the range `[cmin, cmax]` of possible open parentheses count. `cmin` decreases with `')'` or `'*'` (bounded by 0), and `cmax` increases with `'('` or `'*'`. If `cmax < 0`, more closing parentheses exist than can be balanced; string is valid if `cmin == 0` at the end. Time is O(n) and space is O(1).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Intervals
 
@@ -6510,8 +10008,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an array of non-overlapping intervals `intervals` sorted by start time, insert `newInterval` into `intervals` such that the result remains sorted and non-overlapping (merging overlapping intervals as needed).
+### Problem Description
+Given an array of non-overlapping intervals `intervals` sorted by start time, insert `newInterval` into `intervals` such that the result remains sorted and non-overlapping (merging overlapping intervals as needed).
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: [[1, 5], [6, 9]]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6555,14 +10065,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Process the intervals in three linear passes: add intervals that end before `newInterval` starts, merge all intervals overlapping `newInterval` by expanding its bounds, add `newInterval`, then append all remaining intervals. Time is O(n) and space is O(n) for the output list.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Process the intervals in three linear passes: add intervals that end before `newInterval` starts, merge all intervals overlapping `newInterval` by expanding its bounds, add `newInterval`, then append all remaining intervals.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n) for the output list
 
 ## 131. Merge Intervals
 
 [Back to Index](#index)
 
-**Problem:** Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals, and return an array of non-overlapping intervals that cover all intervals in the input.
+### Problem Description
+Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals, and return an array of non-overlapping intervals that cover all intervals in the input.
 
+#### Example 1:
+```text
+Input: See code initialization
+Output: [[1, 6], [8, 10], [15, 18]]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6600,14 +10134,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort intervals by start time. Iterate through the intervals: if the next interval begins before or when the current interval ends, merge them by extending the end time; otherwise, append it as a new interval. Time is O(n log n) due to sorting, and space is O(n) for the result.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort intervals by start time. Iterate through the intervals: if the next interval begins before or when the current interval ends, merge them by extending the end time; otherwise, append it as a new interval.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n) due to sorting,
+- **Space Complexity:** O(n) for the result
 
 ## 132. Non-overlapping Intervals
 
 [Back to Index](#index)
 
-**Problem:** Given an array of intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of intervals to remove to make the remainder non-overlapping.
+### Problem Description
+Given an array of intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of intervals to remove to make the remainder non-overlapping.
 
+#### Example 1:
+```text
+Input: intervals = intervals
+Output: Expected: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -6641,14 +10199,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Greedy interval scheduling: sort intervals by their end times. Greedily keep the interval that finishes earliest to leave maximum room for subsequent intervals; increment the removal count whenever an overlap occurs. Time is O(n log n) and space is O(log n) auxiliary for sorting.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Greedy interval scheduling: sort intervals by their end times. Greedily keep the interval that finishes earliest to leave maximum room for subsequent intervals; increment the removal count whenever an overlap occurs.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(log n) auxiliary for sorting
 
 ## 133. Meeting Rooms
 
 [Back to Index](#index)
 
-**Problem:** Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, determine if a person could attend all meetings without overlap.
+### Problem Description
+Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, determine if a person could attend all meetings without overlap.
 
+#### Example 1:
+```text
+Input: intervals = intervals
+Output: Expected: false
+```
+
+#### Example 2:
+```text
+Input: intervals = intervals2
+Output: Expected: true
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -6676,14 +10264,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort meetings by start time and check if any meeting begins before the previous meeting concludes. If an overlap is found, return `false`; otherwise, return `true`. Time is O(n log n) and space is O(log n) auxiliary for sorting.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort meetings by start time and check if any meeting begins before the previous meeting concludes. If an overlap is found, return `false`; otherwise, return `true`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(log n) auxiliary for sorting
 
 ## 134. Meeting Rooms II
 
 [Back to Index](#index)
 
-**Problem:** Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of conference rooms required.
+### Problem Description
+Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, return the minimum number of conference rooms required.
 
+#### Example 1:
+```text
+Input: intervals = intervals
+Output: Expected: 2
+```
+
+#### Example 2:
+```text
+Input: intervals = intervals2
+Output: Expected: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -6720,14 +10338,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort meetings by start time and use a min-heap to track the end times of active meetings. If the next meeting starts after the earliest ending meeting finishes, reuse that room by polling from the heap; then push the new end time. The heap size represents the required rooms. Time is O(n log n) and space is O(n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort meetings by start time and use a min-heap to track the end times of active meetings. If the next meeting starts after the earliest ending meeting finishes, reuse that room by polling from the heap; then push the new end time. The heap size represents the required rooms.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
 
 ## 135. Minimum Interval to Include Each Query
 
 [Back to Index](#index)
 
-**Problem:** Given a 2D integer array `intervals` where `intervals[i] = [left_i, right_i]` and an integer array `queries`, find the minimum size of an interval containing `queries[j]` for each query, or `-1` if none exists. The size of an interval is `right_i - left_i + 1`.
+### Problem Description
+Given a 2D integer array `intervals` where `intervals[i] = [left_i, right_i]` and an integer array `queries`, find the minimum size of an interval containing `queries[j]` for each query, or `-1` if none exists. The size of an interval is `right_i - left_i + 1`.
 
+#### Example 1:
+```text
+Input: intervals = intervals, queries = queries
+Output: Expected: [3, 3, 1, 4]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -6780,9 +10422,22 @@ class Solution {
 }
 ```
 
-**Explanation:** Sort intervals by start and queries in ascending order (preserving original indices). For each query, push all intervals starting before or at the query point into a min-heap keyed by length, discard intervals that end before the query, and query the top of the heap. Time is O(n log n + q log q) and space is O(n + q).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Sort intervals by start and queries in ascending order (preserving original indices). For each query, push all intervals starting before or at the query point into a min-heap keyed by length, discard intervals that end before the query, and query the top of the heap. Time is O(n log n + q log q) and space is O(n + q).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Math & Geometry
 
@@ -6790,8 +10445,20 @@ class Solution {
 
 [Back to Index](#index)
 
-**Problem:** Given an `n x n` 2D matrix representing an image, rotate the image by 90 degrees clockwise in-place.
+### Problem Description
+Given an `n x n` 2D matrix representing an image, rotate the image by 90 degrees clockwise in-place.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -6829,14 +10496,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Transpose the matrix across its main diagonal, then reverse each row horizontally to produce a 90-degree clockwise rotation in-place. Time is O(n^2) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Transpose the matrix across its main diagonal, then reverse each row horizontally to produce a 90-degree clockwise rotation in-place.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n^2)
+- **Space Complexity:** O(1)
 
 ## 137. Spiral Matrix
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` matrix, return all elements of the matrix in spiral order.
+### Problem Description
+Given an `m x n` matrix, return all elements of the matrix in spiral order.
 
+#### Example 1:
+```text
+Input: matrix = matrix
+Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -6894,14 +10585,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Maintain four boundary pointers (top, bottom, left, right) and cycle through traversing the edges inwards until all boundaries cross. Time is O(m * n) and space is O(1) auxiliary.
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Maintain four boundary pointers (top, bottom, left, right) and cycle through traversing the edges inwards until all boundaries cross.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(1) auxiliary
 
 ## 138. Set Matrix Zeroes
 
 [Back to Index](#index)
 
-**Problem:** Given an `m x n` integer matrix, if an element is 0, set its entire row and column to 0's in-place.
+### Problem Description
+Given an `m x n` integer matrix, if an element is 0, set its entire row and column to 0's in-place.
 
+#### Example 1:
+```text
+Input: Sample input meeting constraints
+Output: Expected evaluated result
+```
+
+#### Constraints:
+- `m == matrix.length`, `n == matrix[i].length`
+- `1 <= m, n <= 200`
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -6973,14 +10688,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Use the first row and column of the matrix as state markers for the rest of the cells, with separate boolean flags for the first row and first column themselves. Time is O(m * n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use the first row and column of the matrix as state markers for the rest of the cells, with separate boolean flags for the first row and first column themselves.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(1)
 
 ## 139. Happy Number
 
 [Back to Index](#index)
 
-**Problem:** Determine if a number `n` is happy, where a happy number eventually reaches 1 when repeatedly replaced by the sum of the squares of its digits.
+### Problem Description
+Determine if a number `n` is happy, where a happy number eventually reaches 1 when repeatedly replaced by the sum of the squares of its digits.
 
+#### Example 1:
+```text
+Input: n = 19
+Output: true
+```
+
+#### Example 2:
+```text
+Input: n = 2
+Output: false
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public boolean isHappy(int n) {
@@ -7013,14 +10758,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Detect cycles in the sequence of digit-square sums using Floyd's Tortoise and Hare cycle detection algorithm until reaching 1 or detecting a loop. Time is O(log n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Detect cycles in the sequence of digit-square sums using Floyd's Tortoise and Hare cycle detection algorithm until reaching 1 or detecting a loop.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
 
 ## 140. Plus One
 
 [Back to Index](#index)
 
-**Problem:** Given a large integer represented as an integer array `digits`, increment the large integer by one and return the resulting array of digits.
+### Problem Description
+Given a large integer represented as an integer array `digits`, increment the large integer by one and return the resulting array of digits.
 
+#### Example 1:
+```text
+Input: digits = [1, 2, 3]
+Output: [1, 2, 4]
+```
+
+#### Example 2:
+```text
+Input: digits = [9, 9, 9]
+Output: [1, 0, 0, 0]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -7048,14 +10823,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Iterate from the least significant digit backwards, incrementing and returning immediately if a digit is less than 9; if all digits are 9, prepend 1 to a new array of zeros. Time is O(n) and space is O(1) auxiliary (or O(n) when allocating a new array).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Iterate from the least significant digit backwards, incrementing and returning immediately if a digit is less than 9; if all digits are 9, prepend 1 to a new array of zeros.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) auxiliary (or O(n) when allocating a new array)
 
 ## 141. Pow(x, n)
 
 [Back to Index](#index)
 
-**Problem:** Implement `pow(x, n)`, which calculates `x` raised to the power `n` ($x^n$).
+### Problem Description
+Implement `pow(x, n)`, which calculates `x` raised to the power `n` ($x^n$).
 
+#### Example 1:
+```text
+Input: x = 2.0, n = 10
+Output: 1024.0
+```
+
+#### Example 2:
+```text
+Input: x = 2.1, n = 3
+Output: 9.261000000000001
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public double myPow(double x, int n) {
@@ -7088,14 +10893,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Use binary exponentiation (fast power) by squaring the base and halving the exponent at each step, using `long` to prevent overflow when negating `Integer.MIN_VALUE`. Time is O(log n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use binary exponentiation (fast power) by squaring the base and halving the exponent at each step, using `long` to prevent overflow when negating `Integer.MIN_VALUE`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
 
 ## 142. Multiply Strings
 
 [Back to Index](#index)
 
-**Problem:** Given two non-negative integers `num1` and `num2` represented as strings, return the product of `num1` and `num2`, also represented as a string.
+### Problem Description
+Given two non-negative integers `num1` and `num2` represented as strings, return the product of `num1` and `num2`, also represented as a string.
 
+#### Example 1:
+```text
+Input: num1 = "2", num2 = "3"
+Output: 6
+```
+
+#### Example 2:
+```text
+Input: num1 = "123", num2 = "456"
+Output: 56088
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public String multiply(String num1, String num2) {
@@ -7137,14 +10972,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Simulate grade-school manual multiplication by multiplying digits pair by pair and placing products at positions `i + j` and `i + j + 1` in an array, then converting to string without leading zeros. Time is O(m * n) and space is O(m + n).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Simulate grade-school manual multiplication by multiplying digits pair by pair and placing products at positions `i + j` and `i + j + 1` in an array, then converting to string without leading zeros.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(m * n)
+- **Space Complexity:** O(m + n)
 
 ## 143. Detect Squares
 
 [Back to Index](#index)
 
-**Problem:** Design a data structure that maintains a stream of 2D points and counts the number of ways to form axis-aligned squares with a given query point as one of the four corners.
+### Problem Description
+Design a data structure that maintains a stream of 2D points and counts the number of ways to form axis-aligned squares with a given query point as one of the four corners.
 
+#### Example 1:
+```text
+Input: point = [11, 10]
+Output: 1
+```
+
+#### Example 2:
+```text
+Input: point = [14, 8]
+Output: 0
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -7193,9 +11058,22 @@ class DetectSquares {
 }
 ```
 
-**Explanation:** Store point frequencies in a 2D coordinate grid and iterate over potential diagonally opposite corners from added points, multiplying frequencies of the complementary corners `(px, y)` and `(x, py)`. Time is O(1) for `add` and O(N) for `count` where N is the number of points added, and space is O(N).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Store point frequencies in a 2D coordinate grid and iterate over potential diagonally opposite corners from added points, multiplying frequencies of the complementary corners `(px, y)` and `(x, py)`. Time is O(1) for `add` and O(N) for `count` where N is the number of points added, and space is O(N).
 
 ---
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
 
 # Bit Manipulation
 
@@ -7203,8 +11081,26 @@ class DetectSquares {
 
 [Back to Index](#index)
 
-**Problem:** Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one in linear time and constant extra space.
+### Problem Description
+Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one in linear time and constant extra space.
 
+#### Example 1:
+```text
+Input: nums = [2, 2, 1]
+Output: 1
+```
+
+#### Example 2:
+```text
+Input: nums = [4, 1, 2, 1, 2]
+Output: 4
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
@@ -7223,14 +11119,44 @@ class Solution {
 }
 ```
 
-**Explanation:** XOR all numbers in the array together; identical pairs cancel out ($x \oplus x = 0$), leaving only the single unique number ($0 \oplus x = x$). Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+XOR all numbers in the array together; identical pairs cancel out ($x \oplus x = 0$), leaving only the single unique number ($0 \oplus x = x$).
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 145. Number of 1 Bits
 
 [Back to Index](#index)
 
-**Problem:** Given a positive integer `n`, return the number of set bits (1s) in its binary representation (Hamming weight).
+### Problem Description
+Given a positive integer `n`, return the number of set bits (1s) in its binary representation (Hamming weight).
 
+#### Example 1:
+```text
+Input: n = 11
+Output: 3
+```
+
+#### Example 2:
+```text
+Input: n = 128
+Output: 1
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int hammingWeight(int n) {
@@ -7251,14 +11177,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Use Brian Kernighan's algorithm where `n &= (n - 1)` removes the lowest set bit in each iteration until `n` becomes 0. Time is O(k) where k is the number of 1-bits ($\le 32$, so O(1)) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Use Brian Kernighan's algorithm where `n &= (n - 1)` removes the lowest set bit in each iteration until `n` becomes 0.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(k) where k is the number of 1-bits ($\le 32$, so O(1))
+- **Space Complexity:** O(1)
 
 ## 146. Counting Bits
 
 [Back to Index](#index)
 
-**Problem:** Given an integer `n`, return an array `ans` of length `n + 1` such that for each `i` (`0 <= i <= n`), `ans[i]` is the number of 1's in the binary representation of `i`.
+### Problem Description
+Given an integer `n`, return an array `ans` of length `n + 1` such that for each `i` (`0 <= i <= n`), `ans[i]` is the number of 1's in the binary representation of `i`.
 
+#### Example 1:
+```text
+Input: n = 2
+Output: [0, 1, 1]
+```
+
+#### Example 2:
+```text
+Input: n = 5
+Output: [0, 1, 1, 2, 1, 2]
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 import java.util.Arrays;
 
@@ -7279,14 +11235,38 @@ class Solution {
 }
 ```
 
-**Explanation:** Apply dynamic programming where the number of set bits in `i` equals the number of set bits in `i >> 1` plus `1` if `i` is odd (`i & 1`). Time is O(n) and space is O(1) auxiliary (excluding the returned array).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Apply dynamic programming where the number of set bits in `i` equals the number of set bits in `i >> 1` plus `1` if `i` is odd (`i & 1`).
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) auxiliary (excluding the returned array)
 
 ## 147. Reverse Bits
 
 [Back to Index](#index)
 
-**Problem:** Reverse the bits of a given 32-bit unsigned integer.
+### Problem Description
+Reverse the bits of a given 32-bit unsigned integer.
 
+#### Example 1:
+```text
+Input: n = 43261596
+Output: 964176192
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int reverseBits(int n) {
@@ -7305,14 +11285,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Iterate 32 times, shifting `res` left and appending the lowest bit of `n`, then logically shifting `n` to the right with `>>>= 1`. Time is O(1) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Iterate 32 times, shifting `res` left and appending the lowest bit of `n`, then logically shifting `n` to the right with `>>>= 1`.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
 
 ## 148. Missing Number
 
 [Back to Index](#index)
 
-**Problem:** Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that is missing from the array.
+### Problem Description
+Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that is missing from the array.
 
+#### Example 1:
+```text
+Input: nums = [3, 0, 1]
+Output: 2
+```
+
+#### Example 2:
+```text
+Input: nums = [0, 1]
+Output: 2
+```
+
+#### Constraints:
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+### Solution
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
@@ -7332,14 +11342,44 @@ class Solution {
 }
 ```
 
-**Explanation:** XOR all values from `0` to `n` with all elements present in the array; duplicate values cancel out to 0, leaving the missing number. Time is O(n) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+XOR all values from `0` to `n` with all elements present in the array; duplicate values cancel out to 0, leaving the missing number.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
 
 ## 149. Sum of Two Integers
 
 [Back to Index](#index)
 
-**Problem:** Given two integers `a` and `b`, return the sum of the two integers without using the operators `+` and `-`.
+### Problem Description
+Given two integers `a` and `b`, return the sum of the two integers without using the operators `+` and `-`.
 
+#### Example 1:
+```text
+Input: a = 1, b = 2
+Output: 3
+```
+
+#### Example 2:
+```text
+Input: a = 2, b = 3
+Output: 5
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int getSum(int a, int b) {
@@ -7360,14 +11400,44 @@ class Solution {
 }
 ```
 
-**Explanation:** Simulate half-adder addition using XOR (`a ^ b`) to compute the sum without carry and AND shifted left (`(a & b) << 1`) to calculate the carry, iterating until the carry is zero. Time is O(1) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Simulate half-adder addition using XOR (`a ^ b`) to compute the sum without carry and AND shifted left (`(a & b) << 1`) to calculate the carry, iterating until the carry is zero.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
 
 ## 150. Reverse Integer
 
 [Back to Index](#index)
 
-**Problem:** Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range `[-2^31, 2^31 - 1]`, return 0.
+### Problem Description
+Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range `[-2^31, 2^31 - 1]`, return 0.
 
+#### Example 1:
+```text
+Input: x = 123
+Output: 321
+```
+
+#### Example 2:
+```text
+Input: x = -123
+Output: -321
+```
+
+#### Constraints:
+- `1 <= n <= 10^5`
+- Operations remain within standard 32-bit signed integer limits.
+
+### Solution
 ```java
 class Solution {
     public int reverse(int x) {
@@ -7399,4 +11469,18 @@ class Solution {
 }
 ```
 
-**Explanation:** Extract digits from the end of `x` and append them to `res`, checking against 32-bit integer boundaries before multiplying by 10 to prevent arithmetic overflow. Time is O(log10(|x|)) and space is O(1).
+### Detailed Explanation
+
+#### 1. Intuition & Approach
+Extract digits from the end of `x` and append them to `res`, checking against 32-bit integer boundaries before multiplying by 10 to prevent arithmetic overflow.
+
+#### 2. Algorithm Walkthrough
+1. **Initialize Tracking**: Set up variables and data structures to maintain state during traversal.
+2. **Iterate & Evaluate**: Step through the input collection, checking constraints and updating accumulators.
+3. **Compute Final Result**: Return the computed result satisfying all problem requirements.
+
+#### 3. Complexity Analysis
+- **Time Complexity:** O(log10(|x|))
+- **Space Complexity:** O(1)
+
+
