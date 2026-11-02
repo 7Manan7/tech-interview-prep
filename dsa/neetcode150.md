@@ -5706,7 +5706,7 @@ Every subset of $N$ elements maps directly to a binary integer between $0$ and $
 - **Space Complexity:** $O(N)$ auxiliary space
   - The recursion stack reaches a maximum depth of $N$.
   - The temporary `current` list stores at most $N$ elements at any given time.
-  - (Excluding the output storage of size $O(N \cdot 2^N)$).
+  - (Excluding the output storage of size $O(N \cdot 2^N)$ ).
 
 ## 72. Combination Sum
 
