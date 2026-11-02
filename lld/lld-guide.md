@@ -1492,33 +1492,35 @@ Idempotency-Key: 7b561c29-37f2-4bc6-8d1e-2895fbc99011
 
 # 7. Must-Practice LLD Case Studies by Category
 
+> 📖 **Deep-Dive Implementation Guide**: For full runnable Java code, domain models, algorithms, and concurrency controls for all 20 case studies, see **[Classic Machine Coding Case Studies Deep-Dive](./problems/case-studies.md)**.
+
 ### 7.1 Booking & Slot Allocation
-- **Parking Lot:** Multi-floor slot allocation, vehicle sizing, entry/exit gates, dynamic hourly pricing.
-- **Movie Ticket Booking (BookMyShow):** Seat layout, temporary seat locking with expiration TTL, fine-grained seat locks.
-- **Amazon Locker Management:** Locker slot dimension matching (S/M/L/XL), pickup OTP generation, timeout return flow.
-- **Car Rental System:** Reservation management, vehicle inventory status, mileage/duration calculation, damage inspection.
+- **Parking Lot:** Multi-floor slot allocation, vehicle sizing, entry/exit gates, dynamic hourly pricing. [View Code & Architecture](./problems/case-studies.md#11-parking-lot-system)
+- **Movie Ticket Booking (BookMyShow):** Seat layout, temporary seat locking with expiration TTL, fine-grained seat locks. [View Code & Architecture](./problems/case-studies.md#12-movie-ticket-booking-bookmyshow)
+- **Amazon Locker Management:** Locker slot dimension matching (S/M/L/XL), pickup OTP generation, timeout return flow. [View Code & Architecture](./problems/case-studies.md#13-amazon-locker-management-system)
+- **Car Rental System:** Reservation management, vehicle inventory status, stackable decorator add-ons. [View Code & Architecture](./problems/case-studies.md#14-car-rental-system)
 
 ### 7.2 State & Workflow Machines
-- **Vending Machine:** States: `NoCoin`, `HasCoin`, `Dispensing`, `SoldOut`, coin return, change calculation.
-- **Elevator Control System:** Internal vs. external requests, SCAN / LOOK scheduling algorithm, multi-car dispatcher.
-- **ATM Cash Dispenser:** Chain of Responsibility for currency notes ($100, $50, $20), PIN validation, card authentication.
-- **Order Management System:** FSM for order lifecycle: `Created -> Paid -> Packed -> Shipped -> Delivered / Cancelled / Refunded`.
+- **Vending Machine:** States: `Idle`, `HasCoin`, `Dispensing`, `SoldOut`, coin return, change calculation. [View Code & Architecture](./problems/case-studies.md#21-vending-machine)
+- **Elevator Control System:** Internal vs. external requests, SCAN / LOOK scheduling algorithm, multi-car dispatcher. [View Code & Architecture](./problems/case-studies.md#22-elevator-control-system)
+- **ATM Cash Dispenser:** Chain of Responsibility for currency notes ($100, $50, $20, $10), inventory tracking. [View Code & Architecture](./problems/case-studies.md#23-atm-cash-dispenser)
+- **Order Management System:** FSM for order lifecycle with transition validation and Observer event listeners. [View Code & Architecture](./problems/case-studies.md#24-order-management-system)
 
 ### 7.3 Matching, Ledgers & Marketplaces
-- **Splitwise (Expense Sharing):** Equal/Exact/Percent split strategies, Debt simplification using Min-Cash-Flow greedy graph algorithm.
-- **Ride-Sharing Service (Uber / Lyft):** Spatial driver matching (Nearest / Highest-rated), Surge pricing decorator, Trip state machine.
-- **Food Delivery (Swiggy / DoorDash):** Restaurant menu, Cart checkout, Delivery partner assignment, live order tracking via Observer.
-- **Inventory & Shopping Cart:** Inventory reservations with TTL, dynamic coupon decorators, flash sale concurrency.
+- **Splitwise (Expense Sharing):** Equal/Exact/Percent splits, Debt simplification using Min-Cash-Flow greedy graph algorithm. [View Code & Architecture](./problems/case-studies.md#31-splitwise)
+- **Ride-Sharing Service (Uber / Lyft):** Spatial driver matching (Nearest / Highest-rated), Surge pricing decorator, Trip state machine. [View Code & Architecture](./problems/case-studies.md#32-ride-sharing-service-uber--lyft)
+- **Food Delivery (Swiggy / DoorDash):** Restaurant menu, Cart checkout Facade, Delivery partner assignment, live tracking. [View Code & Architecture](./problems/case-studies.md#33-food-delivery-system)
+- **Inventory & Shopping Cart:** Inventory reservations with TTL, dynamic coupon decorators, flash sale concurrency. [View Code & Architecture](./problems/case-studies.md#34-inventory--shopping-cart-system)
 
 ### 7.4 Board & Turn-Based Games
-- **Snake and Ladder:** Turn-based player queue, extensible board with snakes/ladders, dice rolling strategy.
-- **Chess Game:** Move validation per piece, check/checkmate detection, move history with Command undo.
-- **Tic-Tac-Toe:** Pluggable $N \times N$ board, $O(1)$ win verification using row/col/diagonal count arrays.
+- **Snake and Ladder:** Turn-based player queue, extensible board with snakes/ladders, dice rolling strategy. [View Code & Architecture](./problems/case-studies.md#41-snake-and-ladder)
+- **Chess Game:** Move validation per piece, check/checkmate detection, move history with Command undo. [View Code & Architecture](./problems/case-studies.md#42-chess-game)
+- **Tic-Tac-Toe:** Pluggable $N \times N$ board, $O(1)$ win verification using row/col/diagonal count arrays. [View Code & Architecture](./problems/case-studies.md#43-tic-tac-toe)
 
 ### 7.5 Core Backend Infrastructure
-- **Thread-Safe LRU / LFU Cache with TTL:** HashMap + Doubly Linked List, background expiry cleaner, fine-grained bucket synchronization.
-- **Rate Limiter:** Token Bucket, Leaky Bucket, Sliding Window Log/Counter algorithms.
-- **In-Memory Pub-Sub Broker:** Topic-based broadcast, Consumer groups, offset tracking, concurrent dispatchers.
-- **Logger Framework:** Chain of responsibility log levels, Console/File sinks, asynchronous background buffer worker.
-- **Delayed Job Scheduler:** Min-heap / `PriorityBlockingQueue` based on target execution timestamp, worker thread pool.
+- **Thread-Safe LRU / LFU Cache with TTL:** HashMap + Doubly Linked List, background expiry cleaner, fine-grained bucket synchronization. [View Code & Architecture](./problems/case-studies.md#51-thread-safe-lru--lfu-cache-with-ttl)
+- **Rate Limiter:** Token Bucket, Leaky Bucket, Sliding Window Log/Counter algorithms. [View Code & Architecture](./problems/case-studies.md#52-rate-limiter)
+- **In-Memory Pub-Sub Broker:** Topic-based broadcast, Consumer groups, offset tracking, concurrent dispatchers. [View Code & Architecture](./problems/case-studies.md#53-in-memory-pub-sub-broker)
+- **Logger Framework:** Chain of responsibility log levels, Console/File sinks, asynchronous background buffer worker. [View Code & Architecture](./problems/case-studies.md#54-logger-framework)
+- **Delayed Job Scheduler:** Min-heap / `DelayQueue` based on target execution timestamp, worker thread pool. [View Code & Architecture](./problems/case-studies.md#55-delayed-job-scheduler)
 
