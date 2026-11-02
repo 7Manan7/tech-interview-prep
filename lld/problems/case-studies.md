@@ -570,7 +570,7 @@ Focuses on: **Formal State Machines (FSM)**, **Chain of Responsibility**, **even
 #### Problem Overview
 Design a coin-operated vending machine managing:
 - Multiple item shelves with codes, prices, and stock inventory.
-- State transitions: `Idle` $\to$ `HasCoin` $\to$ `Dispensing` $\to$ `SoldOut`.
+- State transitions: `Idle` → `HasCoin` → `Dispensing` → `SoldOut`.
 - Coin insertions, selection validation, coin return/cancellation at any point before dispensing, and exact change calculation.
 
 #### Core Domain Model & Design Patterns
@@ -845,7 +845,7 @@ public class ElevatorDemo {
 #### Problem Overview
 Design a self-service ATM cash dispenser handling:
 - Customer debit card authentication and account balance verification.
-- Dispensing currency notes of various denominations ($100, $50, $20, $10).
+- Dispensing currency notes of various denominations (\$100, \$50, \$20, \$10).
 - Dynamically managing internal physical note counts for each cassette.
 - Rejecting requests that cannot be fulfilled with exact denominations or when total cash balance is insufficient.
 
@@ -933,7 +933,7 @@ public class AtmCashDispenserDemo {
 
 #### Problem Overview
 Design a production order fulfillment engine handling:
-- Multi-step order lifecycle: `CREATED` $\to$ `PAYMENT_PENDING` $\to$ `PAID` $\to$ `PACKING` $\to$ `SHIPPED` $\to$ `DELIVERED` (with terminal states `CANCELLED`, `REFUNDED`).
+- Multi-step order lifecycle: `CREATED` → `PAYMENT_PENDING` → `PAID` → `PACKING` → `SHIPPED` → `DELIVERED` (with terminal states `CANCELLED`, `REFUNDED`).
 - Validation preventing illegal state transitions (e.g., an order cannot transition from `CREATED` directly to `SHIPPED`).
 - Event-driven notifications decoupling downstream actions (Inventory Reserve, SMS Confirmation, Analytics Logging).
 
@@ -1135,7 +1135,7 @@ Design a distributed ride-hailing backend supporting:
 - Rider trip requests with pickup and drop coordinates.
 - Spatial driver matching (e.g., nearest available driver, highest-rated driver within a 5 km radius).
 - Dynamic pricing calculation based on base fare, distance, and real-time demand surge multiplier.
-- Trip lifecycle: `REQUESTED` $\to$ `ACCEPTED` $\to$ `DRIVER_ARRIVED` $\to$ `IN_TRIP` $\to$ `COMPLETED` $\to$ `CANCELLED`.
+- Trip lifecycle: `REQUESTED` → `ACCEPTED` → `DRIVER_ARRIVED` → `IN_TRIP` → `COMPLETED` → `CANCELLED`.
 
 #### Core Domain Model & Design Patterns
 - **Patterns**: `Strategy` (Driver matching and surge pricing), `Decorator` (Toll roads, night-shift airport surcharges), `Observer` (Live location and trip progress events).
@@ -1326,7 +1326,7 @@ public class FoodDeliveryDemo {
 
 #### Problem Overview
 Design an e-commerce shopping cart and inventory engine handling:
-- Multi-item shopping carts with dynamic coupon stacking (e.g., 20% off plus $5 seasonal voucher).
+- Multi-item shopping carts with dynamic coupon stacking (e.g., 20% off plus \$5 seasonal voucher).
 - **Flash Sale Concurrency**: Prevent overselling stock under massive concurrent checkout waves.
 - Temporary inventory reservations with automatic TTL release if checkout is abandoned.
 
@@ -1532,7 +1532,7 @@ public class SnakeAndLadderDemo {
 
 #### Problem Overview
 Design an extensible object-oriented Chess game engine:
-- $8 \times 8$ grid of spots with two players (`WHITE` and `BLACK`).
+- 8 × 8 grid of spots with two players (`WHITE` and `BLACK`).
 - Polymorphic movement rules for each piece type: `King`, `Queen`, `Rook`, `Bishop`, `Knight`, `Pawn`.
 - **Command Pattern**: Encapsulate every move as a command object to support move history logging, undo/redo, and replay features.
 
@@ -1632,8 +1632,8 @@ public class ChessDemo {
 ### 4.3 Tic-Tac-Toe (N x N Scalable)
 
 #### Problem Overview
-Design a generalized $N \times N$ Tic-Tac-Toe game engine:
-- Scalable to any grid dimension $N$ (e.g., $3 \times 3$, $5 \times 5$, $1000 \times 1000$).
+Design a generalized N × N Tic-Tac-Toe game engine:
+- Scalable to any grid dimension N (e.g., 3 × 3, 5 × 5, 1000 × 1000).
 - Support two players (`X` and `O`).
 - **$O(1)$ Win Verification**: Check whether a player has won in constant time without inspecting all $N^2$ cells or running loops across rows/columns.
 

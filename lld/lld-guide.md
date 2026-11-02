@@ -1503,7 +1503,7 @@ Idempotency-Key: 7b561c29-37f2-4bc6-8d1e-2895fbc99011
 ### 7.2 State & Workflow Machines
 - **Vending Machine:** States: `Idle`, `HasCoin`, `Dispensing`, `SoldOut`, coin return, change calculation. [View Code & Architecture](./problems/case-studies.md#21-vending-machine)
 - **Elevator Control System:** Internal vs. external requests, SCAN / LOOK scheduling algorithm, multi-car dispatcher. [View Code & Architecture](./problems/case-studies.md#22-elevator-control-system)
-- **ATM Cash Dispenser:** Chain of Responsibility for currency notes ($100, $50, $20, $10), inventory tracking. [View Code & Architecture](./problems/case-studies.md#23-atm-cash-dispenser)
+- **ATM Cash Dispenser:** Chain of Responsibility for currency notes (\$100, \$50, \$20, \$10), inventory tracking. [View Code & Architecture](./problems/case-studies.md#23-atm-cash-dispenser)
 - **Order Management System:** FSM for order lifecycle with transition validation and Observer event listeners. [View Code & Architecture](./problems/case-studies.md#24-order-management-system)
 
 ### 7.3 Matching, Ledgers & Marketplaces

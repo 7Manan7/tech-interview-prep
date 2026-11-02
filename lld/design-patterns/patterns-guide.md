@@ -61,7 +61,7 @@ Without `volatile`, the Java Memory Model allows compiler and CPU **instruction 
 2. `ctor(mem);`         // Initialize object (execute constructor)
 3. `instance = mem;`    // Assign reference to the variable
 
-If instructions are reordered to **1 $\to$ 3 $\to$ 2**:
+If instructions are reordered to **1 → 3 → 2**:
 - Thread A executes 1 and 3 (assigning the memory address to `instance` before the constructor completes).
 - Thread B invokes `getInstance()`, checks `if (instance == null)`, observes `instance != null` (due to step 3), and returns the reference.
 - Thread B attempts to access object fields on a **half-initialized, corrupted object**, resulting in fatal runtime crashes.
@@ -588,7 +588,7 @@ Avoid coupling the sender of a request to its receiver by giving **more than one
 Production use cases:
 - Logging frameworks (Log4j, SLF4J severity filtering)
 - HTTP Middleware / Servlet Filters (`FilterChain.doFilter()`)
-- ATM Cash note dispensing ($100 $\to$ $50 $\to$ $20 $\to$ $10)
+- ATM Cash note dispensing (\$100 → \$50 → \$20 → \$10)
 
 #### ⚙️ Deep-Dive Mechanics
 - **Chain Construction**: Each node contains a reference to the next handler (`nextLogger`).
@@ -838,8 +838,8 @@ public class PaymentProviderAdapter implements ThirdPartyPaymentGateway {
 #### 🎯 Intent & Motivation
 Provide a **unified, simplified, high-level interface** to a complex set of interfaces in a subsystem. Reduces coupling between client callers and multiple internal services.
 Production use cases:
-- Order checkout orchestrators (Inventory $\to$ Payment $\to$ Warehouse $\to$ Shipping $\to$ Notification)
-- Media converters (Audio decoding $\to$ Video decoding $\to$ Bitrate normalization $\to$ Multiplexing)
+- Order checkout orchestrators (Inventory → Payment → Warehouse → Shipping → Notification)
+- Media converters (Audio decoding → Video decoding → Bitrate normalization → Multiplexing)
 
 #### ⚙️ Deep-Dive Mechanics
 - **Subsystem Decoupling**: Clients interact only with the Facade. If the internal subsystem services change, the client remains unaffected.

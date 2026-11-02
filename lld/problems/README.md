@@ -21,8 +21,8 @@ In machine coding rounds (popular at companies like Uber, Flipkart, Swiggy, Phon
 |---|---|---|---|---|
 | 5 | **Vending Machine** | State | Idle, HasCoin, Dispensing, SoldOut states, change refund | [View Solution](./case-studies.md#21-vending-machine) |
 | 6 | **Elevator Control System** | State, Strategy (SCAN / LOOK) | Multi-elevator dispatch strategy, internal/external request queues | [View Solution](./case-studies.md#22-elevator-control-system) |
-| 7 | **ATM Cash Dispenser** | Chain of Responsibility, State | Note dispensers ($100 $\to$ $50 $\to$ $20), PIN authentication | [View Solution](./case-studies.md#23-atm-cash-dispenser) |
-| 8 | **Order Management System** | State / Rich Enum, Observer | Order lifecycle (Created $\to$ Paid $\to$ Packed $\to$ Shipped) | [View Solution](./case-studies.md#24-order-management-system) |
+| 7 | **ATM Cash Dispenser** | Chain of Responsibility, State | Note dispensers (\$100 → \$50 → \$20), PIN authentication | [View Solution](./case-studies.md#23-atm-cash-dispenser) |
+| 8 | **Order Management System** | State / Rich Enum, Observer | Order lifecycle (Created → Paid → Packed → Shipped) | [View Solution](./case-studies.md#24-order-management-system) |
 
 ### 3. Matching, Ledgers & Marketplaces
 | # | Problem | Core Design Patterns | Key Concurrency / Extensibility Focus | Detailed Solution |
